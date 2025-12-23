@@ -1,345 +1,208 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="UTF-8">
+<title>سودي | شركة سودي العالمية للاستثمار</title>
 
-  <title>سوديكورب | SUDI Global Investment — استثمار وتطوير أعمال</title>
-  <meta name="description" content="سوديكورب (SUDI Global Investment) شركة استثمار وتطوير أعمال تقدم استشارات استراتيجية، تطوير مشاريع، حلول رقمية، وبناء هوية علامة تجارية لدعم نمو الشركات." />
-  <meta name="robots" content="index,follow,max-image-preview:large" />
+<meta name="description" content="شركة سودي العالمية للاستثمار تقدم حلول استثمارية واستراتيجية وتطوير أعمال لدعم نمو الشركات والمشاريع.">
+<meta name="keywords" content="سودي, استثمار, تطوير أعمال, شركة استثمار, SUDI Investment">
+<meta name="author" content="SUDI Global Investment Company">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="canonical" href="https://sudicorp.com/" />
+<!-- Open Graph (Google + Social) -->
+<meta property="og:title" content="سودي – شركة سودي العالمية للاستثمار">
+<meta property="og:description" content="حلول استثمارية واستراتيجية متقدمة لدعم نمو الشركات.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sudicorp.com">
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="ar_AR" />
-  <meta property="og:title" content="سوديكورب | SUDI Global Investment" />
-  <meta property="og:description" content="استثمار وتطوير أعمال — استشارات استراتيجية، تطوير مشاريع، حلول رقمية وهوية علامة تجارية." />
-  <meta property="og:url" content="https://sudicorp.com/" />
-  <meta property="og:image" content="https://sudicorp.com/assets/og.jpg" />
+<style>
+:root{
+    --navy:#0b1c2d;
+    --gold:#c9a24d;
+    --light:#f4f6f8;
+    --text:#1f2933;
+}
 
-  <meta name="theme-color" content="#0B3C5D" />
-  <link rel="icon" href="/favicon.ico" />
+*{box-sizing:border-box}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+body{
+    margin:0;
+    font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+    background:var(--light);
+    color:var(--text);
+    line-height:1.9;
+}
 
-  <link rel="stylesheet" href="/css/styles.css" />
+/* ===== HEADER ===== */
+header{
+    background:linear-gradient(135deg, var(--navy), #142f4a);
+    color:#fff;
+    padding:70px 20px;
+    text-align:center;
+}
 
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"SUDI Global Investment (سوديكورب)",
-    "url":"https://sudicorp.com/",
-    "email":"sudi@sudicorp.com",
-    "telephone":"+249129769999",
-    "contactPoint":[
-      {
-        "@type":"ContactPoint",
-        "telephone":"+249129769999",
-        "contactType":"customer support",
-        "availableLanguage":["ar","en"]
-      }
-    ]
-  }
-  </script>
+header h1{
+    margin:0;
+    font-size:42px;
+    letter-spacing:1px;
+}
+
+header h1 span{
+    color:var(--gold);
+}
+
+header p{
+    max-width:800px;
+    margin:20px auto 0;
+    font-size:18px;
+    opacity:.95;
+}
+
+/* ===== SECTIONS ===== */
+section{
+    max-width:1100px;
+    margin:60px auto;
+    padding:0 20px;
+}
+
+.card{
+    background:#fff;
+    border-radius:14px;
+    padding:40px;
+    box-shadow:0 10px 35px rgba(0,0,0,.08);
+    margin-bottom:40px;
+}
+
+h2{
+    color:var(--navy);
+    margin-top:0;
+    font-size:30px;
+    border-right:5px solid var(--gold);
+    padding-right:15px;
+}
+
+/* ===== SERVICES ===== */
+.services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.service{
+    border:1px solid #eee;
+    border-radius:12px;
+    padding:25px;
+    transition:.3s;
+}
+
+.service:hover{
+    transform:translateY(-6px);
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+}
+
+.service h3{
+    margin-top:0;
+    color:var(--gold);
+}
+
+/* ===== CONTACT ===== */
+.contact p{
+    font-size:17px;
+}
+
+/* ===== FOOTER ===== */
+footer{
+    background:var(--navy);
+    color:#ccc;
+    text-align:center;
+    padding:25px;
+    font-size:14px;
+}
+
+/* ===== WHATSAPP FLOAT ===== */
+.whatsapp{
+    position:fixed;
+    bottom:20px;
+    left:20px;
+    background:#25d366;
+    color:#fff;
+    padding:14px 20px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:bold;
+    box-shadow:0 8px 20px rgba(0,0,0,.3);
+}
+
+.whatsapp:hover{
+    background:#1ebc5a;
+}
+</style>
 </head>
 
 <body>
-  <!-- خلفية 3D اختيارية -->
-  <canvas id="bg3d" aria-hidden="true"></canvas>
 
-  <!-- شريط علوي -->
-  <header class="topbar">
-    <div class="container topbar__inner">
-      <a class="brand" href="#top" aria-label="SUDICORP">
-        <div class="brand__mark">SG</div>
-        <div class="brand__text">
-          <strong>سوديكورب</strong>
-          <span>SUDI Global Investment</span>
-        </div>
-      </a>
+<header>
+    <h1>سودي <span>SUDI</span></h1>
+    <p>
+        شركة سودي العالمية للاستثمار — نعمل على بناء فرص استثمارية مستدامة
+        عبر التخطيط الاستراتيجي، تطوير الأعمال، والحلول الرقمية الحديثة.
+    </p>
+</header>
 
-      <nav class="nav" aria-label="التنقل">
-        <a href="#about">من نحن</a>
-        <a href="#services">الخدمات</a>
-        <a href="#work">كيف نعمل</a>
-        <a href="#contact">تواصل</a>
-      </nav>
-
-      <button class="navToggle" id="navToggle" aria-label="قائمة">
-        <span></span><span></span><span></span>
-      </button>
+<section>
+    <div class="card">
+        <h2>من نحن</h2>
+        <p>
+            شركة سودي العالمية للاستثمار هي كيان استثماري يركز على تمكين
+            الشركات والمشاريع من تحقيق نمو فعلي ومستدام من خلال
+            استراتيجيات مدروسة، شراكات ذكية، وحلول رقمية متقدمة.
+        </p>
     </div>
 
-    <div class="container navMobile" id="navMobile" aria-hidden="true">
-      <a href="#about">من نحن</a>
-      <a href="#services">الخدمات</a>
-      <a href="#work">كيف نعمل</a>
-      <a href="#contact">تواصل</a>
+    <div class="card">
+        <h2>خدماتنا</h2>
+        <div class="services">
+            <div class="service">
+                <h3>الاستثمار</h3>
+                <p>إدارة وبناء فرص استثمارية مدروسة ذات عائد طويل الأمد.</p>
+            </div>
+            <div class="service">
+                <h3>تطوير الأعمال</h3>
+                <p>تحسين الهياكل، العمليات، والنماذج التشغيلية للشركات.</p>
+            </div>
+            <div class="service">
+                <h3>الاستشارات الاستراتيجية</h3>
+                <p>تحليل الأسواق وبناء خطط نمو واقعية وقابلة للتنفيذ.</p>
+            </div>
+            <div class="service">
+                <h3>الحلول الرقمية</h3>
+                <p>مواقع، أنظمة، وتحول رقمي يخدم الأهداف الاستثمارية.</p>
+            </div>
+        </div>
     </div>
-  </header>
 
-  <!-- HERO -->
-  <main id="top">
-    <section class="hero">
-      <div class="container hero__grid">
-        <div class="hero__content">
-          <div class="pill">
-            <span class="dot"></span>
-            استثمار • تطوير أعمال • حلول رقمية
-          </div>
+    <div class="card contact">
+        <h2>تواصل معنا</h2>
+        <p>📧 البريد الإلكتروني: <strong>sudi@sudicorp.com</strong></p>
+        <p>📞 الهاتف الرئيسي: <strong>+249129769999</strong></p>
+        <p>📞 هاتف إضافي: <strong>+249121282300</strong></p>
+    </div>
+</section>
 
-          <h1>نبني نموّك بخطة واضحة وتنفيذ محترم</h1>
-          <p class="lead">
-            سوديكورب شركة استثمار وتطوير أعمال تساعد الشركات والأفراد على تحويل الأفكار إلى مشاريع منظمة:
-            استراتيجية، هوية، حضور رقمي، وتجهيزات فهرسة لمحركات البحث.
-          </p>
+<footer>
+    © 2025 شركة سودي العالمية للاستثمار — جميع الحقوق محفوظة
+</footer>
 
-          <div class="cta">
-            <a class="btn btn--primary" href="#contact">ابدأ الآن</a>
-            <a class="btn btn--ghost" href="#services">شوف الخدمات</a>
-          </div>
+<a class="whatsapp"
+   href="https://wa.me/249121282300"
+   target="_blank">
+تواصل واتساب
+</a>
 
-          <div class="stats">
-            <div class="stat">
-              <strong>تركيزنا</strong>
-              <span>نتائج قابلة للقياس</span>
-            </div>
-            <div class="stat">
-              <strong>الأسلوب</strong>
-              <span>رسمي + سريع</span>
-            </div>
-            <div class="stat">
-              <strong>اللغة</strong>
-              <span>عربي / English</span>
-            </div>
-          </div>
-        </div>
+<script>
+// مكان جاهز للتطوير لاحقًا (أنيميشن – 3D – تتبع – إلخ)
+console.log("SUDI Global Investment Website Loaded");
+</script>
 
-        <div class="hero__media">
-          <div class="mediaCard">
-            <img
-              alt="SUDI Global Investment"
-              loading="lazy"
-              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80"
-            />
-            <div class="mediaOverlay">
-              <div class="mediaBadge">SUDICORP</div>
-              <div class="mediaText">
-                <strong>حلول أعمال حديثة</strong>
-                <span>استراتيجية • تطوير • حضور رقمي</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="floatCard">
-            <strong>تواصل سريع</strong>
-            <span>واتساب / بريد رسمي</span>
-            <div class="miniRow">
-              <a class="miniBtn" href="mailto:sudi@sudicorp.com">Email</a>
-              <a class="miniBtn" target="_blank" rel="noopener"
-                 href="https://wa.me/249129769999?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%20%D8%B3%D9%88%D8%AF%D9%8A%D9%83%D9%88%D8%B1%D8%A8.">WhatsApp</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="container hero__strip" aria-hidden="true">
-        <div class="stripItem">Strategy</div>
-        <div class="stripItem">Business Development</div>
-        <div class="stripItem">Digital Solutions</div>
-        <div class="stripItem">Brand Identity</div>
-        <div class="stripItem">SEO Basics</div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="section" id="about">
-      <div class="container">
-        <div class="sectionHead">
-          <h2>من نحن</h2>
-          <p>مختصر واضح — بدون مبالغة فارغة</p>
-        </div>
-
-        <div class="grid2">
-          <div class="card">
-            <h3>سوديكورب</h3>
-            <p>
-              شركة استثمار وتطوير أعمال تهدف لبناء فرص نمو مستدامة عبر الاستشارات الاستراتيجية،
-              تطوير المشاريع، وتجهيز حضور رقمي محترم يليق بشركة رسمية.
-            </p>
-            <ul class="list">
-              <li>تحويل الأفكار إلى خطة تشغيل</li>
-              <li>تطوير مشروع/خدمة وإطلاقها رقمياً</li>
-              <li>بناء هوية + موقع + تجهيز Google</li>
-            </ul>
-          </div>
-
-          <div class="card card--img">
-            <img
-              alt="Business"
-              loading="lazy"
-              src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1400&q=80"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section class="section" id="services">
-      <div class="container">
-        <div class="sectionHead">
-          <h2>الخدمات</h2>
-          <p>كل خدمة لها نتيجة واضحة</p>
-        </div>
-
-        <div class="cards3">
-          <article class="service">
-            <div class="service__icon">📌</div>
-            <h3>الاستشارات الاستثمارية</h3>
-            <p>تحليل فرص، مخاطر، وخطة قرار مدروسة.</p>
-          </article>
-
-          <article class="service">
-            <div class="service__icon">📈</div>
-            <h3>تطوير الأعمال</h3>
-            <p>عرض قيمة، تسعير، وقنوات نمو مناسبة.</p>
-          </article>
-
-          <article class="service">
-            <div class="service__icon">💻</div>
-            <h3>حلول رقمية</h3>
-            <p>موقع رسمي سريع + ربط دومين + إعدادات أساسية لـ SEO.</p>
-          </article>
-
-          <article class="service">
-            <div class="service__icon">🎯</div>
-            <h3>هوية علامة تجارية</h3>
-            <p>نظام ألوان، خطوط، أسلوب كتابة رسمي.</p>
-          </article>
-
-          <article class="service">
-            <div class="service__icon">✉️</div>
-            <h3>بريد الشركة</h3>
-            <p>إعداد البريد وربطه بالتطبيقات عند الحاجة.</p>
-          </article>
-
-          <article class="service">
-            <div class="service__icon">🔎</div>
-            <h3>تجهيز Google</h3>
-            <p>Search Console + Sitemap + Robots + طلب فهرسة.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- WORK -->
-    <section class="section" id="work">
-      <div class="container">
-        <div class="sectionHead">
-          <h2>كيف نعمل</h2>
-          <p>3 خطوات فقط — لأن الفوضى تقتل أي مشروع</p>
-        </div>
-
-        <div class="timeline">
-          <div class="step">
-            <span class="step__n">1</span>
-            <div>
-              <h3>تشخيص</h3>
-              <p>نحدد الهدف والجمهور والقيمة والرسالة.</p>
-            </div>
-          </div>
-          <div class="step">
-            <span class="step__n">2</span>
-            <div>
-              <h3>تصميم وتنظيم</h3>
-              <p>هوية + محتوى + صفحة رسمية + سرعة وأمان.</p>
-            </div>
-          </div>
-          <div class="step">
-            <span class="step__n">3</span>
-            <div>
-              <h3>إطلاق وفهرسة</h3>
-              <p>ربط الدومين + Google Search Console + طلب فهرسة.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="sectionHead">
-          <h2>تواصل معنا</h2>
-          <p>الرقم الرئيسي + بريد رسمي + زر واتساب</p>
-        </div>
-
-        <div class="grid2">
-          <div class="card">
-            <h3>بيانات التواصل</h3>
-
-            <div class="contactRow">
-              <span>البريد:</span>
-              <a href="mailto:sudi@sudicorp.com">sudi@sudicorp.com</a>
-            </div>
-
-            <div class="contactRow">
-              <span>الهاتف (الرئيسي):</span>
-              <a href="tel:+249129769999">+249 12 976 9999</a>
-            </div>
-
-            <div class="contactRow">
-              <span>هاتف (إضافي):</span>
-              <a href="tel:+249121282300">+249 12 128 2300</a>
-            </div>
-
-            <div class="cta">
-              <a class="btn btn--primary" target="_blank" rel="noopener"
-                 href="https://wa.me/249129769999?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%20%D8%B3%D9%88%D8%AF%D9%8A%D9%83%D9%88%D8%B1%D8%A8.">واتساب الآن</a>
-              <a class="btn btn--ghost" href="#top">أعلى الصفحة</a>
-            </div>
-          </div>
-
-          <div class="card card--img">
-            <img
-              alt="Contact"
-              loading="lazy"
-              src="https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=1400&q=80"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div class="container footer__inner">
-        <div>
-          <strong>سوديكورب</strong>
-          <span>© <span id="year"></span> — جميع الحقوق محفوظة</span>
-        </div>
-        <div class="footer__links">
-          <a href="https://sudicorp.com/">sudicorp.com</a>
-          <a href="mailto:sudi@sudicorp.com">sudi@sudicorp.com</a>
-        </div>
-      </div>
-    </footer>
-  </main>
-
-  <!-- زر واتساب ثابت -->
-  <a class="waFloat" target="_blank" rel="noopener"
-     href="https://wa.me/249129769999?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%20%D8%B3%D9%88%D8%AF%D9%8A%D9%83%D9%88%D8%B1%D8%A8.">
-    <span class="waDot"></span>
-    واتساب (الرئيسي)
-  </a>
-
-  <!-- Three.js (للـ 3D) + سكربت الموقع -->
-  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
-  <script src="/js/main.js"></script>
 </body>
 </html>
