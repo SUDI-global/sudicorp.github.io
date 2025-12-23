@@ -1,208 +1,368 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<title>سودي | شركة سودي العالمية للاستثمار</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>شركة سودي العالمية للاستثمار | SUDI Global Investment</title>
+  <meta name="description" content="شركة سودي العالمية للاستثمار – خبرة منذ 2013 في الاستثمار، الزراعة، العقارات، التسويق، البرمجة، التصميم، والطاقة الشمسية. حلول متكاملة بمعايير مؤسسية." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
 
-<meta name="description" content="شركة سودي العالمية للاستثمار تقدم حلول استثمارية واستراتيجية وتطوير أعمال لدعم نمو الشركات والمشاريع.">
-<meta name="keywords" content="سودي, استثمار, تطوير أعمال, شركة استثمار, SUDI Investment">
-<meta name="author" content="SUDI Global Investment Company">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Canonical -->
+  <link rel="canonical" href="https://sudicorp.com/" />
 
-<!-- Open Graph (Google + Social) -->
-<meta property="og:title" content="سودي – شركة سودي العالمية للاستثمار">
-<meta property="og:description" content="حلول استثمارية واستراتيجية متقدمة لدعم نمو الشركات.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://sudicorp.com">
+  <!-- Open Graph -->
+  <meta property="og:title" content="شركة سودي العالمية للاستثمار | SUDI Global Investment" />
+  <meta property="og:description" content="خبرة منذ 2013 في الاستثمار، الزراعة، العقارات، التسويق، البرمجة، التصميم، والطاقة الشمسية." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sudicorp.com/" />
+  <meta property="og:image" content="https://sudicorp.com/assets/logo.png" />
 
-<style>
-:root{
-    --navy:#0b1c2d;
-    --gold:#c9a24d;
-    --light:#f4f6f8;
-    --text:#1f2933;
-}
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="شركة سودي العالمية للاستثمار" />
+  <meta name="twitter:description" content="خبرة منذ 2013 في الاستثمار، الزراعة، العقارات، التسويق، البرمجة، التصميم، والطاقة الشمسية." />
 
-*{box-sizing:border-box}
+  <!-- Favicon (اختياري: لو عندك أيقونة ارفعها كـ assets/favicon.png) -->
+  <link rel="icon" href="/assets/logo.png" />
 
-body{
-    margin:0;
-    font-family: "Segoe UI", Tahoma, Arial, sans-serif;
-    background:var(--light);
-    color:var(--text);
-    line-height:1.9;
-}
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-/* ===== HEADER ===== */
-header{
-    background:linear-gradient(135deg, var(--navy), #142f4a);
-    color:#fff;
-    padding:70px 20px;
-    text-align:center;
-}
+  <link rel="stylesheet" href="/css/styles.css" />
 
-header h1{
-    margin:0;
-    font-size:42px;
-    letter-spacing:1px;
-}
-
-header h1 span{
-    color:var(--gold);
-}
-
-header p{
-    max-width:800px;
-    margin:20px auto 0;
-    font-size:18px;
-    opacity:.95;
-}
-
-/* ===== SECTIONS ===== */
-section{
-    max-width:1100px;
-    margin:60px auto;
-    padding:0 20px;
-}
-
-.card{
-    background:#fff;
-    border-radius:14px;
-    padding:40px;
-    box-shadow:0 10px 35px rgba(0,0,0,.08);
-    margin-bottom:40px;
-}
-
-h2{
-    color:var(--navy);
-    margin-top:0;
-    font-size:30px;
-    border-right:5px solid var(--gold);
-    padding-right:15px;
-}
-
-/* ===== SERVICES ===== */
-.services{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-}
-
-.service{
-    border:1px solid #eee;
-    border-radius:12px;
-    padding:25px;
-    transition:.3s;
-}
-
-.service:hover{
-    transform:translateY(-6px);
-    box-shadow:0 10px 25px rgba(0,0,0,.12);
-}
-
-.service h3{
-    margin-top:0;
-    color:var(--gold);
-}
-
-/* ===== CONTACT ===== */
-.contact p{
-    font-size:17px;
-}
-
-/* ===== FOOTER ===== */
-footer{
-    background:var(--navy);
-    color:#ccc;
-    text-align:center;
-    padding:25px;
-    font-size:14px;
-}
-
-/* ===== WHATSAPP FLOAT ===== */
-.whatsapp{
-    position:fixed;
-    bottom:20px;
-    left:20px;
-    background:#25d366;
-    color:#fff;
-    padding:14px 20px;
-    border-radius:50px;
-    text-decoration:none;
-    font-weight:bold;
-    box-shadow:0 8px 20px rgba(0,0,0,.3);
-}
-
-.whatsapp:hover{
-    background:#1ebc5a;
-}
-</style>
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "شركة سودي العالمية للاستثمار",
+    "alternateName": "SUDI Global Investment",
+    "url": "https://sudicorp.com/",
+    "logo": "https://sudicorp.com/assets/logo.png",
+    "foundingDate": "2013",
+    "email": "sudi@sudicorp.com",
+    "telephone": ["+249129769999"," +249121282300"],
+    "description": "شركة سودي العالمية للاستثمار – خبرة منذ 2013 في الاستثمار، الزراعة، العقارات، التسويق، البرمجة، التصميم، والطاقة الشمسية.",
+    "address": { "@type": "PostalAddress", "addressCountry": "SD" }
+  }
+  </script>
 </head>
 
 <body>
+  <a class="skip" href="#main">تخطي إلى المحتوى</a>
 
-<header>
-    <h1>سودي <span>SUDI</span></h1>
-    <p>
-        شركة سودي العالمية للاستثمار — نعمل على بناء فرص استثمارية مستدامة
-        عبر التخطيط الاستراتيجي، تطوير الأعمال، والحلول الرقمية الحديثة.
-    </p>
-</header>
-
-<section>
-    <div class="card">
-        <h2>من نحن</h2>
-        <p>
-            شركة سودي العالمية للاستثمار هي كيان استثماري يركز على تمكين
-            الشركات والمشاريع من تحقيق نمو فعلي ومستدام من خلال
-            استراتيجيات مدروسة، شراكات ذكية، وحلول رقمية متقدمة.
-        </p>
-    </div>
-
-    <div class="card">
-        <h2>خدماتنا</h2>
-        <div class="services">
-            <div class="service">
-                <h3>الاستثمار</h3>
-                <p>إدارة وبناء فرص استثمارية مدروسة ذات عائد طويل الأمد.</p>
-            </div>
-            <div class="service">
-                <h3>تطوير الأعمال</h3>
-                <p>تحسين الهياكل، العمليات، والنماذج التشغيلية للشركات.</p>
-            </div>
-            <div class="service">
-                <h3>الاستشارات الاستراتيجية</h3>
-                <p>تحليل الأسواق وبناء خطط نمو واقعية وقابلة للتنفيذ.</p>
-            </div>
-            <div class="service">
-                <h3>الحلول الرقمية</h3>
-                <p>مواقع، أنظمة، وتحول رقمي يخدم الأهداف الاستثمارية.</p>
-            </div>
+  <!-- Header -->
+  <header class="header" id="top">
+    <div class="container header__inner">
+      <a class="brand" href="#top" aria-label="العودة إلى أعلى الصفحة">
+        <img class="brand__logo" src="/assets/logo.png" alt="شعار شركة سودي" loading="eager" />
+        <div class="brand__text">
+          <span class="brand__name">سودي</span>
+          <span class="brand__sub">شركة سودي العالمية للاستثمار</span>
         </div>
+      </a>
+
+      <button class="navToggle" id="navToggle" aria-label="فتح/إغلاق القائمة" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav" id="nav">
+        <a href="#about">عن الشركة</a>
+        <a href="#services">القطاعات</a>
+        <a href="#approach">منهجنا</a>
+        <a href="#contact">تواصل</a>
+        <a class="btn btn--gold" href="#contact">اطلب تواصلاً</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" aria-label="مقدمة">
+    <div class="container hero__grid">
+      <div class="hero__content">
+        <p class="badge">خبرة منذ 2013 • حلول مؤسسية • تنفيذ احترافي</p>
+        <h1>شركة سودي العالمية للاستثمار</h1>
+        <p class="lead">
+          نبني قيمة طويلة المدى عبر استثمارات مدروسة وتطوير مشاريع في
+          <strong>الزراعة</strong>، <strong>العقارات</strong>، <strong>التسويق</strong>، <strong>البرمجة</strong>، <strong>التصميم</strong> و<strong>الطاقة الشمسية</strong>.
+        </p>
+
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#services">استعرض القطاعات</a>
+          <a class="btn btn--ghost" href="#about">اعرف المزيد</a>
+        </div>
+
+        <div class="hero__stats" role="list" aria-label="إحصاءات">
+          <div class="stat" role="listitem">
+            <span class="stat__num">2013</span>
+            <span class="stat__label">بداية الخبرة</span>
+          </div>
+          <div class="stat" role="listitem">
+            <span class="stat__num">6</span>
+            <span class="stat__label">قطاعات رئيسية</span>
+          </div>
+          <div class="stat" role="listitem">
+            <span class="stat__num">مؤسسي</span>
+            <span class="stat__label">حوكمة وتنفيذ</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__card" aria-label="بطاقة تعريف">
+        <div class="glass">
+          <div class="miniHead">
+            <div class="miniHead__dot"></div>
+            <div class="miniHead__dot"></div>
+            <div class="miniHead__dot"></div>
+          </div>
+          <div class="heroCard__body">
+            <h2>هوية راسخة. حضور محترم.</h2>
+            <p>
+              نعمل بمعايير واضحة: تحليل → خطة → تنفيذ → متابعة، مع تركيز على النتائج والسمعة.
+            </p>
+
+            <ul class="ticks">
+              <li>مصداقية وشفافية</li>
+              <li>شراكات طويلة المدى</li>
+              <li>تسليم احترافي</li>
+              <li>حلول قابلة للتوسع</li>
+            </ul>
+
+            <div class="heroCard__actions">
+              <a class="btn btn--gold" href="#contact">تواصل الآن</a>
+              <a class="link" href="mailto:sudi@sudicorp.com">sudi@sudicorp.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
-    <div class="card contact">
-        <h2>تواصل معنا</h2>
-        <p>📧 البريد الإلكتروني: <strong>sudi@sudicorp.com</strong></p>
-        <p>📞 الهاتف الرئيسي: <strong>+249129769999</strong></p>
-        <p>📞 هاتف إضافي: <strong>+249121282300</strong></p>
+    <div class="hero__bg" aria-hidden="true"></div>
+  </section>
+
+  <main id="main">
+    <!-- About -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="sectionHead">
+          <h2>عن الشركة</h2>
+          <p>شركة سودي العالمية للاستثمار تقدم حلولًا متعددة المجالات وفق رؤية نمو مستدام منذ 2013.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card reveal">
+            <h3>رؤيتنا</h3>
+            <p>بناء قيمة اقتصادية حقيقية عبر مشاريع ذات أثر ونتائج قابلة للقياس.</p>
+          </article>
+
+          <article class="card reveal">
+            <h3>رسالتنا</h3>
+            <p>تقديم استشارات وتنفيذ وعمليات تشغيل تساعد الشركات على النمو بثقة واحتراف.</p>
+          </article>
+
+          <article class="card reveal">
+            <h3>قيمنا</h3>
+            <p>الالتزام، الجودة، الوضوح، احترام الوقت، وحماية سمعة العميل.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section section--alt" id="services">
+      <div class="container">
+        <div class="sectionHead">
+          <h2>قطاعاتنا</h2>
+          <p>نخدم مشاريع متعددة عبر فرق وخبرات متخصصة.</p>
+        </div>
+
+        <div class="grid">
+          <article class="service reveal">
+            <div class="service__icon">🏦</div>
+            <h3>الاستثمار</h3>
+            <p>تحليل فرص، تخطيط، بناء محافظ، ودراسة جدوى بمقاربة واقعية.</p>
+          </article>
+
+          <article class="service reveal">
+            <div class="service__icon">🌿</div>
+            <h3>الزراعة</h3>
+            <p>مشاريع زراعية وإدارة تشغيل وتطوير سلاسل إمداد بصورة احترافية.</p>
+          </article>
+
+          <article class="service reveal">
+            <div class="service__icon">🏙️</div>
+            <h3>العقارات</h3>
+            <p>تطوير عقاري، تسويق عقاري، إدارة وحدات، وحلول نمذجة عوائد.</p>
+          </article>
+
+          <article class="service reveal">
+            <div class="service__icon">📣</div>
+            <h3>التسويق</h3>
+            <p>استراتيجية علامة، حملات، محتوى، وتحسين ظهور Google وفق أفضل الممارسات.</p>
+          </article>
+
+          <article class="service reveal">
+            <div class="service__icon">💻</div>
+            <h3>البرمجة</h3>
+            <p>مواقع وأنظمة ولوحات تحكم وتكاملات بريد ودومين وفق معيار مؤسسي.</p>
+          </article>
+
+          <article class="service reveal">
+            <div class="service__icon">🎨</div>
+            <h3>التصميم</h3>
+            <p>هويات بصرية، عروض، واجهات UI/UX، ومخرجات جاهزة للاستخدام التجاري.</p>
+          </article>
+
+          <article class="service reveal">
+            <div class="service__icon">☀️</div>
+            <h3>الطاقة الشمسية</h3>
+            <p>حلول طاقة شمسية للأفراد والشركات مع تصور تكلفة/عائد ومقترحات تنفيذ.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Approach -->
+    <section class="section" id="approach">
+      <div class="container">
+        <div class="sectionHead">
+          <h2>منهجنا في العمل</h2>
+          <p>خطوات واضحة تُظهر الاحتراف وتضمن نتيجة فعلية.</p>
+        </div>
+
+        <div class="timeline">
+          <div class="step reveal">
+            <span class="step__n">01</span>
+            <div>
+              <h3>فهم الهدف</h3>
+              <p>نحدد الهدف التجاري بدقة، وليس “كلام عام”.</p>
+            </div>
+          </div>
+
+          <div class="step reveal">
+            <span class="step__n">02</span>
+            <div>
+              <h3>تحليل & خطة</h3>
+              <p>خطة واضحة بمخرجات محددة وجدول قابل للتنفيذ.</p>
+            </div>
+          </div>
+
+          <div class="step reveal">
+            <span class="step__n">03</span>
+            <div>
+              <h3>تنفيذ بمعيار</h3>
+              <p>تنفيذ نظيف وموثق، مع اهتمام بالشكل والنتيجة.</p>
+            </div>
+          </div>
+
+          <div class="step reveal">
+            <span class="step__n">04</span>
+            <div>
+              <h3>متابعة وتحسين</h3>
+              <p>تحسين مستمر بناء على البيانات والتغذية الراجعة.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section section--alt" id="contact">
+      <div class="container">
+        <div class="sectionHead">
+          <h2>تواصل معنا</h2>
+          <p>جاهزون للتواصل الرسمي وتقديم عرض مناسب.</p>
+        </div>
+
+        <div class="contact">
+          <div class="contactCard reveal">
+            <h3>بيانات التواصل</h3>
+
+            <div class="contactRow">
+              <span class="k">البريد</span>
+              <a class="v" href="mailto:sudi@sudicorp.com">sudi@sudicorp.com</a>
+            </div>
+
+            <div class="contactRow">
+              <span class="k">الهاتف (الرئيسي)</span>
+              <a class="v" href="tel:+249129769999">+249 12 976 9999</a>
+            </div>
+
+            <div class="contactRow">
+              <span class="k">الهاتف (إضافي)</span>
+              <a class="v" href="tel:+249121282300">+249 12 128 2300</a>
+            </div>
+
+            <div class="contactActions">
+              <a class="btn btn--primary" href="mailto:sudi@sudicorp.com">أرسل بريد</a>
+              <a class="btn btn--gold" target="_blank" rel="noopener"
+                 href="https://wa.me/249121282300?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%20%D8%B4%D8%B1%D9%83%D8%A9%20%D8%B3%D9%88%D8%AF%D9%8A%20%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85%D9%8A%D8%A9%20%D9%84%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1.">
+                واتساب
+              </a>
+            </div>
+
+            <p class="note">
+              * اسم الموقع داخليًا/برمجيًا: <strong>sudicorp.com</strong>  
+              والاسم التجاري المعروض: <strong>شركة سودي العالمية للاستثمار</strong>.
+            </p>
+          </div>
+
+          <div class="contactCard contactCard--dark reveal">
+            <h3>رسالة سريعة</h3>
+            <p>اكتب رسالة قصيرة وسيتم التواصل معك.</p>
+
+            <!-- نموذج بسيط (لا يرسل تلقائيًا بدون باك-إند، لكنه يعطي شكل احترافي) -->
+            <form class="form" id="leadForm">
+              <label>
+                الاسم
+                <input name="name" type="text" placeholder="اسمك الكامل" required>
+              </label>
+
+              <label>
+                البريد
+                <input name="email" type="email" placeholder="example@email.com" required>
+              </label>
+
+              <label>
+                الرسالة
+                <textarea name="message" rows="5" placeholder="اكتب طلبك أو مشروعك باختصار..." required></textarea>
+              </label>
+
+              <button class="btn btn--primary" type="submit">إرسال</button>
+              <p class="formHint" id="formHint" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__left">
+        <img src="/assets/logo.png" class="footer__logo" alt="شعار سودي" loading="lazy" />
+        <div>
+          <strong>شركة سودي العالمية للاستثمار</strong>
+          <div class="muted">© <span id="year"></span> جميع الحقوق محفوظة</div>
+        </div>
+      </div>
+
+      <div class="footer__right">
+        <a href="#top">أعلى الصفحة</a>
+        <span class="dot">•</span>
+        <a href="mailto:sudi@sudicorp.com">البريد</a>
+        <span class="dot">•</span>
+        <a href="https://sudicorp.com/sitemap.xml">Sitemap</a>
+      </div>
     </div>
-</section>
+  </footer>
 
-<footer>
-    © 2025 شركة سودي العالمية للاستثمار — جميع الحقوق محفوظة
-</footer>
-
-<a class="whatsapp"
-   href="https://wa.me/249121282300"
-   target="_blank">
-تواصل واتساب
-</a>
-
-<script>
-// مكان جاهز للتطوير لاحقًا (أنيميشن – 3D – تتبع – إلخ)
-console.log("SUDI Global Investment Website Loaded");
-</script>
-
+  <script src="/js/main.js" defer></script>
 </body>
 </html>
