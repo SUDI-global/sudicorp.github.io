@@ -1,61 +1,174 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<title>سوديكورب – شركة استثمار وتطوير أعمال</title>
-<meta name="description" content="سوديكورب شركة استثمار وتطوير أعمال تقدم حلولًا استراتيجية وخدمات رقمية حديثة لدعم نمو الشركات.">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-body {
-    font-family: Tahoma, Arial, sans-serif;
-    background: #f4f6f8;
-    margin: 0;
-    padding: 0;
-    color: #222;
-}
-.container {
-    max-width: 900px;
-    margin: 60px auto;
-    background: #ffffff;
-    padding: 40px;
-    border-radius: 10px;
-}
-h1 { color: #0b3c5d; }
-h2 { color: #1d6fa5; }
-ul { line-height: 2; }
-.footer {
-    margin-top: 40px;
-    font-size: 14px;
-    color: #666;
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <title>سوديكورب – شركة استثمار وتطوير أعمال</title>
+  <meta name="description" content="سوديكورب شركة استثمار وتطوير أعمال تقدم حلولًا استراتيجية وخدمات رقمية حديثة لدعم نمو الشركات." />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://sudicorp.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="سوديكورب – شركة استثمار وتطوير أعمال" />
+  <meta property="og:description" content="سوديكورب شركة استثمار وتطوير أعمال تقدم حلولًا استراتيجية وخدمات رقمية حديثة لدعم نمو الشركات." />
+  <meta property="og:url" content="https://sudicorp.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ar_AR" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="سوديكورب – شركة استثمار وتطوير أعمال" />
+  <meta name="twitter:description" content="سوديكورب شركة استثمار وتطوير أعمال تقدم حلولًا استراتيجية وخدمات رقمية حديثة لدعم نمو الشركات." />
+
+  <style>
+    :root{
+      --bg:#f4f6f8;
+      --card:#ffffff;
+      --text:#1b1f23;
+      --muted:#6b7280;
+      --primary:#0b3c5d;
+      --secondary:#1d6fa5;
+      --border:#e5e7eb;
+      --shadow:0 10px 30px rgba(0,0,0,.06);
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Tahoma,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.8;
+    }
+    header{
+      background:linear-gradient(135deg,#0b3c5d 0%,#1d6fa5 100%);
+      color:#fff;
+      padding:46px 16px;
+    }
+    .wrap{max-width:980px;margin:0 auto;padding:0 16px}
+    .brand{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .brand h1{margin:0;font-size:30px;line-height:1.2}
+    .brand p{margin:10px 0 0;max-width:720px;font-size:16px}
+    .badge{
+      background:rgba(255,255,255,.16);
+      border:1px solid rgba(255,255,255,.25);
+      padding:10px 12px;
+      border-radius:999px;
+      font-size:13px;
+      white-space:nowrap;
+    }
+    main{padding:22px 0 60px}
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:26px;
+      margin-top:-28px;
+    }
+    h2{margin:18px 0 10px;color:var(--secondary);font-size:18px}
+    ul{margin:8px 0 0;padding:0 18px 0 0}
+    li{margin:6px 0}
+    .ctaRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .btn{
+      padding:10px 14px;
+      border-radius:10px;
+      border:1px solid var(--border);
+      text-decoration:none;
+      color:var(--text);
+      background:#fff;
+      font-size:14px;
+    }
+    .btnPrimary{background:var(--primary);color:#fff}
+    .info{
+      border:1px dashed var(--border);
+      border-radius:12px;
+      padding:14px;
+      background:#fafafa;
+    }
+    footer{text-align:center;color:var(--muted);font-size:13px;margin-top:20px}
+    .wa-float{
+      position:fixed;
+      bottom:18px;
+      left:18px;
+      z-index:999;
+    }
+    .wa-float a{
+      padding:12px 16px;
+      border-radius:999px;
+      background:#16a34a;
+      color:#fff;
+      text-decoration:none;
+      box-shadow:0 12px 28px rgba(0,0,0,.18);
+      font-size:14px;
+    }
+  </style>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"سوديكورب",
+    "alternateName":"SUDI Global Investment",
+    "url":"https://sudicorp.com/",
+    "email":"sudi@sudicorp.com",
+    "telephone":"+249121282300",
+    "description":"شركة استثمار وتطوير أعمال تقدم حلولًا استراتيجية وخدمات رقمية حديثة لدعم نمو الشركات."
+  }
+  </script>
 </head>
+
 <body>
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <div>
+        <h1>سوديكورب – SUDI Global Investment</h1>
+        <p>
+          شركة استثمار وتطوير أعمال تهدف إلى بناء فرص نمو مستدامة عبر الاستشارات الاستراتيجية
+          والحلول الرقمية وتطوير المشاريع الحديثة.
+        </p>
+      </div>
+      <div class="badge">الموقع الرسمي • sudicorp.com</div>
+    </div>
+  </div>
+</header>
 
-<div class="container">
-<h1>سوديكورب – SUDI Global Investment</h1>
+<main>
+  <div class="wrap">
+    <section class="card">
+      <h2>خدماتنا</h2>
+      <ul>
+        <li>الاستشارات الاستثمارية</li>
+        <li>تطوير الأعمال</li>
+        <li>الحلول الرقمية</li>
+        <li>بناء الهوية والعلامة التجارية</li>
+      </ul>
 
-<p>
-سوديكورب هي شركة استثمار وتطوير أعمال تهدف إلى بناء فرص نمو مستدامة من خلال الاستشارات الاستراتيجية، الحلول الرقمية، وتطوير المشاريع الحديثة.
-</p>
+      <h2>تواصل معنا</h2>
+      <p>البريد الإلكتروني: <strong><a href="mailto:sudi@sudicorp.com">sudi@sudicorp.com</a></strong></p>
+      <p>واتساب: <strong>+249 12 128 2300</strong></p>
 
-<h2>خدماتنا</h2>
-<ul>
-<li>الاستشارات الاستثمارية</li>
-<li>تطوير الأعمال</li>
-<li>الحلول الرقمية</li>
-<li>بناء الهوية والعلامة التجارية</li>
-</ul>
+      <div class="ctaRow">
+        <a class="btn btnPrimary" href="mailto:sudi@sudicorp.com">راسلنا عبر البريد</a>
+      </div>
 
-<h2>تواصل معنا</h2>
-<p>
-البريد الإلكتروني: <strong>info@sudicorp.com</strong>
-</p>
+      <footer>
+        © 2025 سوديكورب – جميع الحقوق محفوظة
+      </footer>
+    </section>
+  </div>
+</main>
 
-<div class="footer">
-© 2025 سوديكورب – جميع الحقوق محفوظة
+<div class="wa-float">
+  <a href="https://wa.me/249121282300?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%20%D8%B3%D9%88%D8%AF%D9%8A%D9%83%D9%88%D8%B1%D8%A8" target="_blank">
+    تواصل واتساب
+  </a>
 </div>
-</div>
-
 </body>
 </html>
