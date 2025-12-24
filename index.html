@@ -2,490 +2,506 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<link rel="stylesheet" href="./styles.css" />
-<script defer src="./app.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b2d4d" />
   <title>شركة سودي العالمية للاستثمار | SUDI</title>
   <meta name="description" content="شركة سودي العالمية للاستثمار — خبرة منذ 2013 في الاستثمار، الزراعة، العقارات، التسويق، البرمجة، التصميم، والطاقة الشمسية." />
-  <link rel="canonical" href="https://sudicorp.com/" />
 
-  <!-- Open Graph -->
+  <!-- Social preview -->
   <meta property="og:title" content="شركة سودي العالمية للاستثمار | SUDI" />
   <meta property="og:description" content="خبرة منذ 2013 في الاستثمار، الزراعة، العقارات، التسويق، البرمجة، التصميم، والطاقة الشمسية." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://sudicorp.com/" />
-  <meta property="og:image" content="https://sudicorp.com/assets/logo.png" />
 
-  <!-- Favicon -->
-  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/css/styles.css" />
-
-  <!-- Structured data -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"شركة سودي العالمية للاستثمار",
-    "alternateName":"SUDI Global Investment",
-    "url":"https://sudicorp.com/",
-    "logo":"https://sudicorp.com/assets/logo.png",
-    "foundingDate":"2013",
-    "email":"sudi@sudicorp.com",
-    "telephone":["+249129769999","+249121282300"],
-    "description":"شركة سودي العالمية للاستثمار — خبرة منذ 2013 في الاستثمار، الزراعة، العقارات، التسويق، البرمجة، التصميم، والطاقة الشمسية."
-  }
-  </script>
+  <link rel="stylesheet" href="./styles.css" />
+  <script defer src="./app.js"></script>
 </head>
 
 <body>
-  <!-- Top Bar -->
-  <div class="topbar">
-    <div class="container topbar-inner">
-      <div class="topbar-left">
-        <span class="chip">
-          <span class="chip-dot"></span>
-          منذ 2013
-        </span>
-        <span class="topbar-text">شركة سودي العالمية للاستثمار — حلول متعددة القطاعات بمعيار مؤسسي</span>
-      </div>
+  <a class="skip" href="#main">تخطي إلى المحتوى</a>
 
-      <div class="topbar-right">
-        <a class="toplink" href="mailto:sudi@sudicorp.com" aria-label="Email">
-          <span class="ico" aria-hidden="true">✉</span>
-          sudi@sudicorp.com
-        </a>
-        <span class="sep">•</span>
-        <a class="toplink" href="tel:+249129769999" aria-label="Phone">
-          <span class="ico" aria-hidden="true">☎</span>
-          00249129769999
-        </a>
-      </div>
-    </div>
+  <!-- Top glow / background -->
+  <div class="bg">
+    <div class="bg__grid"></div>
+    <div class="bg__orb bg__orb--a"></div>
+    <div class="bg__orb bg__orb--b"></div>
   </div>
 
-  <!-- Header / Nav -->
+  <!-- Header -->
   <header class="header" id="top">
-    <div class="container header-inner">
-      <a class="brand" href="#top" aria-label="SUDI Home">
-        <img class="brand-logo" src="/assets/logo.png" alt="SUDI Logo" />
-        <div class="brand-text">
-          <div class="brand-title">سودي</div>
-          <div class="brand-sub">شركة سودي العالمية للاستثمار</div>
-        </div>
+    <div class="container header__wrap">
+      <a class="brand" href="#top" aria-label="العودة للأعلى">
+        <span class="brand__mark" aria-hidden="true">S</span>
+        <span class="brand__text">
+          <span class="brand__name">سودي</span>
+          <span class="brand__tag">الاستثمار العالمي</span>
+        </span>
       </a>
 
-      <button class="nav-toggle" id="navToggle" aria-label="فتح/إغلاق القائمة" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <nav class="nav" aria-label="التنقل الرئيسي">
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="navMenu">
+          <span class="nav__toggleLines" aria-hidden="true"></span>
+          <span class="sr">القائمة</span>
+        </button>
 
-      <nav class="nav" id="nav">
-        <a class="navlink" href="#about">عن الشركة</a>
-        <a class="navlink" href="#sectors">القطاعات</a>
-        <a class="navlink" href="#capabilities">قدراتنا</a>
-        <a class="navlink" href="#why">لماذا نحن</a>
-        <a class="navlink" href="#contact">تواصل</a>
+        <div class="nav__menu" id="navMenu">
+          <a class="nav__link" href="#about">عن الشركة</a>
+          <a class="nav__link" href="#sectors">القطاعات</a>
+          <a class="nav__link" href="#projects">المشاريع</a>
+          <a class="nav__link" href="#values">القيم</a>
+          <a class="nav__link" href="#faq">الأسئلة</a>
+          <a class="nav__link nav__link--cta" href="#contact">تواصل</a>
+        </div>
       </nav>
-
-      <div class="header-cta">
-        <a class="ui-btn ui-btn-primary" href="#contact">اطلب تواصلًا</a>
-        <a class="ui-btn ui-btn-ghost" href="#sectors">استعرض</a>
-      </div>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-bg" aria-hidden="true"></div>
-    <div class="container hero-inner">
-      <div class="hero-left">
-        <div class="badge">
-          <span class="badge-ico" aria-hidden="true">✓</span>
-          حضور مؤسسي • تنفيذ احترافي • نتائج قابلة للقياس
+  <!-- Main -->
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <div class="pill">
+            <span class="dot" aria-hidden="true"></span>
+            <span>منذ 2013 — نمو واقعي، قرارات محسوبة.</span>
+          </div>
+
+          <h1 class="h1">
+            شركة <span class="grad">سودي العالمية</span> للاستثمار
+          </h1>
+
+          <p class="lead">
+            نركز على مشاريع قابلة للتنفيذ: استثمار، زراعة، عقارات، تسويق، برمجة، تصميم، وطاقة شمسية —
+            بخطة واضحة، ونتائج تقاس.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#contact">اطلب تواصل</a>
+            <a class="btn btn--ghost" href="#sectors">استعرض القطاعات</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <div class="stat__num" data-count="2013">2013</div>
+              <div class="stat__txt">بداية الشركة</div>
+            </div>
+            <div class="stat">
+              <div class="stat__num" data-count="6">6+</div>
+              <div class="stat__txt">قطاعات رئيسية</div>
+            </div>
+            <div class="stat">
+              <div class="stat__num" data-count="100">100%</div>
+              <div class="stat__txt">تصميم متجاوب</div>
+            </div>
+          </div>
         </div>
 
-        <h1 class="h1">شركة سودي العالمية للاستثمار</h1>
+        <!-- Right side card -->
+        <div class="hero__card">
+          <div class="glassCard">
+            <div class="glassCard__top">
+              <div class="badge">Corporate Profile</div>
+              <div class="chip" title="Secure">
+                <span class="chip__ring" aria-hidden="true"></span>
+                موثوق
+              </div>
+            </div>
 
-        <p class="lead">
-          نبني فرص نمو مستدامة عبر <strong>الاستثمار</strong> وتطوير المشاريع في
-          <strong>الزراعة</strong>، <strong>العقارات</strong>، <strong>التسويق</strong>،
-          <strong>البرمجة</strong>، <strong>التصميم</strong> و<strong>الطاقة الشمسية</strong>
-          بخبرة ممتدة منذ <strong>2013</strong>.
-        </p>
-
-        <div class="hero-actions">
-          <a class="ui-btn ui-btn-primary ui-btn-lg" href="#contact">ابدأ الآن</a>
-          <a class="ui-btn ui-btn-ghost ui-btn-lg" href="#sectors">القطاعات</a>
-        </div>
-
-        <div class="stats">
-          <div class="stat">
-            <div class="stat-num" data-count="2013">2013</div>
-            <div class="stat-label">بداية الخبرة</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num" data-count="7">0</div>
-            <div class="stat-label">قطاعات رئيسية</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num" data-count="100">0</div>
-            <div class="stat-label">التزام بالجودة</div>
-          </div>
-        </div>
-
-        <div class="trust">
-          <div class="trust-item">حوكمة وتنفيذ</div>
-          <div class="trust-item">أمان وموثوقية</div>
-          <div class="trust-item">التزام بالمواعيد</div>
-          <div class="trust-item">جودة تجربة المستخدم</div>
-        </div>
-      </div>
-
-      <div class="hero-right">
-        <div class="card-pro">
-          <div class="card-pro-head">
-            <div class="dots"><i></i><i></i><i></i></div>
-            <div class="muted">SUDI • Corporate Profile</div>
-          </div>
-          <div class="card-pro-body">
-            <h3 class="h3">ماذا نقدم عمليًا؟</h3>
+            <h2 class="h2">ملف تعريفي سريع</h2>
             <p class="muted">
-              خدمات منضبطة تبدأ بالفهم والتحليل وتنتهي بنتيجة قابلة للقياس.
+              هنا تحط نبذة مختصرة قوية. لو عندك PDF للـ Profile، حط رابطه من زر التحميل.
             </p>
 
-            <ul class="list">
-              <li>استثمار وتطوير أعمال</li>
-              <li>مشاريع زراعية وتشغيل</li>
-              <li>عقارات وتطوير</li>
-              <li>تسويق وحضور رقمي</li>
-              <li>برمجة وحلول رقمية</li>
-              <li>تصميم وهوية</li>
-              <li>طاقة شمسية</li>
-            </ul>
+            <div class="list">
+              <div class="list__item">
+                <span class="icon" aria-hidden="true">✓</span>
+                <span>استثمارات مدروسة وتقارير دورية</span>
+              </div>
+              <div class="list__item">
+                <span class="icon" aria-hidden="true">✓</span>
+                <span>تنفيذ مشاريع رقمية وتسويق احترافي</span>
+              </div>
+              <div class="list__item">
+                <span class="icon" aria-hidden="true">✓</span>
+                <span>حلول طاقة شمسية بمواصفات واضحة</span>
+              </div>
+            </div>
 
-            <div class="card-actions">
-              <a class="ui-btn ui-btn-gold" target="_blank" rel="noopener"
-                 href="https://wa.me/249121282300?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B4%D8%B1%D9%83%D8%A9%20%D8%B3%D9%88%D8%AF%D9%8A%2C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D8%A8%D8%AE%D8%B5%D9%88%D8%B5%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%D9%83%D9%85.">
-                واتساب مباشر
+            <div class="glassCard__actions">
+              <a class="btn btn--secondary" href="#projects">شوف المشاريع</a>
+              <a class="btn btn--outline" href="#" id="downloadProfile">تحميل بروفايل</a>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="miniRow">
+              <div class="mini">
+                <div class="mini__k">الموقع</div>
+                <div class="mini__v">السعودية</div>
+              </div>
+              <div class="mini">
+                <div class="mini__k">التواصل</div>
+                <div class="mini__v">24/7</div>
+              </div>
+              <div class="mini">
+                <div class="mini__k">التركيز</div>
+                <div class="mini__v">نتائج</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__fade"></div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="sectionHead">
+          <h2 class="h2">عن الشركة</h2>
+          <p class="muted">هدفنا واضح: بناء مشاريع مربحة وقابلة للنمو — بدون كلام فاضي.</p>
+        </div>
+
+        <div class="grid2">
+          <article class="card card--soft">
+            <h3 class="h3">مهمتنا</h3>
+            <p>
+              تحويل الأفكار إلى مشاريع تعمل فعليًا: خطة، تنفيذ، قياس، تحسين.
+              لو المشروع ما يقدر يثبت نفسه بالأرقام، ما ندخله.
+            </p>
+          </article>
+
+          <article class="card card--soft">
+            <h3 class="h3">رؤيتنا</h3>
+            <p>
+              أن نكون جهة موثوقة للاستثمار والتنفيذ في مجالات متعددة، مع توثيق كل خطوة
+              وتقديم تجربة احترافية للعملاء والشركاء.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sectors -->
+    <section class="section" id="sectors">
+      <div class="container">
+        <div class="sectionHead sectionHead--split">
+          <div>
+            <h2 class="h2">القطاعات</h2>
+            <p class="muted">اختَر قطاعك، وخلّنا نشتغل بوضوح.</p>
+          </div>
+
+          <div class="filters" role="group" aria-label="تصفية القطاعات">
+            <button class="seg is-active" type="button" data-filter="all">الكل</button>
+            <button class="seg" type="button" data-filter="investment">استثمار</button>
+            <button class="seg" type="button" data-filter="realestate">عقارات</button>
+            <button class="seg" type="button" data-filter="agri">زراعة</button>
+            <button class="seg" type="button" data-filter="digital">رقمي</button>
+            <button class="seg" type="button" data-filter="solar">طاقة شمسية</button>
+          </div>
+        </div>
+
+        <div class="cards" id="sectorCards">
+          <!-- Card 1 -->
+          <article class="uCard" data-tags="investment">
+            <div class="uCard__glow" aria-hidden="true"></div>
+            <div class="uCard__head">
+              <span class="uIcon" aria-hidden="true">💼</span>
+              <span class="uCard__title">الاستثمار</span>
+            </div>
+            <p class="uCard__desc">
+              تحليل فرص، إدارة مخاطر، تقارير، وخطط دخول وخروج واضحة.
+            </p>
+            <div class="uCard__foot">
+              <span class="pill2">Strategy</span>
+              <span class="pill2">Risk</span>
+              <span class="pill2">Reports</span>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="uCard" data-tags="realestate">
+            <div class="uCard__glow" aria-hidden="true"></div>
+            <div class="uCard__head">
+              <span class="uIcon" aria-hidden="true">🏢</span>
+              <span class="uCard__title">العقارات</span>
+            </div>
+            <p class="uCard__desc">
+              تطوير، تسويق، إدارة أصول، وتحسين عوائد الاستثمار العقاري.
+            </p>
+            <div class="uCard__foot">
+              <span class="pill2">Assets</span>
+              <span class="pill2">ROI</span>
+              <span class="pill2">Ops</span>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="uCard" data-tags="agri">
+            <div class="uCard__glow" aria-hidden="true"></div>
+            <div class="uCard__head">
+              <span class="uIcon" aria-hidden="true">🌱</span>
+              <span class="uCard__title">الزراعة</span>
+            </div>
+            <p class="uCard__desc">
+              مشاريع زراعية بجدوى فعلية، توريد، تشغيل، وإدارة مستدامة.
+            </p>
+            <div class="uCard__foot">
+              <span class="pill2">Supply</span>
+              <span class="pill2">Ops</span>
+              <span class="pill2">Sustain</span>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="uCard" data-tags="digital">
+            <div class="uCard__glow" aria-hidden="true"></div>
+            <div class="uCard__head">
+              <span class="uIcon" aria-hidden="true">💻</span>
+              <span class="uCard__title">البرمجة والتصميم</span>
+            </div>
+            <p class="uCard__desc">
+              مواقع، متاجر، أنظمة داخلية، UI/UX — بنظافة وجودة.
+            </p>
+            <div class="uCard__foot">
+              <span class="pill2">Web</span>
+              <span class="pill2">UI</span>
+              <span class="pill2">Systems</span>
+            </div>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="uCard" data-tags="digital">
+            <div class="uCard__glow" aria-hidden="true"></div>
+            <div class="uCard__head">
+              <span class="uIcon" aria-hidden="true">📣</span>
+              <span class="uCard__title">التسويق</span>
+            </div>
+            <p class="uCard__desc">
+              حملات، محتوى، إعلانات، وتتبع وتحسين بالأرقام.
+            </p>
+            <div class="uCard__foot">
+              <span class="pill2">Ads</span>
+              <span class="pill2">Content</span>
+              <span class="pill2">Analytics</span>
+            </div>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="uCard" data-tags="solar">
+            <div class="uCard__glow" aria-hidden="true"></div>
+            <div class="uCard__head">
+              <span class="uIcon" aria-hidden="true">☀️</span>
+              <span class="uCard__title">الطاقة الشمسية</span>
+            </div>
+            <p class="uCard__desc">
+              حلول عملية بمواصفات واضحة وتركيب احترافي.
+            </p>
+            <div class="uCard__foot">
+              <span class="pill2">Panels</span>
+              <span class="pill2">Install</span>
+              <span class="pill2">Support</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="sectionHead">
+          <h2 class="h2">نماذج مشاريع</h2>
+          <p class="muted">بدون مبالغة: أمثلة قابلة للتعديل حسب واقعك.</p>
+        </div>
+
+        <div class="timeline">
+          <div class="tItem">
+            <div class="tDot" aria-hidden="true"></div>
+            <div class="tBody">
+              <h3 class="h3">موقع شركة / بروفايل</h3>
+              <p>هيكلة واضحة + سيو أساسي + سرعة تحميل + تصميم متجاوب.</p>
+              <div class="tags">
+                <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">SEO</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tItem">
+            <div class="tDot" aria-hidden="true"></div>
+            <div class="tBody">
+              <h3 class="h3">متجر إلكتروني</h3>
+              <p>كتالوج، سلة، صفحات منتج، وربط دفع/شحن حسب الحاجة.</p>
+              <div class="tags">
+                <span class="tag">Shopify</span><span class="tag">UX</span><span class="tag">Tracking</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tItem">
+            <div class="tDot" aria-hidden="true"></div>
+            <div class="tBody">
+              <h3 class="h3">حل طاقة شمسية</h3>
+              <p>تقييم مبدئي + مواصفات + جدول زمني + دعم وتشغيل.</p>
+              <div class="tags">
+                <span class="tag">Solar</span><span class="tag">Specs</span><span class="tag">Ops</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values -->
+    <section class="section" id="values">
+      <div class="container">
+        <div class="sectionHead">
+          <h2 class="h2">قيمنا</h2>
+          <p class="muted">3 كلمات: وضوح — التزام — جودة.</p>
+        </div>
+
+        <div class="grid3">
+          <article class="card card--shine">
+            <h3 class="h3">وضوح</h3>
+            <p>كل شيء مكتوب: نطاق العمل، التسليمات، الزمن، والتكلفة.</p>
+          </article>
+          <article class="card card--shine">
+            <h3 class="h3">التزام</h3>
+            <p>بدون أعذار: مواعيد واضحة، وتقارير تقدم.</p>
+          </article>
+          <article class="card card--shine">
+            <h3 class="h3">جودة</h3>
+            <p>تجربة مستخدم محترمة، وأداء سريع، وكود نظيف.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="sectionHead">
+          <h2 class="h2">أسئلة شائعة</h2>
+          <p class="muted">أجوبة مباشرة بدل اللف والدوران.</p>
+        </div>
+
+        <div class="faq">
+          <details class="faq__item">
+            <summary>هل الموقع سريع على الجوال؟</summary>
+            <p>نعم. التصميم متجاوب بالكامل، والصور/العناصر مقيدة حتى لا تكسر الشاشة.</p>
+          </details>
+
+          <details class="faq__item">
+            <summary>هل أقدر أضيف صفحات لاحقًا؟</summary>
+            <p>أكيد. نفس الهيكلة قابلة للتوسعة بسهولة.</p>
+          </details>
+
+          <details class="faq__item">
+            <summary>هل فيه نموذج تواصل؟</summary>
+            <p>نعم. يرسل واتساب مباشرة، وممكن تربطه ببريد/سيرفر لاحقًا.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact">
+          <div class="contact__left">
+            <h2 class="h2">تواصل معنا</h2>
+            <p class="muted">عبّي البيانات وسنرد عليك. أو اضغط واتساب مباشرة.</p>
+
+            <div class="contactCards">
+              <a class="miniCard" href="tel:+966500000000">
+                <span class="miniCard__k">هاتف</span>
+                <span class="miniCard__v">+966 50 000 0000</span>
               </a>
-              <a class="ui-btn ui-btn-ghost" href="mailto:sudi@sudicorp.com">مراسلة بريدية</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section class="section" id="about">
-    <div class="container">
-      <div class="section-head">
-        <h2 class="h2">عن الشركة</h2>
-        <p class="muted">شركة سودي العالمية للاستثمار تعمل بمنهج مؤسسي يوازن بين الرؤية والنتائج.</p>
-      </div>
-
-      <div class="grid-3">
-        <article class="u-card">
-          <div class="u-ico">👁</div>
-          <h3 class="h3">الرؤية</h3>
-          <p class="muted">بناء قيمة طويلة المدى عبر مشاريع قوية ومستدامة.</p>
-        </article>
-
-        <article class="u-card">
-          <div class="u-ico">🎯</div>
-          <h3 class="h3">الرسالة</h3>
-          <p class="muted">تقديم حلول قابلة للتوسع وتنفيذ واضح ومقاس.</p>
-        </article>
-
-        <article class="u-card">
-          <div class="u-ico">💎</div>
-          <h3 class="h3">القيم</h3>
-          <p class="muted">الالتزام، الجودة، احترام الوقت، حماية سمعة العميل.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sectors Carousel -->
-  <section class="section alt" id="sectors">
-    <div class="container">
-      <div class="section-head row-between">
-        <div>
-          <h2 class="h2">قطاعاتنا</h2>
-          <p class="muted">سلايدر سلس + كروت Uiverse-style + تفاعل محترم بدون مكتبات.</p>
-        </div>
-        <div class="carousel-actions">
-          <button class="ui-btn ui-btn-ghost" id="prevSector" type="button">التالي</button>
-          <button class="ui-btn ui-btn-ghost" id="nextSector" type="button">السابق</button>
-        </div>
-      </div>
-
-      <div class="carousel" aria-label="Sectors carousel">
-        <div class="track" id="sectorTrack">
-          <div class="slide">
-            <div class="sector-card">
-              <div class="sector-top">
-                <div class="sector-ico">📈</div>
-                <div>
-                  <h3 class="h3">الاستثمار</h3>
-                  <p class="muted">دراسة فرص، تقييم مخاطر، وبناء خطط نمو واقعية.</p>
-                </div>
-              </div>
-              <a class="link" href="#contact">اطلب عرض</a>
+              <a class="miniCard" href="mailto:info@sudicorp.com">
+                <span class="miniCard__k">إيميل</span>
+                <span class="miniCard__v">info@sudicorp.com</span>
+              </a>
+              <a class="miniCard" href="https://wa.me/966500000000" target="_blank" rel="noopener">
+                <span class="miniCard__k">واتساب</span>
+                <span class="miniCard__v">مراسلة مباشرة</span>
+              </a>
             </div>
           </div>
 
-          <div class="slide">
-            <div class="sector-card">
-              <div class="sector-top">
-                <div class="sector-ico">🌿</div>
-                <div>
-                  <h3 class="h3">الزراعة</h3>
-                  <p class="muted">تشغيل وإدارة مشاريع زراعية بأساليب حديثة.</p>
-                </div>
-              </div>
-              <a class="link" href="#contact">تواصل</a>
-            </div>
-          </div>
+          <form class="form" id="contactForm">
+            <div class="form__row">
+              <label class="field">
+                <span class="field__label">الاسم</span>
+                <input class="field__input" name="name" type="text" placeholder="اسمك الكامل" required />
+              </label>
 
-          <div class="slide">
-            <div class="sector-card">
-              <div class="sector-top">
-                <div class="sector-ico">🏙</div>
-                <div>
-                  <h3 class="h3">العقارات</h3>
-                  <p class="muted">تطوير وتسويق وإدارة مشاريع مرتبطة بالاستثمار.</p>
-                </div>
-              </div>
-              <a class="link" href="#contact">اطلب تواصلاً</a>
-            </div>
-          </div>
-
-          <div class="slide">
-            <div class="sector-card">
-              <div class="sector-top">
-                <div class="sector-ico">📣</div>
-                <div>
-                  <h3 class="h3">التسويق</h3>
-                  <p class="muted">استراتيجية + محتوى + تحسين ظهور Google (SEO).</p>
-                </div>
-              </div>
-              <a class="link" href="#contact">ابدأ</a>
-            </div>
-          </div>
-
-          <div class="slide">
-            <div class="sector-card">
-              <div class="sector-top">
-                <div class="sector-ico">💻</div>
-                <div>
-                  <h3 class="h3">البرمجة</h3>
-                  <p class="muted">مواقع وأنظمة ولوحات تحكم بمعيار مؤسسي.</p>
-                </div>
-              </div>
-              <a class="link" href="#contact">اطلب مشروع</a>
-            </div>
-          </div>
-
-          <div class="slide">
-            <div class="sector-card">
-              <div class="sector-top">
-                <div class="sector-ico">🎨</div>
-                <div>
-                  <h3 class="h3">التصميم</h3>
-                  <p class="muted">هوية بصرية، UI/UX، مخرجات جاهزة للاستخدام.</p>
-                </div>
-              </div>
-              <a class="link" href="#contact">تواصل</a>
-            </div>
-          </div>
-
-          <div class="slide">
-            <div class="sector-card">
-              <div class="sector-top">
-                <div class="sector-ico">☀</div>
-                <div>
-                  <h3 class="h3">الطاقة الشمسية</h3>
-                  <p class="muted">تصور تكلفة/عائد ومقترحات حلول مناسبة.</p>
-                </div>
-              </div>
-              <a class="link" href="#contact">اطلب استشارة</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="dotsbar" id="sectorDots" aria-label="carousel dots"></div>
-    </div>
-  </section>
-
-  <!-- Capabilities -->
-  <section class="section" id="capabilities">
-    <div class="container">
-      <div class="section-head">
-        <h2 class="h2">قدراتنا</h2>
-        <p class="muted">تنظيم + وضوح + تدرج بصري + تجربة تليق بشركة.</p>
-      </div>
-
-      <div class="grid-2">
-        <article class="u-card big">
-          <div class="cap-top">
-            <div class="u-ico">🧭</div>
-            <div>
-              <h3 class="h3">منهج عمل واضح</h3>
-              <p class="muted">تحليل → خطة → تنفيذ → متابعة → تحسين</p>
-            </div>
-          </div>
-          <div class="steps">
-            <div class="step"><span>01</span> فهم الهدف</div>
-            <div class="step"><span>02</span> تحليل وخطة</div>
-            <div class="step"><span>03</span> تنفيذ بمعيار</div>
-            <div class="step"><span>04</span> قياس وتحسين</div>
-          </div>
-        </article>
-
-        <article class="u-card big">
-          <div class="cap-top">
-            <div class="u-ico">⚡</div>
-            <div>
-              <h3 class="h3">أداء وتجربة</h3>
-              <p class="muted">تصميم فاتح نظيف + انيميشن ناعم + موبايل ممتاز</p>
-            </div>
-          </div>
-
-          <div class="bars">
-            <div class="bar">
-              <div class="bar-row"><span>السرعة</span><span>High</span></div>
-              <div class="bar-track"><div class="bar-fill" style="--w:90%"></div></div>
-            </div>
-            <div class="bar">
-              <div class="bar-row"><span>تجربة المستخدم</span><span>Excellent</span></div>
-              <div class="bar-track"><div class="bar-fill" style="--w:95%"></div></div>
-            </div>
-            <div class="bar">
-              <div class="bar-row"><span>الاحتراف</span><span>Corporate</span></div>
-              <div class="bar-track"><div class="bar-fill" style="--w:92%"></div></div>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why -->
-  <section class="section alt" id="why">
-    <div class="container">
-      <div class="section-head">
-        <h2 class="h2">لماذا نحن؟</h2>
-        <p class="muted">بدون حشو: هذا اللي يفرق شركة محترمة عن صفحة والسلام.</p>
-      </div>
-
-      <div class="grid-3">
-        <article class="u-card">
-          <div class="u-ico">🛡</div>
-          <h3 class="h3">موثوقية</h3>
-          <p class="muted">حوكمة وتنفيذ… مش اجتهادات عشوائية.</p>
-        </article>
-
-        <article class="u-card">
-          <div class="u-ico">⏱</div>
-          <h3 class="h3">التزام</h3>
-          <p class="muted">نحترم الوقت ونبني علاقة طويلة المدى.</p>
-        </article>
-
-        <article class="u-card">
-          <div class="u-ico">⭐</div>
-          <h3 class="h3">جودة</h3>
-          <p class="muted">شكل مؤسسي + تجربة مريحة + تفاصيل نظيفة.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section class="section" id="contact">
-    <div class="container">
-      <div class="section-head">
-        <h2 class="h2">تواصل معنا</h2>
-        <p class="muted">اختر الطريقة الأنسب، أو أرسل رسالة سريعة.</p>
-      </div>
-
-      <div class="grid-2 contact-grid">
-        <div class="u-card big">
-          <h3 class="h3">بيانات التواصل</h3>
-
-          <a class="contact-item" href="mailto:sudi@sudicorp.com">
-            <span class="k">البريد</span>
-            <span class="v">sudi@sudicorp.com</span>
-          </a>
-
-          <a class="contact-item" href="tel:+249129769999">
-            <span class="k">الهاتف (الرئيسي)</span>
-            <span class="v">00249129769999</span>
-          </a>
-
-          <a class="contact-item" href="tel:+249121282300">
-            <span class="k">الهاتف (إضافي)</span>
-            <span class="v">+249 12 128 2300</span>
-          </a>
-
-          <div class="contact-actions">
-            <a class="ui-btn ui-btn-gold" target="_blank" rel="noopener"
-               href="https://wa.me/249121282300?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B4%D8%B1%D9%83%D8%A9%20%D8%B3%D9%88%D8%AF%D9%8A%2C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D8%A8%D8%AE%D8%B5%D9%88%D8%B5%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%D9%83%D9%85.">
-              واتساب مباشر
-            </a>
-            <a class="ui-btn ui-btn-ghost" href="mailto:sudi@sudicorp.com">إرسال بريد</a>
-          </div>
-        </div>
-
-        <div class="u-card big">
-          <h3 class="h3">رسالة سريعة</h3>
-          <p class="muted">النموذج يفتح بريدك جاهز للإرسال (بدون سيرفر).</p>
-
-          <form id="leadForm" class="form">
-            <div class="row">
-              <label>الاسم</label>
-              <input name="name" required placeholder="اسمك الكامل" />
+              <label class="field">
+                <span class="field__label">الجوال</span>
+                <input class="field__input" name="phone" type="tel" placeholder="05xxxxxxxx" required />
+              </label>
             </div>
 
-            <div class="row">
-              <label>رقم التواصل</label>
-              <input name="phone" placeholder="+966..." />
+            <label class="field">
+              <span class="field__label">الخدمة المطلوبة</span>
+              <select class="field__input" name="service" required>
+                <option value="">اختر</option>
+                <option>استثمار</option>
+                <option>عقارات</option>
+                <option>زراعة</option>
+                <option>تسويق</option>
+                <option>برمجة وتصميم</option>
+                <option>طاقة شمسية</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span class="field__label">الرسالة</span>
+              <textarea class="field__input field__input--ta" name="message" placeholder="اكتب المطلوب باختصار" required></textarea>
+            </label>
+
+            <div class="form__actions">
+              <button class="btn btn--primary" type="submit">إرسال</button>
+              <button class="btn btn--ghost" type="button" id="whatsBtn">إرسال واتساب</button>
             </div>
 
-            <div class="row">
-              <label>البريد</label>
-              <input name="email" type="email" placeholder="example@email.com" />
-            </div>
-
-            <div class="row">
-              <label>الرسالة</label>
-              <textarea name="message" rows="5" required placeholder="اكتب طلبك أو فكرتك باختصار..."></textarea>
-            </div>
-
-            <div class="form-actions">
-              <button class="ui-btn ui-btn-primary" type="submit">فتح البريد للإرسال</button>
-              <span class="muted" id="formHint"></span>
-            </div>
+            <p class="form__note" id="formNote" aria-live="polite"></p>
           </form>
         </div>
       </div>
+    </section>
 
-      <footer class="footer">
-        © <span id="year"></span> شركة سودي العالمية للاستثمار — sudicorp.com
-      </footer>
-    </div>
-  </section>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer__wrap">
+        <div class="footer__left">
+          <div class="brand brand--small">
+            <span class="brand__mark" aria-hidden="true">S</span>
+            <span class="brand__text">
+              <span class="brand__name">سودي</span>
+              <span class="brand__tag">الاستثمار العالمي</span>
+            </span>
+          </div>
+          <p class="muted">© <span id="year"></span> — جميع الحقوق محفوظة.</p>
+        </div>
 
-  <!-- Floating -->
-  <a class="fab fab-wa" target="_blank" rel="noopener" aria-label="WhatsApp"
-     href="https://wa.me/249121282300?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B4%D8%B1%D9%83%D8%A9%20%D8%B3%D9%88%D8%AF%D9%8A%2C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D8%A8%D8%AE%D8%B5%D9%88%D8%B5%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%D9%83%D9%85.">
-    WA
+        <div class="footer__right">
+          <a class="footLink" href="#top">أعلى ↑</a>
+          <a class="footLink" href="#sectors">القطاعات</a>
+          <a class="footLink" href="#contact">تواصل</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Floating WhatsApp -->
+  <a class="floatWA" href="https://wa.me/966500000000" target="_blank" rel="noopener" aria-label="واتساب">
+    <span aria-hidden="true">💬</span>
   </a>
 
-  <button class="fab fab-top" id="toTop" aria-label="أعلى">↑</button>
-
-  <script src="/js/main.js" defer></script>
 </body>
 </html>
