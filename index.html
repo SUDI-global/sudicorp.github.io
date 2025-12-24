@@ -1,368 +1,505 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>شركة سودي العالمية للاستثمار | SUDI Global Investment</title>
-  <meta name="description" content="شركة سودي العالمية للاستثمار – خبرة منذ 2013 في الاستثمار، الزراعة، العقارات، التسويق، البرمجة، التصميم، والطاقة الشمسية. حلول متكاملة بمعايير مؤسسية." />
-  <meta name="robots" content="index,follow,max-image-preview:large" />
-
-  <!-- Canonical -->
-  <link rel="canonical" href="https://sudicorp.com/" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="theme-color" content="#0b2d4d"/>
+  <title>شركة سودي العالمية للاستثمار | SUDI</title>
+  <meta name="description" content="شركة سودي العالمية للاستثمار — خبرة منذ 2013 في الاستثمار، الزراعة، العقارات، التسويق، البرمجة، التصميم، والطاقة الشمسية."/>
+  <link rel="canonical" href="https://sudicorp.com/"/>
 
   <!-- Open Graph -->
-  <meta property="og:title" content="شركة سودي العالمية للاستثمار | SUDI Global Investment" />
-  <meta property="og:description" content="خبرة منذ 2013 في الاستثمار، الزراعة، العقارات، التسويق، البرمجة، التصميم، والطاقة الشمسية." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://sudicorp.com/" />
-  <meta property="og:image" content="https://sudicorp.com/assets/logo.png" />
+  <meta property="og:title" content="شركة سودي العالمية للاستثمار | SUDI"/>
+  <meta property="og:description" content="خبرة منذ 2013 في الاستثمار، الزراعة، العقارات، التسويق، البرمجة، التصميم، والطاقة الشمسية."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://sudicorp.com/"/>
+  <meta property="og:image" content="https://sudicorp.com/assets/logo.png"/>
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="شركة سودي العالمية للاستثمار" />
-  <meta name="twitter:description" content="خبرة منذ 2013 في الاستثمار، الزراعة، العقارات، التسويق، البرمجة، التصميم، والطاقة الشمسية." />
+  <!-- Bootstrap RTL -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <!-- Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- AOS animations -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Swiper slider -->
+  <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Favicon (اختياري: لو عندك أيقونة ارفعها كـ assets/favicon.png) -->
-  <link rel="icon" href="/assets/logo.png" />
+  <link rel="stylesheet" href="/css/styles.css"/>
 
-  <!-- Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="/css/styles.css" />
-
-  <!-- Structured Data -->
+  <!-- Structured data -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "شركة سودي العالمية للاستثمار",
-    "alternateName": "SUDI Global Investment",
-    "url": "https://sudicorp.com/",
-    "logo": "https://sudicorp.com/assets/logo.png",
-    "foundingDate": "2013",
-    "email": "sudi@sudicorp.com",
-    "telephone": ["+249129769999"," +249121282300"],
-    "description": "شركة سودي العالمية للاستثمار – خبرة منذ 2013 في الاستثمار، الزراعة، العقارات، التسويق، البرمجة، التصميم، والطاقة الشمسية.",
-    "address": { "@type": "PostalAddress", "addressCountry": "SD" }
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"شركة سودي العالمية للاستثمار",
+    "alternateName":"SUDI Global Investment",
+    "url":"https://sudicorp.com/",
+    "logo":"https://sudicorp.com/assets/logo.png",
+    "foundingDate":"2013",
+    "email":"sudi@sudicorp.com",
+    "telephone":["+249129769999","+249121282300"],
+    "description":"شركة سودي العالمية للاستثمار — خبرة منذ 2013 في الاستثمار، الزراعة، العقارات، التسويق، البرمجة، التصميم، والطاقة الشمسية."
   }
   </script>
 </head>
 
-<body>
-  <a class="skip" href="#main">تخطي إلى المحتوى</a>
+<body class="bg-sudi">
+  <!-- Top strip -->
+  <div class="top-strip">
+    <div class="container d-flex flex-wrap gap-2 align-items-center justify-content-between py-2">
+      <div class="d-flex align-items-center gap-2 text-white-75 small">
+        <span class="pill"><i class="bi bi-award"></i> منذ 2013</span>
+        <span>شركة سودي العالمية للاستثمار — حلول متعددة القطاعات بمعيار مؤسسي</span>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        <a class="top-link" href="mailto:sudi@sudicorp.com"><i class="bi bi-envelope"></i> sudi@sudicorp.com</a>
+        <span class="dot">•</span>
+        <a class="top-link" href="tel:+249129769999"><i class="bi bi-telephone"></i> 00249129769999</a>
+      </div>
+    </div>
+  </div>
 
-  <!-- Header -->
-  <header class="header" id="top">
-    <div class="container header__inner">
-      <a class="brand" href="#top" aria-label="العودة إلى أعلى الصفحة">
-        <img class="brand__logo" src="/assets/logo.png" alt="شعار شركة سودي" loading="eager" />
-        <div class="brand__text">
-          <span class="brand__name">سودي</span>
-          <span class="brand__sub">شركة سودي العالمية للاستثمار</span>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top nav-glass">
+    <div class="container py-2">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#top">
+        <img src="/assets/logo.png" alt="SUDI" class="logo" onerror="this.src='/assets/logo.jpg'">
+        <div class="lh-sm">
+          <div class="fw-bold">سودي</div>
+          <div class="text-white-50 small">شركة سودي العالمية للاستثمار</div>
         </div>
       </a>
 
-      <button class="navToggle" id="navToggle" aria-label="فتح/إغلاق القائمة" aria-expanded="false" aria-controls="nav">
-        <span></span><span></span><span></span>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
       </button>
 
-      <nav class="nav" id="nav">
-        <a href="#about">عن الشركة</a>
-        <a href="#services">القطاعات</a>
-        <a href="#approach">منهجنا</a>
-        <a href="#contact">تواصل</a>
-        <a class="btn btn--gold" href="#contact">اطلب تواصلاً</a>
-      </nav>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#about">عن الشركة</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sectors">القطاعات</a></li>
+          <li class="nav-item"><a class="nav-link" href="#capabilities">قدراتنا</a></li>
+          <li class="nav-item"><a class="nav-link" href="#work">لماذا نحن</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">تواصل</a></li>
+        </ul>
+
+        <div class="d-flex gap-2 mt-3 mt-lg-0">
+          <a class="btn btn-sudi-gold" href="#contact"><i class="bi bi-lightning-charge"></i> اطلب تواصلاً</a>
+          <a class="btn btn-outline-light" href="#sectors"><i class="bi bi-grid"></i> استعرض</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header id="top" class="hero-section">
+    <div class="hero-bg"></div>
+    <div class="container position-relative">
+      <div class="row align-items-center g-4 py-5">
+        <div class="col-lg-7" data-aos="fade-up" data-aos-duration="900">
+          <div class="hero-badge mb-3">
+            <i class="bi bi-shield-check"></i>
+            <span>حضور مؤسسي • تنفيذ احترافي • نتائج قابلة للقياس</span>
+          </div>
+
+          <h1 class="display-5 fw-black mb-3">
+            شركة سودي العالمية للاستثمار
+          </h1>
+
+          <p class="lead text-white-75 mb-4">
+            نبني فرص نمو مستدامة عبر <strong class="text-white">الاستثمار</strong> وتطوير المشاريع في
+            <strong class="text-white">الزراعة</strong>، <strong class="text-white">العقارات</strong>،
+            <strong class="text-white">التسويق</strong>، <strong class="text-white">البرمجة</strong>،
+            <strong class="text-white">التصميم</strong> و<strong class="text-white">الطاقة الشمسية</strong>
+            بخبرة ممتدة منذ <strong class="text-white">2013</strong>.
+          </p>
+
+          <div class="d-flex flex-wrap gap-2 mb-4">
+            <a href="#contact" class="btn btn-sudi-primary btn-lg">
+              ابدأ الآن <i class="bi bi-arrow-left-short"></i>
+            </a>
+            <a href="#sectors" class="btn btn-outline-light btn-lg">
+              القطاعات <i class="bi bi-chevron-double-down"></i>
+            </a>
+          </div>
+
+          <div class="stats-grid" data-aos="fade-up" data-aos-delay="150">
+            <div class="stat-box">
+              <div class="stat-num" data-count="2013">2013</div>
+              <div class="stat-label">بداية الخبرة</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num" data-count="6">0</div>
+              <div class="stat-label">قطاعات رئيسية</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num" data-count="100">0</div>
+              <div class="stat-label">التزام بالجودة</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5" data-aos="fade-left" data-aos-duration="900">
+          <div class="hero-card">
+            <div class="hero-card-head">
+              <span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span>
+              <span class="ms-2 text-white-50 small">SUDI • Corporate Profile</span>
+            </div>
+
+            <div class="p-4">
+              <h5 class="fw-bold mb-2">ماذا نقدم عمليًا؟</h5>
+              <p class="text-white-75 mb-3">
+                خدمات منضبطة تبدأ بالفهم والتحليل وتنتهي بنتيجة قابلة للقياس.
+              </p>
+
+              <ul class="icon-list mb-4">
+                <li><i class="bi bi-graph-up-arrow"></i> استثمار وتطوير أعمال</li>
+                <li><i class="bi bi-tree"></i> مشاريع زراعية وتشغيل</li>
+                <li><i class="bi bi-buildings"></i> عقارات وتطوير</li>
+                <li><i class="bi bi-megaphone"></i> تسويق وحضور رقمي</li>
+                <li><i class="bi bi-code-slash"></i> برمجة وحلول رقمية</li>
+                <li><i class="bi bi-sun"></i> طاقة شمسية</li>
+              </ul>
+
+              <div class="d-grid gap-2">
+                <a class="btn btn-sudi-gold" target="_blank" rel="noopener"
+                   href="https://wa.me/249121282300?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B4%D8%B1%D9%83%D8%A9%20%D8%B3%D9%88%D8%AF%D9%8A%2C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D8%A8%D8%AE%D8%B5%D9%88%D8%B5%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%D9%83%D9%85.">
+                  واتساب مباشر <i class="bi bi-whatsapp"></i>
+                </a>
+                <a class="btn btn-outline-light" href="mailto:sudi@sudicorp.com">
+                  مراسلة بريدية <i class="bi bi-envelope-open"></i>
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Logos row / trust bar -->
+      <div class="trustbar" data-aos="fade-up" data-aos-delay="200">
+        <div class="trust-item"><i class="bi bi-check2-circle"></i> حوكمة وتنفيذ</div>
+        <div class="trust-item"><i class="bi bi-shield-lock"></i> أمان وموثوقية</div>
+        <div class="trust-item"><i class="bi bi-clock-history"></i> التزام بالمواعيد</div>
+        <div class="trust-item"><i class="bi bi-stars"></i> جودة تجربة المستخدم</div>
+      </div>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero" aria-label="مقدمة">
-    <div class="container hero__grid">
-      <div class="hero__content">
-        <p class="badge">خبرة منذ 2013 • حلول مؤسسية • تنفيذ احترافي</p>
-        <h1>شركة سودي العالمية للاستثمار</h1>
-        <p class="lead">
-          نبني قيمة طويلة المدى عبر استثمارات مدروسة وتطوير مشاريع في
-          <strong>الزراعة</strong>، <strong>العقارات</strong>، <strong>التسويق</strong>، <strong>البرمجة</strong>، <strong>التصميم</strong> و<strong>الطاقة الشمسية</strong>.
+  <!-- About -->
+  <section id="about" class="section-pad">
+    <div class="container">
+      <div class="section-head" data-aos="fade-up">
+        <h2 class="fw-black">عن الشركة</h2>
+        <p class="text-white-75 mb-0">
+          شركة سودي العالمية للاستثمار تعمل بمنهج مؤسسي يوازن بين الرؤية والنتائج.
         </p>
+      </div>
 
-        <div class="hero__cta">
-          <a class="btn btn--primary" href="#services">استعرض القطاعات</a>
-          <a class="btn btn--ghost" href="#about">اعرف المزيد</a>
+      <div class="row g-3 mt-1">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="glass-card h-100">
+            <div class="card-icon"><i class="bi bi-eye"></i></div>
+            <h5 class="fw-bold">الرؤية</h5>
+            <p class="text-white-75">بناء قيمة طويلة المدى عبر مشاريع قوية ومستدامة.</p>
+          </div>
         </div>
 
-        <div class="hero__stats" role="list" aria-label="إحصاءات">
-          <div class="stat" role="listitem">
-            <span class="stat__num">2013</span>
-            <span class="stat__label">بداية الخبرة</span>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="80">
+          <div class="glass-card h-100">
+            <div class="card-icon"><i class="bi bi-bullseye"></i></div>
+            <h5 class="fw-bold">الرسالة</h5>
+            <p class="text-white-75">تقديم حلول قابلة للتوسع وتنفيذ واضح ومقاس.</p>
           </div>
-          <div class="stat" role="listitem">
-            <span class="stat__num">6</span>
-            <span class="stat__label">قطاعات رئيسية</span>
-          </div>
-          <div class="stat" role="listitem">
-            <span class="stat__num">مؤسسي</span>
-            <span class="stat__label">حوكمة وتنفيذ</span>
+        </div>
+
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="160">
+          <div class="glass-card h-100">
+            <div class="card-icon"><i class="bi bi-gem"></i></div>
+            <h5 class="fw-bold">القيم</h5>
+            <p class="text-white-75">الالتزام، الجودة، احترام الوقت، حماية سمعة العميل.</p>
           </div>
         </div>
       </div>
-
-      <div class="hero__card" aria-label="بطاقة تعريف">
-        <div class="glass">
-          <div class="miniHead">
-            <div class="miniHead__dot"></div>
-            <div class="miniHead__dot"></div>
-            <div class="miniHead__dot"></div>
-          </div>
-          <div class="heroCard__body">
-            <h2>هوية راسخة. حضور محترم.</h2>
-            <p>
-              نعمل بمعايير واضحة: تحليل → خطة → تنفيذ → متابعة، مع تركيز على النتائج والسمعة.
-            </p>
-
-            <ul class="ticks">
-              <li>مصداقية وشفافية</li>
-              <li>شراكات طويلة المدى</li>
-              <li>تسليم احترافي</li>
-              <li>حلول قابلة للتوسع</li>
-            </ul>
-
-            <div class="heroCard__actions">
-              <a class="btn btn--gold" href="#contact">تواصل الآن</a>
-              <a class="link" href="mailto:sudi@sudicorp.com">sudi@sudicorp.com</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
-
-    <div class="hero__bg" aria-hidden="true"></div>
   </section>
 
-  <main id="main">
-    <!-- About -->
-    <section class="section" id="about">
-      <div class="container">
-        <div class="sectionHead">
-          <h2>عن الشركة</h2>
-          <p>شركة سودي العالمية للاستثمار تقدم حلولًا متعددة المجالات وفق رؤية نمو مستدام منذ 2013.</p>
-        </div>
-
-        <div class="cards">
-          <article class="card reveal">
-            <h3>رؤيتنا</h3>
-            <p>بناء قيمة اقتصادية حقيقية عبر مشاريع ذات أثر ونتائج قابلة للقياس.</p>
-          </article>
-
-          <article class="card reveal">
-            <h3>رسالتنا</h3>
-            <p>تقديم استشارات وتنفيذ وعمليات تشغيل تساعد الشركات على النمو بثقة واحتراف.</p>
-          </article>
-
-          <article class="card reveal">
-            <h3>قيمنا</h3>
-            <p>الالتزام، الجودة، الوضوح، احترام الوقت، وحماية سمعة العميل.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Services -->
-    <section class="section section--alt" id="services">
-      <div class="container">
-        <div class="sectionHead">
-          <h2>قطاعاتنا</h2>
-          <p>نخدم مشاريع متعددة عبر فرق وخبرات متخصصة.</p>
-        </div>
-
-        <div class="grid">
-          <article class="service reveal">
-            <div class="service__icon">🏦</div>
-            <h3>الاستثمار</h3>
-            <p>تحليل فرص، تخطيط، بناء محافظ، ودراسة جدوى بمقاربة واقعية.</p>
-          </article>
-
-          <article class="service reveal">
-            <div class="service__icon">🌿</div>
-            <h3>الزراعة</h3>
-            <p>مشاريع زراعية وإدارة تشغيل وتطوير سلاسل إمداد بصورة احترافية.</p>
-          </article>
-
-          <article class="service reveal">
-            <div class="service__icon">🏙️</div>
-            <h3>العقارات</h3>
-            <p>تطوير عقاري، تسويق عقاري، إدارة وحدات، وحلول نمذجة عوائد.</p>
-          </article>
-
-          <article class="service reveal">
-            <div class="service__icon">📣</div>
-            <h3>التسويق</h3>
-            <p>استراتيجية علامة، حملات، محتوى، وتحسين ظهور Google وفق أفضل الممارسات.</p>
-          </article>
-
-          <article class="service reveal">
-            <div class="service__icon">💻</div>
-            <h3>البرمجة</h3>
-            <p>مواقع وأنظمة ولوحات تحكم وتكاملات بريد ودومين وفق معيار مؤسسي.</p>
-          </article>
-
-          <article class="service reveal">
-            <div class="service__icon">🎨</div>
-            <h3>التصميم</h3>
-            <p>هويات بصرية، عروض، واجهات UI/UX، ومخرجات جاهزة للاستخدام التجاري.</p>
-          </article>
-
-          <article class="service reveal">
-            <div class="service__icon">☀️</div>
-            <h3>الطاقة الشمسية</h3>
-            <p>حلول طاقة شمسية للأفراد والشركات مع تصور تكلفة/عائد ومقترحات تنفيذ.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Approach -->
-    <section class="section" id="approach">
-      <div class="container">
-        <div class="sectionHead">
-          <h2>منهجنا في العمل</h2>
-          <p>خطوات واضحة تُظهر الاحتراف وتضمن نتيجة فعلية.</p>
-        </div>
-
-        <div class="timeline">
-          <div class="step reveal">
-            <span class="step__n">01</span>
-            <div>
-              <h3>فهم الهدف</h3>
-              <p>نحدد الهدف التجاري بدقة، وليس “كلام عام”.</p>
-            </div>
-          </div>
-
-          <div class="step reveal">
-            <span class="step__n">02</span>
-            <div>
-              <h3>تحليل & خطة</h3>
-              <p>خطة واضحة بمخرجات محددة وجدول قابل للتنفيذ.</p>
-            </div>
-          </div>
-
-          <div class="step reveal">
-            <span class="step__n">03</span>
-            <div>
-              <h3>تنفيذ بمعيار</h3>
-              <p>تنفيذ نظيف وموثق، مع اهتمام بالشكل والنتيجة.</p>
-            </div>
-          </div>
-
-          <div class="step reveal">
-            <span class="step__n">04</span>
-            <div>
-              <h3>متابعة وتحسين</h3>
-              <p>تحسين مستمر بناء على البيانات والتغذية الراجعة.</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section class="section section--alt" id="contact">
-      <div class="container">
-        <div class="sectionHead">
-          <h2>تواصل معنا</h2>
-          <p>جاهزون للتواصل الرسمي وتقديم عرض مناسب.</p>
-        </div>
-
-        <div class="contact">
-          <div class="contactCard reveal">
-            <h3>بيانات التواصل</h3>
-
-            <div class="contactRow">
-              <span class="k">البريد</span>
-              <a class="v" href="mailto:sudi@sudicorp.com">sudi@sudicorp.com</a>
-            </div>
-
-            <div class="contactRow">
-              <span class="k">الهاتف (الرئيسي)</span>
-              <a class="v" href="tel:+249129769999">+249 12 976 9999</a>
-            </div>
-
-            <div class="contactRow">
-              <span class="k">الهاتف (إضافي)</span>
-              <a class="v" href="tel:+249121282300">+249 12 128 2300</a>
-            </div>
-
-            <div class="contactActions">
-              <a class="btn btn--primary" href="mailto:sudi@sudicorp.com">أرسل بريد</a>
-              <a class="btn btn--gold" target="_blank" rel="noopener"
-                 href="https://wa.me/249121282300?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%20%D8%B4%D8%B1%D9%83%D8%A9%20%D8%B3%D9%88%D8%AF%D9%8A%20%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85%D9%8A%D8%A9%20%D9%84%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1.">
-                واتساب
-              </a>
-            </div>
-
-            <p class="note">
-              * اسم الموقع داخليًا/برمجيًا: <strong>sudicorp.com</strong>  
-              والاسم التجاري المعروض: <strong>شركة سودي العالمية للاستثمار</strong>.
-            </p>
-          </div>
-
-          <div class="contactCard contactCard--dark reveal">
-            <h3>رسالة سريعة</h3>
-            <p>اكتب رسالة قصيرة وسيتم التواصل معك.</p>
-
-            <!-- نموذج بسيط (لا يرسل تلقائيًا بدون باك-إند، لكنه يعطي شكل احترافي) -->
-            <form class="form" id="leadForm">
-              <label>
-                الاسم
-                <input name="name" type="text" placeholder="اسمك الكامل" required>
-              </label>
-
-              <label>
-                البريد
-                <input name="email" type="email" placeholder="example@email.com" required>
-              </label>
-
-              <label>
-                الرسالة
-                <textarea name="message" rows="5" placeholder="اكتب طلبك أو مشروعك باختصار..." required></textarea>
-              </label>
-
-              <button class="btn btn--primary" type="submit">إرسال</button>
-              <p class="formHint" id="formHint" aria-live="polite"></p>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer__inner">
-      <div class="footer__left">
-        <img src="/assets/logo.png" class="footer__logo" alt="شعار سودي" loading="lazy" />
+  <!-- Sectors (Swiper) -->
+  <section id="sectors" class="section-pad section-alt">
+    <div class="container">
+      <div class="section-head d-flex flex-wrap align-items-end justify-content-between gap-2" data-aos="fade-up">
         <div>
-          <strong>شركة سودي العالمية للاستثمار</strong>
-          <div class="muted">© <span id="year"></span> جميع الحقوق محفوظة</div>
+          <h2 class="fw-black mb-1">قطاعاتنا</h2>
+          <p class="text-white-75 mb-0">واجهة حديثة + سلايدر سلس + تفاعل محترم.</p>
+        </div>
+        <div class="d-flex gap-2">
+          <button class="btn btn-outline-light btn-sm swiper-prev"><i class="bi bi-chevron-right"></i></button>
+          <button class="btn btn-outline-light btn-sm swiper-next"><i class="bi bi-chevron-left"></i></button>
         </div>
       </div>
 
-      <div class="footer__right">
-        <a href="#top">أعلى الصفحة</a>
-        <span class="dot">•</span>
-        <a href="mailto:sudi@sudicorp.com">البريد</a>
-        <span class="dot">•</span>
-        <a href="https://sudicorp.com/sitemap.xml">Sitemap</a>
+      <div class="swiper mt-4" id="sectorsSwiper" data-aos="fade-up" data-aos-delay="80">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="sector-card">
+              <div class="sector-ico"><i class="bi bi-graph-up"></i></div>
+              <h5 class="fw-bold">الاستثمار</h5>
+              <p class="text-white-75">دراسة فرص، تقييم مخاطر، وبناء خطط نمو واقعية.</p>
+              <a href="#contact" class="link-more">اطلب عرض <i class="bi bi-arrow-left-short"></i></a>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="sector-card">
+              <div class="sector-ico"><i class="bi bi-tree"></i></div>
+              <h5 class="fw-bold">الزراعة</h5>
+              <p class="text-white-75">تشغيل وإدارة مشاريع زراعية بأساليب حديثة.</p>
+              <a href="#contact" class="link-more">تواصل <i class="bi bi-arrow-left-short"></i></a>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="sector-card">
+              <div class="sector-ico"><i class="bi bi-buildings"></i></div>
+              <h5 class="fw-bold">العقارات</h5>
+              <p class="text-white-75">تطوير وتسويق وإدارة مشاريع مرتبطة بالاستثمار.</p>
+              <a href="#contact" class="link-more">اطلب تواصلاً <i class="bi bi-arrow-left-short"></i></a>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="sector-card">
+              <div class="sector-ico"><i class="bi bi-megaphone"></i></div>
+              <h5 class="fw-bold">التسويق</h5>
+              <p class="text-white-75">استراتيجية + محتوى + تحسين ظهور Google (SEO).</p>
+              <a href="#contact" class="link-more">ابدأ <i class="bi bi-arrow-left-short"></i></a>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="sector-card">
+              <div class="sector-ico"><i class="bi bi-code-slash"></i></div>
+              <h5 class="fw-bold">البرمجة</h5>
+              <p class="text-white-75">مواقع وأنظمة ولوحات تحكم بمعيار مؤسسي.</p>
+              <a href="#contact" class="link-more">اطلب مشروع <i class="bi bi-arrow-left-short"></i></a>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="sector-card">
+              <div class="sector-ico"><i class="bi bi-palette2"></i></div>
+              <h5 class="fw-bold">التصميم</h5>
+              <p class="text-white-75">هوية بصرية، UI/UX، مخرجات جاهزة للاستخدام.</p>
+              <a href="#contact" class="link-more">تواصل <i class="bi bi-arrow-left-short"></i></a>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="sector-card">
+              <div class="sector-ico"><i class="bi bi-sun"></i></div>
+              <h5 class="fw-bold">الطاقة الشمسية</h5>
+              <p class="text-white-75">تصور تكلفة/عائد ومقترحات حلول مناسبة.</p>
+              <a href="#contact" class="link-more">اطلب استشارة <i class="bi bi-arrow-left-short"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-pagination"></div>
       </div>
     </div>
-  </footer>
+  </section>
 
-  <script src="/js/main.js" defer></script>
+  <!-- Capabilities -->
+  <section id="capabilities" class="section-pad">
+    <div class="container">
+      <div class="section-head" data-aos="fade-up">
+        <h2 class="fw-black">قدراتنا</h2>
+        <p class="text-white-75 mb-0">أشياء تشوفها في مواقع الشركات الكبيرة: تنظيم + وضوح + تدرج بصري.</p>
+      </div>
+
+      <div class="row g-3 mt-2">
+        <div class="col-lg-6" data-aos="fade-up">
+          <div class="feature-card h-100">
+            <div class="feature-top">
+              <div class="feature-ico"><i class="bi bi-diagram-3"></i></div>
+              <div>
+                <h5 class="fw-bold mb-1">منهج عمل واضح</h5>
+                <p class="text-white-75 mb-0">تحليل → خطة → تنفيذ → متابعة → تحسين</p>
+              </div>
+            </div>
+            <div class="steps mt-3">
+              <div class="step"><span>01</span> فهم الهدف</div>
+              <div class="step"><span>02</span> تحليل وخطة</div>
+              <div class="step"><span>03</span> تنفيذ بمعيار</div>
+              <div class="step"><span>04</span> قياس وتحسين</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="90">
+          <div class="feature-card h-100">
+            <div class="feature-top">
+              <div class="feature-ico"><i class="bi bi-speedometer2"></i></div>
+              <div>
+                <h5 class="fw-bold mb-1">أداء وتجربة</h5>
+                <p class="text-white-75 mb-0">تصميم خفيف + أنيميشن محترم + موبايل ممتاز</p>
+              </div>
+            </div>
+
+            <div class="progress-wrap mt-4">
+              <div class="p-row">
+                <div class="d-flex justify-content-between small text-white-75">
+                  <span>سرعة</span><span>High</span>
+                </div>
+                <div class="p-bar"><div class="p-fill w-90"></div></div>
+              </div>
+
+              <div class="p-row">
+                <div class="d-flex justify-content-between small text-white-75">
+                  <span>تجربة المستخدم</span><span>Excellent</span>
+                </div>
+                <div class="p-bar"><div class="p-fill w-95"></div></div>
+              </div>
+
+              <div class="p-row">
+                <div class="d-flex justify-content-between small text-white-75">
+                  <span>الاحتراف</span><span>Corporate</span>
+                </div>
+                <div class="p-bar"><div class="p-fill w-92"></div></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why us -->
+  <section id="work" class="section-pad section-alt">
+    <div class="container">
+      <div class="section-head" data-aos="fade-up">
+        <h2 class="fw-black">لماذا نحن؟</h2>
+        <p class="text-white-75 mb-0">بدون كلام فارغ: هذا اللي يفرق شركة محترمة عن صفحة عادية.</p>
+      </div>
+
+      <div class="row g-3 mt-2">
+        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="0">
+          <div class="glass-card h-100">
+            <div class="card-icon"><i class="bi bi-shield-check"></i></div>
+            <h5 class="fw-bold">موثوقية</h5>
+            <p class="text-white-75">نشتغل بحوكمة وتنفيذ، مش اجتهادات عشوائية.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="80">
+          <div class="glass-card h-100">
+            <div class="card-icon"><i class="bi bi-clock-history"></i></div>
+            <h5 class="fw-bold">التزام</h5>
+            <p class="text-white-75">نحترم الوقت ونبني علاقة طويلة المدى.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="160">
+          <div class="glass-card h-100">
+            <div class="card-icon"><i class="bi bi-star-fill"></i></div>
+            <h5 class="fw-bold">جودة</h5>
+            <p class="text-white-75">شكل رسمي + تجربة مريحة + محتوى واضح.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section-pad">
+    <div class="container">
+      <div class="section-head" data-aos="fade-up">
+        <h2 class="fw-black">تواصل معنا</h2>
+        <p class="text-white-75 mb-0">اختر الطريقة الأنسب، أو أرسل رسالة سريعة.</p>
+      </div>
+
+      <div class="row g-3 mt-2">
+        <div class="col-lg-5" data-aos="fade-up">
+          <div class="contact-card h-100">
+            <h5 class="fw-bold mb-3">بيانات التواصل</h5>
+
+            <a class="contact-item" href="mailto:sudi@sudicorp.com">
+              <span class="k"><i class="bi bi-envelope"></i> البريد</span>
+              <span class="v">sudi@sudicorp.com</span>
+            </a>
+
+            <a class="contact-item" href="tel:+249129769999">
+              <span class="k"><i class="bi bi-telephone"></i> الهاتف (الرئيسي)</span>
+              <span class="v">00249129769999</span>
+            </a>
+
+            <a class="contact-item" href="tel:+249121282300">
+              <span class="k"><i class="bi bi-telephone-plus"></i> الهاتف (إضافي)</span>
+              <span class="v">+249 12 128 2300</span>
+            </a>
+
+            <div class="d-grid gap-2 mt-3">
+              <a class="btn btn-sudi-gold" target="_blank" rel="noopener"
+                 href="https://wa.me/249121282300?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B4%D8%B1%D9%83%D8%A9%20%D8%B3%D9%88%D8%AF%D9%8A%2C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D8%A8%D8%AE%D8%B5%D9%88%D8%B5%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%D9%83%D9%85.">
+                واتساب مباشر <i class="bi bi-whatsapp"></i>
+              </a>
+              <a class="btn btn-outline-light" href="mailto:sudi@sudicorp.com">إرسال بريد <i class="bi bi-send"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7" data-aos="fade-up" data-aos-delay="80">
+          <div class="contact-card h-100">
+            <h5 class="fw-bold mb-2">رسالة سريعة</h5>
+            <p class="text-white-75">النموذج يفتح بريدك جاهز للإرسال (بدون سيرفر).</p>
+
+            <form id="leadForm" class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">الاسم</label>
+                <input class="form-control form-control-lg form-dark" name="name" required placeholder="اسمك الكامل">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">رقم التواصل</label>
+                <input class="form-control form-control-lg form-dark" name="phone" placeholder="+966...">
+              </div>
+              <div class="col-12">
+                <label class="form-label">البريد</label>
+                <input class="form-control form-control-lg form-dark" name="email" type="email" placeholder="example@email.com">
+              </div>
+              <div class="col-12">
+                <label class="form-label">الرسالة</label>
+                <textarea class="form-control form-control-lg form-dark" name="message" rows="5" required placeholder="اكتب طلبك أو فكرتك باختصار..."></textarea>
+              </div>
+              <div class="col-12 d-flex flex-wrap gap-2 align-items-center">
+                <button class="btn btn-sudi-primary btn-lg" type="submit">فتح البريد للإرسال <i class="bi bi-envelope-paper"></i></button>
+                <span id="formHint" class="small text-white-75"></span>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-mini mt-4 text-center text-white-50 small">
+        © <span id="year"></span> شركة سودي العالمية للاستثمار — sudicorp.com
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating actions -->
+  <a class="float-wa" target="_blank" rel="noopener"
+     href="https://wa.me/249121282300?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B4%D8%B1%D9%83%D8%A9%20%D8%B3%D9%88%D8%AF%D9%8A%2C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D8%A8%D8%AE%D8%B5%D9%88%D8%B5%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%D9%83%D9%85.">
+    <i class="bi bi-whatsapp"></i>
+  </a>
+
+  <button class="float-top" id="toTop" aria-label="أعلى">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <!-- libs -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script src="/js/main.js"></script>
 </body>
 </html>
