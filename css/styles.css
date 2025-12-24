@@ -511,4 +511,31 @@ body.bg-sudi{
   transform: translateY(-2px);
   box-shadow: 0 22px 50px rgba(11,45,77,.35);
 }
+/* ===== UIVERSE CARD – LIGHT CORPORATE ===== */
+.ui-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 28px;
+  border: 1px solid #e5e7eb;
+  transition: all .35s ease;
+  box-shadow: 0 18px 40px rgba(2,6,23,.08);
+  height: 100%;
+}
+
+.ui-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 70px rgba(2,6,23,.15);
+}
+
+.ui-card .icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: rgba(201,162,74,.15);
+  color: #0b2d4d;
+  font-size: 26px;
+  margin-bottom: 16px;
+}
 
