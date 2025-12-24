@@ -1,94 +1,212 @@
-(() => {
-  // سنة الفوتر
-  const yearEl = document.getElementById("year");
+/* SUDI Light Corporate - No external libs */
+
+(function () {
+  const $ = (q, root = document) => root.querySelector(q);
+  const $$ = (q, root = document) => Array.from(root.querySelectorAll(q));
+
+  // Year
+  const yearEl = $("#year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // زر أعلى
-  const toTop = document.getElementById("toTop");
-  const toggleTop = () => {
-    if (!toTop) return;
-    if (window.scrollY > 450) toTop.classList.add("show");
-    else toTop.classList.remove("show");
-  };
-  window.addEventListener("scroll", toggleTop, { passive: true });
-  toggleTop();
+  // Mobile nav toggle
+  const navToggle = $("#navToggle");
+  const nav = $("#nav");
+  if (navToggle && nav) {
+    navToggle.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+    });
 
+    // close on link click (mobile)
+    $$(".navlink", nav).forEach((a) => {
+      a.addEventListener("click", () => {
+        nav.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
+
+  // Smooth scroll with offset (sticky bars)
+  const stickyOffset = () => 130; // topbar+header approx
+  $$(".navlink").forEach((a) => {
+    a.addEventListener("click", (e) => {
+      const href = a.getAttribute("href");
+      if (!href || !href.startsWith("#")) return;
+      const target = $(href);
+      if (!target) return;
+
+      e.preventDefault();
+      const y = target.getBoundingClientRect().top + window.scrollY - stickyOffset();
+      window.scrollTo({ top: y, behavior: "smooth" });
+      history.replaceState(null, "", href);
+    });
+  });
+
+  // Active nav link on scroll
+  const sections = ["#about", "#sectors", "#capabilities", "#why", "#contact"]
+    .map((id) => $(id))
+    .filter(Boolean);
+
+  function setActiveLink() {
+    const y = window.scrollY + stickyOffset() + 20;
+    let current = "#top";
+    for (const sec of sections) {
+      if (sec.offsetTop <= y) current = `#${sec.id}`;
+    }
+    $$(".navlink").forEach((a) => {
+      a.classList.toggle("active", a.getAttribute("href") === current);
+    });
+  }
+  window.addEventListener("scroll", setActiveLink, { passive: true });
+  setActiveLink();
+
+  // Back to top button
+  const toTop = $("#toTop");
   if (toTop) {
+    window.addEventListener(
+      "scroll",
+      () => {
+        const show = window.scrollY > 700;
+        toTop.style.display = show ? "grid" : "none";
+      },
+      { passive: true }
+    );
     toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
   }
 
-  // عدادات بسيطة
-  const counters = document.querySelectorAll("[data-counter]");
-  const runCounter = (el) => {
-    const target = Number(el.getAttribute("data-counter") || "0");
-    const duration = 900;
-    const start = performance.now();
-    const from = 0;
+  // Mailto form
+  const leadForm = $("#leadForm");
+  const formHint = $("#formHint");
+  if (leadForm) {
+    leadForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const data = new FormData(leadForm);
+      const name = (data.get("name") || "").toString().trim();
+      const phone = (data.get("phone") || "").toString().trim();
+      const email = (data.get("email") || "").toString().trim();
+      const message = (data.get("message") || "").toString().trim();
 
-    const step = (t) => {
-      const p = Math.min(1, (t - start) / duration);
-      const val = Math.floor(from + (target - from) * p);
-      el.textContent = String(val);
-      if (p < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  };
+      const subject = encodeURIComponent(`طلب تواصل - ${name || "عميل"}`);
+      const body = encodeURIComponent(
+        `الاسم: ${name}\nالهاتف: ${phone}\nالبريد: ${email}\n\nالرسالة:\n${message}\n`
+      );
 
-  if (counters.length) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          runCounter(e.target);
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.35 });
-
-    counters.forEach(c => io.observe(c));
+      if (formHint) formHint.textContent = "تم فتح البريد…";
+      window.location.href = `mailto:sudi@sudicorp.com?subject=${subject}&body=${body}`;
+      setTimeout(() => { if (formHint) formHint.textContent = ""; }, 2500);
+    });
   }
 
-  // سلايدر القطاعات بدون مكتبات
-  const track = document.getElementById("sectorTrack");
-  const prev = document.getElementById("prevSector");
-  const next = document.getElementById("nextSector");
+  // Counters (stats)
+  function animateCount(el, to) {
+    const isYear = to >= 1900 && to <= 2100;
+    const duration = 900;
+    const start = performance.now();
+    const from = parseInt(el.textContent || "0", 10) || 0;
 
-  const scrollByCard = (dir) => {
-    if (!track) return;
-    const card = track.querySelector(".sector-card");
-    const w = card ? card.getBoundingClientRect().width : 280;
-    track.scrollBy({ left: dir * (w + 14), behavior: "smooth" });
-  };
+    function tick(now) {
+      const p = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const val = Math.round(from + (to - from) * eased);
+      el.textContent = isYear ? String(to) : String(val);
+      if (p < 1) requestAnimationFrame(tick);
+      else el.textContent = String(to);
+    }
+    requestAnimationFrame(tick);
+  }
 
-  if (prev) prev.addEventListener("click", () => scrollByCard(1));   // RTL
-  if (next) next.addEventListener("click", () => scrollByCard(-1));
+  const statNums = $$(".stat-num[data-count]");
+  const seen = new WeakSet();
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting && !seen.has(en.target)) {
+          seen.add(en.target);
+          const to = parseInt(en.target.getAttribute("data-count"), 10);
+          animateCount(en.target, to);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+  statNums.forEach((el) => io.observe(el));
 
-  // نموذج الرسالة: يفتح البريد
-  const form = document.getElementById("leadForm");
-  const hint = document.getElementById("formHint");
+  // Simple carousel (sectors)
+  const track = $("#sectorTrack");
+  const dotsWrap = $("#sectorDots");
+  const btnPrev = $("#prevSector");
+  const btnNext = $("#nextSector");
 
-  if (form) {
-    form.addEventListener("submit", (ev) => {
-      ev.preventDefault();
-      const fd = new FormData(form);
-      const name = (fd.get("name") || "").toString().trim();
-      const phone = (fd.get("phone") || "").toString().trim();
-      const email = (fd.get("email") || "").toString().trim();
-      const message = (fd.get("message") || "").toString().trim();
+  if (track && dotsWrap && btnPrev && btnNext) {
+    const slides = $$(".slide", track);
+    let index = 0;
 
-      const subject = `طلب تواصل - ${name || "عميل"}`;
-      const body =
-`الاسم: ${name}
-الهاتف: ${phone}
-البريد: ${email}
+    const slidesPerView = () => (window.matchMedia("(max-width: 980px)").matches ? 1 : 3);
+    const pageCount = () => Math.ceil(slides.length / slidesPerView());
 
-الرسالة:
-${message}
-`;
+    function buildDots() {
+      dotsWrap.innerHTML = "";
+      const pages = pageCount();
+      for (let i = 0; i < pages; i++) {
+        const d = document.createElement("button");
+        d.className = "dot" + (i === index ? " active" : "");
+        d.type = "button";
+        d.setAttribute("aria-label", `page ${i + 1}`);
+        d.addEventListener("click", () => go(i));
+        dotsWrap.appendChild(d);
+      }
+    }
 
-      const mailto = `mailto:sudi@sudicorp.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      window.location.href = mailto;
+    function update() {
+      const per = slidesPerView();
+      const pages = pageCount();
+      index = Math.max(0, Math.min(index, pages - 1));
 
-      if (hint) hint.textContent = "تم فتح البريد. إذا ما فتح: انسخ الرسالة وأرسلها يدويًا.";
+      const slideWidth = slides[0].getBoundingClientRect().width;
+      const gap = 0; // already in padding
+      const offsetSlides = index * per;
+      const x = offsetSlides * (slideWidth + gap);
+
+      // Because each .slide has padding, using translate by its full width still works (flex item width)
+      track.style.transform = `translateX(${x}px)`;
+
+      $$(".dot", dotsWrap).forEach((d, i) => d.classList.toggle("active", i === index));
+    }
+
+    function go(i) {
+      index = i;
+      update();
+    }
+
+    btnNext.addEventListener("click", () => go(index + 1));
+    btnPrev.addEventListener("click", () => go(index - 1));
+
+    window.addEventListener("resize", () => {
+      buildDots();
+      update();
     });
+
+    // init
+    buildDots();
+    update();
+
+    // Auto-play (خفيف)
+    let t = setInterval(() => {
+      const pages = pageCount();
+      go((index + 1) % pages);
+    }, 4500);
+
+    // stop auto on hover (desktop)
+    const carousel = track.parentElement;
+    if (carousel) {
+      carousel.addEventListener("mouseenter", () => clearInterval(t));
+      carousel.addEventListener("mouseleave", () => {
+        clearInterval(t);
+        t = setInterval(() => {
+          const pages = pageCount();
+          go((index + 1) % pages);
+        }, 4500);
+      });
+    }
   }
 })();
