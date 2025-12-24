@@ -1,212 +1,130 @@
-/* SUDI Light Corporate - No external libs */
-
-(function () {
-  const $ = (q, root = document) => root.querySelector(q);
-  const $$ = (q, root = document) => Array.from(root.querySelectorAll(q));
+(() => {
+  const $ = (q, el = document) => el.querySelector(q);
+  const $$ = (q, el = document) => Array.from(el.querySelectorAll(q));
 
   // Year
   const yearEl = $("#year");
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-  // Mobile nav toggle
-  const navToggle = $("#navToggle");
-  const nav = $("#nav");
-  if (navToggle && nav) {
-    navToggle.addEventListener("click", () => {
-      const isOpen = nav.classList.toggle("open");
-      navToggle.setAttribute("aria-expanded", String(isOpen));
+  // Mobile nav
+  const toggle = $(".nav__toggle");
+  const menu = $("#navMenu");
+  if (toggle && menu) {
+    const closeMenu = () => {
+      menu.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+    };
+
+    toggle.addEventListener("click", () => {
+      const open = menu.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
     });
 
-    // close on link click (mobile)
-    $$(".navlink", nav).forEach((a) => {
-      a.addEventListener("click", () => {
-        nav.classList.remove("open");
-        navToggle.setAttribute("aria-expanded", "false");
-      });
+    // Close on link click
+    $$(".nav__link", menu).forEach(a => a.addEventListener("click", closeMenu));
+
+    // Close on outside click
+    document.addEventListener("click", (e) => {
+      if (!menu.classList.contains("is-open")) return;
+      const isInside = menu.contains(e.target) || toggle.contains(e.target);
+      if (!isInside) closeMenu();
+    });
+
+    // Close on escape
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
     });
   }
 
-  // Smooth scroll with offset (sticky bars)
-  const stickyOffset = () => 130; // topbar+header approx
-  $$(".navlink").forEach((a) => {
-    a.addEventListener("click", (e) => {
-      const href = a.getAttribute("href");
-      if (!href || !href.startsWith("#")) return;
-      const target = $(href);
-      if (!target) return;
+  // Sector filter
+  const filterBtns = $$(".seg");
+  const sectorCards = $$("#sectorCards .uCard");
+  const setActive = (btn) => {
+    filterBtns.forEach(b => b.classList.toggle("is-active", b === btn));
+  };
 
-      e.preventDefault();
-      const y = target.getBoundingClientRect().top + window.scrollY - stickyOffset();
-      window.scrollTo({ top: y, behavior: "smooth" });
-      history.replaceState(null, "", href);
+  filterBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const f = btn.getAttribute("data-filter");
+      setActive(btn);
+
+      sectorCards.forEach(card => {
+        const tags = (card.getAttribute("data-tags") || "").split(/\s+/).filter(Boolean);
+        const show = (f === "all") || tags.includes(f);
+        card.style.display = show ? "" : "none";
+      });
     });
   });
 
-  // Active nav link on scroll
-  const sections = ["#about", "#sectors", "#capabilities", "#why", "#contact"]
-    .map((id) => $(id))
-    .filter(Boolean);
-
-  function setActiveLink() {
-    const y = window.scrollY + stickyOffset() + 20;
-    let current = "#top";
-    for (const sec of sections) {
-      if (sec.offsetTop <= y) current = `#${sec.id}`;
-    }
-    $$(".navlink").forEach((a) => {
-      a.classList.toggle("active", a.getAttribute("href") === current);
-    });
-  }
-  window.addEventListener("scroll", setActiveLink, { passive: true });
-  setActiveLink();
-
-  // Back to top button
-  const toTop = $("#toTop");
-  if (toTop) {
-    window.addEventListener(
-      "scroll",
-      () => {
-        const show = window.scrollY > 700;
-        toTop.style.display = show ? "grid" : "none";
-      },
-      { passive: true }
-    );
-    toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-  }
-
-  // Mailto form
-  const leadForm = $("#leadForm");
-  const formHint = $("#formHint");
-  if (leadForm) {
-    leadForm.addEventListener("submit", (e) => {
+  // Fake profile download (prevent dead link)
+  const downloadProfile = $("#downloadProfile");
+  if (downloadProfile) {
+    downloadProfile.addEventListener("click", (e) => {
       e.preventDefault();
-      const data = new FormData(leadForm);
-      const name = (data.get("name") || "").toString().trim();
-      const phone = (data.get("phone") || "").toString().trim();
-      const email = (data.get("email") || "").toString().trim();
-      const message = (data.get("message") || "").toString().trim();
-
-      const subject = encodeURIComponent(`طلب تواصل - ${name || "عميل"}`);
-      const body = encodeURIComponent(
-        `الاسم: ${name}\nالهاتف: ${phone}\nالبريد: ${email}\n\nالرسالة:\n${message}\n`
-      );
-
-      if (formHint) formHint.textContent = "تم فتح البريد…";
-      window.location.href = `mailto:sudi@sudicorp.com?subject=${subject}&body=${body}`;
-      setTimeout(() => { if (formHint) formHint.textContent = ""; }, 2500);
+      alert("ارفع ملف الـ PDF (مثلاً: profile.pdf) داخل نفس المجلد ثم غيّر رابط الزر له.");
     });
   }
 
-  // Counters (stats)
-  function animateCount(el, to) {
-    const isYear = to >= 1900 && to <= 2100;
-    const duration = 900;
-    const start = performance.now();
-    const from = parseInt(el.textContent || "0", 10) || 0;
+  // WhatsApp sending from form
+  const form = $("#contactForm");
+  const note = $("#formNote");
+  const waBtn = $("#whatsBtn");
 
-    function tick(now) {
-      const p = Math.min(1, (now - start) / duration);
-      const eased = 1 - Math.pow(1 - p, 3);
-      const val = Math.round(from + (to - from) * eased);
-      el.textContent = isYear ? String(to) : String(val);
-      if (p < 1) requestAnimationFrame(tick);
-      else el.textContent = String(to);
-    }
-    requestAnimationFrame(tick);
-  }
+  const buildWhatsAppUrl = (data) => {
+    const phone = "966500000000"; // غيّره لرقمك بدون +
+    const text =
+`طلب تواصل - شركة سودي
+الاسم: ${data.name}
+الجوال: ${data.phone}
+الخدمة: ${data.service}
+الرسالة: ${data.message}`.trim();
 
-  const statNums = $$(".stat-num[data-count]");
-  const seen = new WeakSet();
-  const io = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((en) => {
-        if (en.isIntersecting && !seen.has(en.target)) {
-          seen.add(en.target);
-          const to = parseInt(en.target.getAttribute("data-count"), 10);
-          animateCount(en.target, to);
-        }
-      });
-    },
-    { threshold: 0.5 }
-  );
-  statNums.forEach((el) => io.observe(el));
+    const encoded = encodeURIComponent(text);
+    return `https://wa.me/${phone}?text=${encoded}`;
+  };
 
-  // Simple carousel (sectors)
-  const track = $("#sectorTrack");
-  const dotsWrap = $("#sectorDots");
-  const btnPrev = $("#prevSector");
-  const btnNext = $("#nextSector");
+  const getFormData = () => {
+    const fd = new FormData(form);
+    return {
+      name: (fd.get("name") || "").toString().trim(),
+      phone: (fd.get("phone") || "").toString().trim(),
+      service: (fd.get("service") || "").toString().trim(),
+      message: (fd.get("message") || "").toString().trim(),
+    };
+  };
 
-  if (track && dotsWrap && btnPrev && btnNext) {
-    const slides = $$(".slide", track);
-    let index = 0;
+  const validate = (d) => {
+    if (!d.name || d.name.length < 2) return "اكتب اسم صحيح.";
+    if (!d.phone || d.phone.length < 9) return "اكتب رقم جوال صحيح.";
+    if (!d.service) return "اختر الخدمة المطلوبة.";
+    if (!d.message || d.message.length < 5) return "اكتب رسالة واضحة.";
+    return "";
+  };
 
-    const slidesPerView = () => (window.matchMedia("(max-width: 980px)").matches ? 1 : 3);
-    const pageCount = () => Math.ceil(slides.length / slidesPerView());
-
-    function buildDots() {
-      dotsWrap.innerHTML = "";
-      const pages = pageCount();
-      for (let i = 0; i < pages; i++) {
-        const d = document.createElement("button");
-        d.className = "dot" + (i === index ? " active" : "");
-        d.type = "button";
-        d.setAttribute("aria-label", `page ${i + 1}`);
-        d.addEventListener("click", () => go(i));
-        dotsWrap.appendChild(d);
-      }
-    }
-
-    function update() {
-      const per = slidesPerView();
-      const pages = pageCount();
-      index = Math.max(0, Math.min(index, pages - 1));
-
-      const slideWidth = slides[0].getBoundingClientRect().width;
-      const gap = 0; // already in padding
-      const offsetSlides = index * per;
-      const x = offsetSlides * (slideWidth + gap);
-
-      // Because each .slide has padding, using translate by its full width still works (flex item width)
-      track.style.transform = `translateX(${x}px)`;
-
-      $$(".dot", dotsWrap).forEach((d, i) => d.classList.toggle("active", i === index));
-    }
-
-    function go(i) {
-      index = i;
-      update();
-    }
-
-    btnNext.addEventListener("click", () => go(index + 1));
-    btnPrev.addEventListener("click", () => go(index - 1));
-
-    window.addEventListener("resize", () => {
-      buildDots();
-      update();
+  if (waBtn && form) {
+    waBtn.addEventListener("click", () => {
+      const d = getFormData();
+      const err = validate(d);
+      if (note) note.textContent = err ? err : "سيتم فتح واتساب الآن...";
+      if (err) return;
+      window.open(buildWhatsAppUrl(d), "_blank", "noopener");
     });
-
-    // init
-    buildDots();
-    update();
-
-    // Auto-play (خفيف)
-    let t = setInterval(() => {
-      const pages = pageCount();
-      go((index + 1) % pages);
-    }, 4500);
-
-    // stop auto on hover (desktop)
-    const carousel = track.parentElement;
-    if (carousel) {
-      carousel.addEventListener("mouseenter", () => clearInterval(t));
-      carousel.addEventListener("mouseleave", () => {
-        clearInterval(t);
-        t = setInterval(() => {
-          const pages = pageCount();
-          go((index + 1) % pages);
-        }, 4500);
-      });
-    }
   }
+
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const d = getFormData();
+      const err = validate(d);
+      if (note) note.textContent = err ? err : "تم! سيتم فتح واتساب لإرسال الطلب.";
+      if (err) return;
+
+      // Here we use WhatsApp as default "send" without backend.
+      window.open(buildWhatsAppUrl(d), "_blank", "noopener");
+      form.reset();
+    });
+  }
+
+  // Smooth scroll (safe)
+  document.documentElement.style.scrollBehavior = "smooth";
 })();
