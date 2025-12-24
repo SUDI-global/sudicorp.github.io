@@ -630,3 +630,92 @@ button,input,select,textarea{font:inherit; color:inherit}
 @media (prefers-reduced-motion: reduce){
   *{scroll-behavior:auto !important; transition:none !important; animation:none !important;}
 }
+/* ===== Corporate polish ===== */
+:root{
+  --primary:#0b2d4d;
+  --accent:#c9a24a;          /* ذهبي رسمي */
+  --ink:#0f172a;
+  --paper:#ffffff;
+  --soft:#f6f8fb;
+  --line:#e6ebf2;
+}
+
+body{
+  background: var(--paper) !important;
+  color: var(--ink) !important;
+}
+
+/* اجعل المحتوى وسط ومرتّب */
+.container{
+  width:min(1160px, 92vw);
+}
+
+/* هيدر رسمي */
+.header, header{
+  background: rgba(255,255,255,.92) !important;
+  border-bottom: 1px solid var(--line) !important;
+  backdrop-filter: blur(10px);
+}
+.nav a, .nav__link{
+  color: #0f172a !important;
+  font-weight: 700;
+}
+.nav__link--cta{
+  background: linear-gradient(135deg, var(--primary), #133e64) !important;
+  color:#fff !important;
+  border: 0 !important;
+}
+
+/* عناوين رسمية */
+h1,h2,h3{
+  letter-spacing: .2px;
+}
+.h1{color: var(--primary) !important}
+.grad{color: var(--primary) !important; background:none !important}
+
+/* كروت نظيفة */
+.card, .uCard, .glassCard, .tBody, .faq__item, .form, .miniCard, .stat{
+  background: #fff !important;
+  border: 1px solid var(--line) !important;
+  box-shadow: 0 10px 30px rgba(15,23,42,.06) !important;
+}
+.muted{color:#475569 !important}
+
+/* أزرار رسمية */
+.btn{
+  border-radius: 12px !important;
+  font-weight: 800;
+}
+.btn--primary{
+  background: linear-gradient(135deg, var(--primary), #133e64) !important;
+  border: 0 !important;
+  color:#fff !important;
+}
+.btn--ghost{
+  background: #fff !important;
+  border: 1px solid var(--line) !important;
+  color: var(--primary) !important;
+}
+.btn--outline{
+  border: 1px solid var(--primary) !important;
+  color: var(--primary) !important;
+  background: transparent !important;
+}
+
+/* شرائط/تقسيمات */
+.section{
+  padding: 56px 0 !important;
+  border-top: 1px solid var(--line);
+}
+
+/* أخفِ الخلفيات اللامعة القديمة لو عندك */
+.bg, .bg__grid, .bg__orb, .uCard__glow, .glassCard::before{
+  display:none !important;
+}
+
+/* واتساب عائم رسمي */
+.floatWA{
+  background: var(--primary) !important;
+  color:#fff !important;
+  border: 0 !important;
+}
