@@ -6,10 +6,12 @@
   <meta name="theme-color" content="#0b2d4d"/>
   <title>شركة سودي العالمية للاستثمار | SUDI</title>
   <meta name="description" content="شركة سودي العالمية للاستثمار — خبرة منذ 2013 في الاستثمار، الزراعة، العقارات، التسويق، البرمجة، التصميم، والطاقة الشمسية."/>
-<!-- تحسين التحميل (هذا اللي كنت تسأل عنه) -->
+
+  <!-- تحسين التحميل -->
   <meta http-equiv="x-dns-prefetch-control" content="on">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+
   <link rel="canonical" href="https://sudicorp.com/"/>
 
   <!-- Open Graph -->
@@ -18,12 +20,14 @@
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://sudicorp.com/"/>
   <meta property="og:image" content="https://sudicorp.com/assets/logo.png"/>
-<!-- Favicon (مهم جداً) -->
+
+  <!-- Favicon -->
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <!-- Bootstrap RTL -->
+
+  <!-- Bootstrap RTL (نحتاجه للـ grid فقط) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css">
-  <!-- Icons -->
+  <!-- Icons (ممكن تشيلها لاحقاً لو تبغى) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <!-- AOS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
@@ -31,7 +35,306 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
   <!-- CSS الخاص -->
-  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/styles.css"/>
+
+  <!-- ====== LIGHT + UIVERSE (Inline CSS) ======
+       إذا تكره الـ inline: انقل هذا كله إلى styles.css
+  -->
+  <style>
+    :root{
+      --navy:#0b2d4d;
+      --navy2:#163e63;
+      --gold:#c9a24a;
+      --bg:#f7f9fc;
+      --card:#ffffff;
+      --text:#0b1220;
+      --muted:#6b7280;
+      --border:#e5e7eb;
+      --shadow: 0 18px 45px rgba(2,6,23,.10);
+    }
+
+    body{
+      background: var(--bg) !important;
+      color: var(--text);
+    }
+
+    /* Top strip light */
+    .top-strip{
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+    }
+    .top-strip .text-white-75,
+    .top-strip .small{
+      color: var(--muted) !important;
+    }
+    .top-link{
+      color: var(--navy) !important;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .top-link:hover{ opacity:.85; }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 10px;
+      border-radius:999px;
+      background: rgba(201,162,74,.14);
+      color: var(--navy);
+      font-weight:700;
+    }
+    .dot{ color: var(--muted) !important; }
+
+    /* Navbar light */
+    .nav-glass{
+      background: rgba(255,255,255,.85) !important;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .navbar-dark .navbar-nav .nav-link,
+    .navbar-dark .navbar-brand{
+      color: var(--navy) !important;
+    }
+    .navbar-dark .navbar-nav .nav-link:hover{ opacity:.85; }
+    .navbar-dark .navbar-toggler{
+      border-color: rgba(11,45,77,.25) !important;
+    }
+    .navbar-dark .navbar-toggler-icon{
+      filter: invert(1) grayscale(1) contrast(9);
+    }
+    .logo{ width:42px; height:42px; object-fit:contain; }
+
+    /* Hero light */
+    .hero-section{
+      position: relative;
+      background: radial-gradient(circle at 20% 0%, rgba(201,162,74,.20), transparent 35%),
+                  radial-gradient(circle at 80% 20%, rgba(11,45,77,.15), transparent 35%),
+                  linear-gradient(180deg, #ffffff, var(--bg));
+      overflow:hidden;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-bg{ display:none; } /* إطفاء الخلفية الداكنة القديمة */
+    .hero-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(2,6,23,.06);
+      color: var(--navy);
+      font-weight:700;
+    }
+    .text-white-75{ color: var(--muted) !important; }
+    .fw-black{ font-weight: 900; }
+    .display-5{ color: var(--navy); }
+
+    /* ===== UIVERSE BUTTONS ===== */
+    .ui-btn{
+      position: relative;
+      padding: 14px 26px;
+      border-radius: 14px;
+      font-weight: 800;
+      border: none;
+      background: linear-gradient(135deg, var(--navy), var(--navy2));
+      color: #fff;
+      overflow: hidden;
+      transition: transform .25s ease, box-shadow .25s ease;
+      box-shadow: 0 18px 45px rgba(11,45,77,.20);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+    }
+    .ui-btn::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,.30), transparent);
+      transform: translateX(-110%);
+      transition: transform .7s ease;
+    }
+    .ui-btn:hover::before{ transform: translateX(110%); }
+    .ui-btn:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 28px 70px rgba(11,45,77,.28);
+      color:#fff;
+    }
+
+    .ui-btn-outline{
+      padding: 14px 22px;
+      border-radius: 14px;
+      background:#fff;
+      border:1px solid rgba(11,45,77,.20);
+      color: var(--navy);
+      font-weight: 800;
+      text-decoration:none;
+      transition: transform .25s ease, box-shadow .25s ease;
+      box-shadow: 0 12px 30px rgba(2,6,23,.06);
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+    }
+    .ui-btn-outline:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 20px 55px rgba(2,6,23,.12);
+      color: var(--navy);
+    }
+
+    /* Hero card light */
+    .hero-card{
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .hero-card-head{
+      background: linear-gradient(135deg, rgba(11,45,77,.06), rgba(201,162,74,.10));
+      border-bottom: 1px solid var(--border);
+      padding: 14px 16px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .hero-card-head .dot{ width:10px; height:10px; border-radius:50%; display:inline-block; }
+    .hero-card-head .d1{ background:#ff5f57; }
+    .hero-card-head .d2{ background:#febc2e; }
+    .hero-card-head .d3{ background:#28c840; }
+
+    .icon-list{ list-style:none; padding:0; margin:0; }
+    .icon-list li{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 0;
+      border-bottom: 1px dashed rgba(229,231,235,.9);
+      color: var(--text);
+      font-weight:600;
+    }
+    .icon-list li i{ color: var(--gold); font-size: 18px; }
+    .icon-list li:last-child{ border-bottom:none; }
+
+    /* Trust bar light */
+    .trustbar{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      padding: 10px 0 22px;
+    }
+    .trust-item{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:999px;
+      padding:10px 14px;
+      box-shadow: 0 10px 30px rgba(2,6,23,.05);
+      color: var(--navy);
+      font-weight:800;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .trust-item i{ color: var(--gold); }
+
+    /* Sections background */
+    .section-pad{ padding: 70px 0; }
+    .section-alt{ background: #ffffff; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+    .section-head h2{ color: var(--navy); }
+    .section-head p{ color: var(--muted) !important; }
+
+    /* Replace old glass cards into light cards */
+    .glass-card, .feature-card, .contact-card{
+      background:#fff !important;
+      border:1px solid var(--border) !important;
+      border-radius: 22px !important;
+      box-shadow: var(--shadow) !important;
+      color: var(--text) !important;
+    }
+    .card-icon{
+      width:52px; height:52px; border-radius:16px;
+      display:grid; place-items:center;
+      background: rgba(201,162,74,.14);
+      color: var(--navy);
+      font-size: 22px;
+      margin-bottom: 14px;
+    }
+
+    /* ===== UIVERSE SECTOR CARD (Swiper) ===== */
+    .sector-card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius: 22px;
+      padding: 26px;
+      box-shadow: 0 18px 45px rgba(2,6,23,.08);
+      transition: transform .35s ease, box-shadow .35s ease;
+      height: 100%;
+    }
+    .sector-card:hover{
+      transform: translateY(-6px);
+      box-shadow: 0 30px 70px rgba(2,6,23,.14);
+    }
+    .sector-ico{
+      width:58px; height:58px; border-radius:18px;
+      display:grid; place-items:center;
+      background: rgba(11,45,77,.06);
+      color: var(--navy);
+      font-size: 26px;
+      margin-bottom: 14px;
+    }
+    .sector-card p{ color: var(--muted) !important; }
+    .link-more{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-top: 8px;
+      text-decoration:none;
+      color: var(--navy);
+      font-weight: 900;
+    }
+    .link-more:hover{ opacity:.85; }
+
+    /* Forms light */
+    .form-dark{
+      background:#fff !important;
+      border:1px solid var(--border) !important;
+      color: var(--text) !important;
+    }
+    .form-dark::placeholder{ color:#9ca3af; }
+    .form-label{ color: var(--navy); font-weight: 800; }
+
+    /* Buttons old: force them light */
+    .btn-outline-light{
+      color: var(--navy) !important;
+      border-color: rgba(11,45,77,.25) !important;
+      background:#fff !important;
+    }
+    .btn-outline-light:hover{
+      background: rgba(11,45,77,.06) !important;
+    }
+
+    /* Footer */
+    .footer-mini{ color: var(--muted) !important; }
+
+    /* Floating */
+    .float-wa, .float-top{
+      position: fixed;
+      z-index: 999;
+      width: 52px; height: 52px;
+      border-radius: 16px;
+      display:grid; place-items:center;
+      box-shadow: 0 20px 60px rgba(2,6,23,.18);
+      border:1px solid rgba(229,231,235,.8);
+      background:#fff;
+      color: var(--navy);
+      text-decoration:none;
+      transition: transform .2s ease;
+    }
+    .float-wa{ right: 18px; bottom: 18px; }
+    .float-top{ right: 18px; bottom: 80px; }
+    .float-wa:hover, .float-top:hover{ transform: translateY(-2px); }
+    .float-wa i{ color: #25D366; font-size: 22px; }
+  </style>
 
   <!-- Structured data -->
   <script type="application/ld+json">
@@ -54,9 +357,9 @@
   <!-- Top strip -->
   <div class="top-strip">
     <div class="container d-flex flex-wrap gap-2 align-items-center justify-content-between py-2">
-      <div class="d-flex align-items-center gap-2 text-white-75 small">
+      <div class="d-flex align-items-center gap-2 small">
         <span class="pill"><i class="bi bi-award"></i> منذ 2013</span>
-        <span>شركة سودي العالمية للاستثمار — حلول متعددة القطاعات بمعيار مؤسسي</span>
+        <span class="text-white-75">شركة سودي العالمية للاستثمار — حلول متعددة القطاعات بمعيار مؤسسي</span>
       </div>
       <div class="d-flex align-items-center gap-2">
         <a class="top-link" href="mailto:sudi@sudicorp.com"><i class="bi bi-envelope"></i> sudi@sudicorp.com</a>
@@ -73,7 +376,7 @@
         <img src="/assets/logo.png" alt="SUDI" class="logo" onerror="this.src='/assets/logo.jpg'">
         <div class="lh-sm">
           <div class="fw-bold">سودي</div>
-          <div class="text-white-50 small">شركة سودي العالمية للاستثمار</div>
+          <div class="text-muted small">شركة سودي العالمية للاستثمار</div>
         </div>
       </a>
 
@@ -91,8 +394,8 @@
         </ul>
 
         <div class="d-flex gap-2 mt-3 mt-lg-0">
-          <a class="btn btn-sudi-gold" href="#contact"><i class="bi bi-lightning-charge"></i> اطلب تواصلاً</a>
-          <a class="btn btn-outline-light" href="#sectors"><i class="bi bi-grid"></i> استعرض</a>
+          <a class="ui-btn" href="#contact"><i class="bi bi-lightning-charge"></i> اطلب تواصلاً</a>
+          <a class="ui-btn-outline" href="#sectors"><i class="bi bi-grid"></i> استعرض</a>
         </div>
       </div>
     </div>
@@ -100,7 +403,6 @@
 
   <!-- Hero -->
   <header id="top" class="hero-section">
-    <div class="hero-bg"></div>
     <div class="container position-relative">
       <div class="row align-items-center g-4 py-5">
         <div class="col-lg-7" data-aos="fade-up" data-aos-duration="900">
@@ -114,19 +416,16 @@
           </h1>
 
           <p class="lead text-white-75 mb-4">
-            نبني فرص نمو مستدامة عبر <strong class="text-white">الاستثمار</strong> وتطوير المشاريع في
-            <strong class="text-white">الزراعة</strong>، <strong class="text-white">العقارات</strong>،
-            <strong class="text-white">التسويق</strong>، <strong class="text-white">البرمجة</strong>،
-            <strong class="text-white">التصميم</strong> و<strong class="text-white">الطاقة الشمسية</strong>
-            بخبرة ممتدة منذ <strong class="text-white">2013</strong>.
+            نبني فرص نمو مستدامة عبر <strong style="color:var(--navy)">الاستثمار</strong> وتطوير المشاريع في
+            <strong style="color:var(--navy)">الزراعة</strong>، <strong style="color:var(--navy)">العقارات</strong>،
+            <strong style="color:var(--navy)">التسويق</strong>، <strong style="color:var(--navy)">البرمجة</strong>،
+            <strong style="color:var(--navy)">التصميم</strong> و<strong style="color:var(--navy)">الطاقة الشمسية</strong>
+            بخبرة ممتدة منذ <strong style="color:var(--navy)">2013</strong>.
           </p>
 
           <div class="d-flex flex-wrap gap-2 mb-4">
-        
-  <a href="#contact" class="ui-btn">ابدأ الآن</a> 
-            <a href="#sectors" class="btn btn-outline-light btn-lg">
-              القطاعات <i class="bi bi-chevron-double-down"></i>
-            </a>
+            <a href="#contact" class="ui-btn"><i class="bi bi-arrow-left-short"></i> ابدأ الآن</a>
+            <a href="#sectors" class="ui-btn-outline"><i class="bi bi-chevron-double-down"></i> القطاعات</a>
           </div>
 
           <div class="stats-grid" data-aos="fade-up" data-aos-delay="150">
@@ -149,11 +448,11 @@
           <div class="hero-card">
             <div class="hero-card-head">
               <span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span>
-              <span class="ms-2 text-white-50 small">SUDI • Corporate Profile</span>
+              <span class="ms-2 text-muted small">SUDI • Corporate Profile</span>
             </div>
 
             <div class="p-4">
-              <h5 class="fw-bold mb-2">ماذا نقدم عمليًا؟</h5>
+              <h5 class="fw-bold mb-2" style="color:var(--navy)">ماذا نقدم عمليًا؟</h5>
               <p class="text-white-75 mb-3">
                 خدمات منضبطة تبدأ بالفهم والتحليل وتنتهي بنتيجة قابلة للقياس.
               </p>
@@ -164,15 +463,15 @@
                 <li><i class="bi bi-building-check"></i> عقارات وتطوير</li>
                 <li><i class="bi bi-bullseye"></i> تسويق وحضور رقمي</li>
                 <li><i class="bi bi-braces-asterisk"></i> برمجة وحلول رقمية</li>
-                <li><i class="bi bi-bezier2"></i> طاقة شمسية</li>
+                <li><i class="bi bi-sun"></i> طاقة شمسية</li>
               </ul>
 
               <div class="d-grid gap-2">
-                <a class="btn btn-sudi-gold" target="_blank" rel="noopener"
+                <a class="ui-btn" target="_blank" rel="noopener"
                    href="https://wa.me/249121282300?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B4%D8%B1%D9%83%D8%A9%20%D8%B3%D9%88%D8%AF%D9%8A%2C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D8%A8%D8%AE%D8%B5%D9%88%D8%B5%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%D9%83%D9%85.">
                   واتساب مباشر <i class="bi bi-whatsapp"></i>
                 </a>
-                <a class="btn btn-outline-light" href="mailto:sudi@sudicorp.com">
+                <a class="ui-btn-outline" href="mailto:sudi@sudicorp.com">
                   مراسلة بريدية <i class="bi bi-envelope-open"></i>
                 </a>
               </div>
@@ -182,12 +481,12 @@
         </div>
       </div>
 
-      <!-- Logos row / trust bar -->
+      <!-- Trust bar -->
       <div class="trustbar" data-aos="fade-up" data-aos-delay="200">
-      <div class="trust-item"><i class="bi bi-patch-check"></i> حوكمة وتنفيذ</div>
-<div class="trust-item"><i class="bi bi-lock"></i> أمان وموثوقية</div>
-<div class="trust-item"><i class="bi bi-stopwatch"></i> التزام بالمواعيد</div>
-<div class="trust-item"><i class="bi bi-award"></i> جودة تجربة المستخدم</div>
+        <div class="trust-item"><i class="bi bi-patch-check"></i> حوكمة وتنفيذ</div>
+        <div class="trust-item"><i class="bi bi-lock"></i> أمان وموثوقية</div>
+        <div class="trust-item"><i class="bi bi-stopwatch"></i> التزام بالمواعيد</div>
+        <div class="trust-item"><i class="bi bi-award"></i> جودة تجربة المستخدم</div>
       </div>
     </div>
   </header>
@@ -197,87 +496,86 @@
     <div class="container">
       <div class="section-head" data-aos="fade-up">
         <h2 class="fw-black">عن الشركة</h2>
-        <p class="text-white-75 mb-0">
-          شركة سودي العالمية للاستثمار تعمل بمنهج مؤسسي يوازن بين الرؤية والنتائج.
-        </p>
+        <p class="mb-0 text-white-75">شركة سودي العالمية للاستثمار تعمل بمنهج مؤسسي يوازن بين الرؤية والنتائج.</p>
       </div>
 
       <div class="row g-3 mt-1">
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
-          <div class="glass-card h-100">
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="glass-card h-100 p-4">
             <div class="card-icon"><i class="bi bi-eye"></i></div>
-            <h5 class="fw-bold">الرؤية</h5>
-            <p class="text-white-75">بناء قيمة طويلة المدى عبر مشاريع قوية ومستدامة.</p>
+            <h5 class="fw-bold" style="color:var(--navy)">الرؤية</h5>
+            <p class="text-white-75 mb-0">بناء قيمة طويلة المدى عبر مشاريع قوية ومستدامة.</p>
           </div>
         </div>
 
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="80">
-          <div class="glass-card h-100">
+          <div class="glass-card h-100 p-4">
             <div class="card-icon"><i class="bi bi-bullseye"></i></div>
-            <h5 class="fw-bold">الرسالة</h5>
-            <p class="text-white-75">تقديم حلول قابلة للتوسع وتنفيذ واضح ومقاس.</p>
+            <h5 class="fw-bold" style="color:var(--navy)">الرسالة</h5>
+            <p class="text-white-75 mb-0">تقديم حلول قابلة للتوسع وتنفيذ واضح ومقاس.</p>
           </div>
         </div>
 
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="160">
-          <div class="glass-card h-100">
+          <div class="glass-card h-100 p-4">
             <div class="card-icon"><i class="bi bi-gem"></i></div>
-            <h5 class="fw-bold">القيم</h5>
-            <p class="text-white-75">الالتزام، الجودة، احترام الوقت، حماية سمعة العميل.</p>
+            <h5 class="fw-bold" style="color:var(--navy)">القيم</h5>
+            <p class="text-white-75 mb-0">الالتزام، الجودة، احترام الوقت، حماية سمعة العميل.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Sectors (Swiper) -->
+  <!-- Sectors -->
   <section id="sectors" class="section-pad section-alt">
     <div class="container">
       <div class="section-head d-flex flex-wrap align-items-end justify-content-between gap-2" data-aos="fade-up">
         <div>
           <h2 class="fw-black mb-1">قطاعاتنا</h2>
-          <p class="text-white-75 mb-0">واجهة حديثة + سلايدر سلس + تفاعل محترم.</p>
+          <p class="mb-0 text-white-75">كروت Uiverse + سلايدر سلس.</p>
         </div>
         <div class="d-flex gap-2">
-          <button class="btn btn-outline-light btn-sm swiper-prev"><i class="bi bi-chevron-right"></i></button>
-          <button class="btn btn-outline-light btn-sm swiper-next"><i class="bi bi-chevron-left"></i></button>
+          <button class="ui-btn-outline swiper-prev" type="button"><i class="bi bi-chevron-right"></i></button>
+          <button class="ui-btn-outline swiper-next" type="button"><i class="bi bi-chevron-left"></i></button>
         </div>
       </div>
 
       <div class="swiper mt-4" id="sectorsSwiper" data-aos="fade-up" data-aos-delay="80">
         <div class="swiper-wrapper">
+
           <div class="swiper-slide">
             <div class="sector-card">
               <div class="sector-ico"><i class="bi bi-graph-up"></i></div>
-              <h5 class="fw-bold">الاستثمار</h5>
-              <p class="text-white-75">دراسة فرص، تقييم مخاطر، وبناء خطط نمو واقعية.</p>
+              <h5 class="fw-bold" style="color:var(--navy)">الاستثمار</h5>
+              <p class="mb-2">دراسة فرص، تقييم مخاطر، وبناء خطط نمو واقعية.</p>
               <a href="#contact" class="link-more">اطلب عرض <i class="bi bi-arrow-left-short"></i></a>
             </div>
           </div>
 
           <div class="swiper-slide">
             <div class="sector-card">
-              <div class="sector-ico"><i class="bi bi-tree"></i></div>
-              <h5 class="fw-bold">الزراعة</h5>
-              <p class="text-white-75">تشغيل وإدارة مشاريع زراعية بأساليب حديثة.</p>
+              <div class="sector-ico"><i class="bi bi-flower1"></i></div>
+              <h5 class="fw-bold" style="color:var(--navy)">الزراعة</h5>
+              <p class="mb-2">تشغيل وإدارة مشاريع زراعية بأساليب حديثة.</p>
               <a href="#contact" class="link-more">تواصل <i class="bi bi-arrow-left-short"></i></a>
             </div>
           </div>
 
           <div class="swiper-slide">
             <div class="sector-card">
-              <div class="sector-ico"><i class="bi bi-buildings"></i></div>
-              <h5 class="fw-bold">العقارات</h5>
-              <p class="text-white-75">تطوير وتسويق وإدارة مشاريع مرتبطة بالاستثمار.</p>
+              <div class="sector-ico"><i class="bi bi-building-check"></i></div>
+              <h5 class="fw-bold" style="color:var(--navy)">العقارات</h5>
+              <p class="mb-2">تطوير وتسويق وإدارة مشاريع مرتبطة بالاستثمار.</p>
               <a href="#contact" class="link-more">اطلب تواصلاً <i class="bi bi-arrow-left-short"></i></a>
             </div>
           </div>
 
           <div class="swiper-slide">
             <div class="sector-card">
-              <div class="sector-ico"><i class="bi bi-megaphone"></i></div>
-              <h5 class="fw-bold">التسويق</h5>
-              <p class="text-white-75">استراتيجية + محتوى + تحسين ظهور Google (SEO).</p>
+              <div class="sector-ico"><i class="bi bi-bullseye"></i></div>
+              <h5 class="fw-bold" style="color:var(--navy)">التسويق</h5>
+              <p class="mb-2">استراتيجية + محتوى + تحسين ظهور Google (SEO).</p>
               <a href="#contact" class="link-more">ابدأ <i class="bi bi-arrow-left-short"></i></a>
             </div>
           </div>
@@ -285,8 +583,8 @@
           <div class="swiper-slide">
             <div class="sector-card">
               <div class="sector-ico"><i class="bi bi-code-slash"></i></div>
-              <h5 class="fw-bold">البرمجة</h5>
-              <p class="text-white-75">مواقع وأنظمة ولوحات تحكم بمعيار مؤسسي.</p>
+              <h5 class="fw-bold" style="color:var(--navy)">البرمجة</h5>
+              <p class="mb-2">مواقع وأنظمة ولوحات تحكم بمعيار مؤسسي.</p>
               <a href="#contact" class="link-more">اطلب مشروع <i class="bi bi-arrow-left-short"></i></a>
             </div>
           </div>
@@ -294,8 +592,8 @@
           <div class="swiper-slide">
             <div class="sector-card">
               <div class="sector-ico"><i class="bi bi-palette2"></i></div>
-              <h5 class="fw-bold">التصميم</h5>
-              <p class="text-white-75">هوية بصرية، UI/UX، مخرجات جاهزة للاستخدام.</p>
+              <h5 class="fw-bold" style="color:var(--navy)">التصميم</h5>
+              <p class="mb-2">هوية بصرية، UI/UX، مخرجات جاهزة للاستخدام.</p>
               <a href="#contact" class="link-more">تواصل <i class="bi bi-arrow-left-short"></i></a>
             </div>
           </div>
@@ -303,11 +601,12 @@
           <div class="swiper-slide">
             <div class="sector-card">
               <div class="sector-ico"><i class="bi bi-sun"></i></div>
-              <h5 class="fw-bold">الطاقة الشمسية</h5>
-              <p class="text-white-75">تصور تكلفة/عائد ومقترحات حلول مناسبة.</p>
+              <h5 class="fw-bold" style="color:var(--navy)">الطاقة الشمسية</h5>
+              <p class="mb-2">تصور تكلفة/عائد ومقترحات حلول مناسبة.</p>
               <a href="#contact" class="link-more">اطلب استشارة <i class="bi bi-arrow-left-short"></i></a>
             </div>
           </div>
+
         </div>
 
         <div class="swiper-pagination"></div>
@@ -320,16 +619,16 @@
     <div class="container">
       <div class="section-head" data-aos="fade-up">
         <h2 class="fw-black">قدراتنا</h2>
-        <p class="text-white-75 mb-0">أشياء تشوفها في مواقع الشركات الكبيرة: تنظيم + وضوح + تدرج بصري.</p>
+        <p class="mb-0 text-white-75">تنظيم + وضوح + تدرج بصري.</p>
       </div>
 
       <div class="row g-3 mt-2">
         <div class="col-lg-6" data-aos="fade-up">
-          <div class="feature-card h-100">
-            <div class="feature-top">
-              <div class="feature-ico"><i class="bi bi-diagram-3"></i></div>
+          <div class="feature-card h-100 p-4">
+            <div class="feature-top d-flex gap-3 align-items-start">
+              <div class="card-icon"><i class="bi bi-diagram-3"></i></div>
               <div>
-                <h5 class="fw-bold mb-1">منهج عمل واضح</h5>
+                <h5 class="fw-bold mb-1" style="color:var(--navy)">منهج عمل واضح</h5>
                 <p class="text-white-75 mb-0">تحليل → خطة → تنفيذ → متابعة → تحسين</p>
               </div>
             </div>
@@ -343,11 +642,11 @@
         </div>
 
         <div class="col-lg-6" data-aos="fade-up" data-aos-delay="90">
-          <div class="feature-card h-100">
-            <div class="feature-top">
-              <div class="feature-ico"><i class="bi bi-speedometer2"></i></div>
+          <div class="feature-card h-100 p-4">
+            <div class="feature-top d-flex gap-3 align-items-start">
+              <div class="card-icon"><i class="bi bi-speedometer2"></i></div>
               <div>
-                <h5 class="fw-bold mb-1">أداء وتجربة</h5>
+                <h5 class="fw-bold mb-1" style="color:var(--navy)">أداء وتجربة</h5>
                 <p class="text-white-75 mb-0">تصميم خفيف + أنيميشن محترم + موبايل ممتاز</p>
               </div>
             </div>
@@ -386,29 +685,29 @@
     <div class="container">
       <div class="section-head" data-aos="fade-up">
         <h2 class="fw-black">لماذا نحن؟</h2>
-        <p class="text-white-75 mb-0">بدون كلام فارغ: هذا اللي يفرق شركة محترمة عن صفحة عادية.</p>
+        <p class="mb-0 text-white-75">بدون كلام فارغ: هذا اللي يفرق شركة محترمة عن صفحة عادية.</p>
       </div>
 
       <div class="row g-3 mt-2">
-        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="0">
-          <div class="glass-card h-100">
+        <div class="col-md-4" data-aos="zoom-in">
+          <div class="glass-card h-100 p-4">
             <div class="card-icon"><i class="bi bi-shield-check"></i></div>
-            <h5 class="fw-bold">موثوقية</h5>
-            <p class="text-white-75">نشتغل بحوكمة وتنفيذ، مش اجتهادات عشوائية.</p>
+            <h5 class="fw-bold" style="color:var(--navy)">موثوقية</h5>
+            <p class="text-white-75 mb-0">نشتغل بحوكمة وتنفيذ، مش اجتهادات عشوائية.</p>
           </div>
         </div>
         <div class="col-md-4" data-aos="zoom-in" data-aos-delay="80">
-          <div class="glass-card h-100">
+          <div class="glass-card h-100 p-4">
             <div class="card-icon"><i class="bi bi-clock-history"></i></div>
-            <h5 class="fw-bold">التزام</h5>
-            <p class="text-white-75">نحترم الوقت ونبني علاقة طويلة المدى.</p>
+            <h5 class="fw-bold" style="color:var(--navy)">التزام</h5>
+            <p class="text-white-75 mb-0">نحترم الوقت ونبني علاقة طويلة المدى.</p>
           </div>
         </div>
         <div class="col-md-4" data-aos="zoom-in" data-aos-delay="160">
-          <div class="glass-card h-100">
+          <div class="glass-card h-100 p-4">
             <div class="card-icon"><i class="bi bi-star-fill"></i></div>
-            <h5 class="fw-bold">جودة</h5>
-            <p class="text-white-75">شكل رسمي + تجربة مريحة + محتوى واضح.</p>
+            <h5 class="fw-bold" style="color:var(--navy)">جودة</h5>
+            <p class="text-white-75 mb-0">شكل رسمي + تجربة مريحة + محتوى واضح.</p>
           </div>
         </div>
       </div>
@@ -420,13 +719,13 @@
     <div class="container">
       <div class="section-head" data-aos="fade-up">
         <h2 class="fw-black">تواصل معنا</h2>
-        <p class="text-white-75 mb-0">اختر الطريقة الأنسب، أو أرسل رسالة سريعة.</p>
+        <p class="mb-0 text-white-75">اختر الطريقة الأنسب، أو أرسل رسالة سريعة.</p>
       </div>
 
       <div class="row g-3 mt-2">
         <div class="col-lg-5" data-aos="fade-up">
-          <div class="contact-card h-100">
-            <h5 class="fw-bold mb-3">بيانات التواصل</h5>
+          <div class="contact-card h-100 p-4">
+            <h5 class="fw-bold mb-3" style="color:var(--navy)">بيانات التواصل</h5>
 
             <a class="contact-item" href="mailto:sudi@sudicorp.com">
               <span class="k"><i class="bi bi-envelope"></i> البريد</span>
@@ -444,18 +743,18 @@
             </a>
 
             <div class="d-grid gap-2 mt-3">
-              <a class="btn btn-sudi-gold" target="_blank" rel="noopener"
+              <a class="ui-btn" target="_blank" rel="noopener"
                  href="https://wa.me/249121282300?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B4%D8%B1%D9%83%D8%A9%20%D8%B3%D9%88%D8%AF%D9%8A%2C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D8%A8%D8%AE%D8%B5%D9%88%D8%B5%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%D9%83%D9%85.">
                 واتساب مباشر <i class="bi bi-whatsapp"></i>
               </a>
-              <a class="btn btn-outline-light" href="mailto:sudi@sudicorp.com">إرسال بريد <i class="bi bi-send"></i></a>
+              <a class="ui-btn-outline" href="mailto:sudi@sudicorp.com">إرسال بريد <i class="bi bi-send"></i></a>
             </div>
           </div>
         </div>
 
         <div class="col-lg-7" data-aos="fade-up" data-aos-delay="80">
-          <div class="contact-card h-100">
-            <h5 class="fw-bold mb-2">رسالة سريعة</h5>
+          <div class="contact-card h-100 p-4">
+            <h5 class="fw-bold mb-2" style="color:var(--navy)">رسالة سريعة</h5>
             <p class="text-white-75">النموذج يفتح بريدك جاهز للإرسال (بدون سيرفر).</p>
 
             <form id="leadForm" class="row g-3">
@@ -476,7 +775,7 @@
                 <textarea class="form-control form-control-lg form-dark" name="message" rows="5" required placeholder="اكتب طلبك أو فكرتك باختصار..."></textarea>
               </div>
               <div class="col-12 d-flex flex-wrap gap-2 align-items-center">
-                <button class="btn btn-sudi-primary btn-lg" type="submit">فتح البريد للإرسال <i class="bi bi-envelope-paper"></i></button>
+                <button class="ui-btn" type="submit">فتح البريد للإرسال <i class="bi bi-envelope-paper"></i></button>
                 <span id="formHint" class="small text-white-75"></span>
               </div>
             </form>
@@ -485,7 +784,7 @@
         </div>
       </div>
 
-      <div class="footer-mini mt-4 text-center text-white-50 small">
+      <div class="footer-mini mt-4 text-center small">
         © <span id="year"></span> شركة سودي العالمية للاستثمار — sudicorp.com
       </div>
     </div>
