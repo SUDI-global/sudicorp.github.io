@@ -1,3 +1,5 @@
+html { scroll-behavior: auto !important; }
+
 :root{
   --navy:#0b2d4d;
   --navy2:#071c2e;
@@ -76,8 +78,14 @@
 /* Hero */
 .hero-section{
   position: relative;
-  overflow:hidden;
-  padding-bottom: 10px;
+  overflow: hidden;
+  min-height: 100vh;   /* هذا هو المفتاح */
+  display: flex;
+  align-items: center;
+  padding: 80px 0;
+}
+
+   
 }
 .hero-bg{
   position:absolute; inset:-160px -160px auto -160px;
