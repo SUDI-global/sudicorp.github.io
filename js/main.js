@@ -1,3 +1,6 @@
+history.scrollRestoration = "manual";
+window.scrollTo(0,0);
+
 (() => {
   // Year
   const y = document.getElementById("year");
@@ -102,6 +105,8 @@ ${msg}
       window.location.href = `mailto:sudi@sudicorp.com?subject=${subject}&body=${body}`;
       if (hint) hint.textContent = "تم تجهيز بريد الإرسال… إذا لم يفتح، انسخ الرسالة وأرسلها إلى sudi@sudicorp.com";
       form.reset();
+      window.addEventListener("load", () => window.scrollTo(0,0));
+
     });
   }
 })();
