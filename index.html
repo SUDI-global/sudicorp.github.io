@@ -32,58 +32,30 @@
   <script defer src="/js/main.js"></script>
 
   <!-- Structured Data (Google) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@graph":[
-      {
-        "@type":"Organization",
-        "@id":"https://sudicorp.com/#organization",
-        "name":"شركة سودي العالمية للاستثمار",
-        "alternateName":"SUDI",
-        "url":"https://sudicorp.com/",
-        "logo":"https://sudicorp.com/assets/logo.png",
-        "image":"https://sudicorp.com/assets/logo.png",
-        "email":["sudi@sudicorp.com","sudifoods@gmail.com"],
-        "telephone":["+249125769999","+249121282300","+249125759999"],
-        "address":{
-          "@type":"PostalAddress",
-          "addressCountry":"SD",
-          "addressRegion":"Khartoum",
-          "addressLocality":"الخرطوم",
-          "streetAddress":"الحي الدبلوماسي - مخطط العودة - فيلا رقم 249"
-        },
-        "sameAs":[
-          "https://www.facebook.com/sudifoods?locale=ar_AR",
-          "https://www.tiktok.com/@sudifoods",
-          "https://www.youtube.com/@sudifoods",
-          "https://www.instagram.com/sudifoods"
-        ],
-        "knowsAbout":[
-          "التجارة",
-          "التسويق",
-          "الطاقة الشمسية",
-          "الاستشارات المحاسبية",
-          "تطوير وإدارة الشركات",
-          "التصميم",
-          "البرمجة",
-          "الزراعة",
-          "استيراد وتصدير اللحوم",
-          "استيراد وتصدير الإلكترونيات",
-          "استيراد وتصدير الحبوب والبقوليات السودانية"
-        ]
-      },
-      {
-        "@type":"WebSite",
-        "@id":"https://sudicorp.com/#website",
-        "url":"https://sudicorp.com/",
-        "name":"شركة سودي العالمية للاستثمار | SUDI",
-        "publisher":{"@id":"https://sudicorp.com/#organization"},
-        "inLanguage":"ar"
-      }
-    ]
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "شركة سودي العالمية للاستثمار",
+  "image": "https://sudicorp.com/assets/logo.png",
+  "@id": "https://sudicorp.com",
+  "url": "https://sudicorp.com",
+  "telephone": "+249125769999",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "الحي الدبلوماسي، مخطط العودة، فيلا 249",
+    "addressLocality": "الخرطوم",
+    "addressCountry": "SD"
+  },
+  "description": "شركة سودي (SUDI) متخصصة في التصدير والاستيراد (لحوم، حبوب، إلكترونيات) وحلول الطاقة الشمسية والتسويق منذ 2013.",
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    "opens": "00:00",
+    "closes": "23:59"
   }
-  </script>
+}
+</script>
 </head>
 
 <body>
