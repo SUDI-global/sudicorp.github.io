@@ -23,7 +23,7 @@
     $$(".nav__link", menu).forEach(a => a.addEventListener("click", closeMenu));
   }
 
-  // تصفية القطاعات (تجارة، طاقة شمسية، إلخ)
+  // تصفية القطاعات
   const filterBtns = $$(".seg");
   const sectorCards = $$("#sectorCards .uCard");
   filterBtns.forEach(btn => {
@@ -38,52 +38,52 @@
     });
   });
 
-  // زر تحميل البروفايل
-  const downloadProfile = $("#downloadProfile");
-  if (downloadProfile) {
-    downloadProfile.addEventListener("click", (e) => {
-      const profileUrl = "/assets/profile.pdf"; 
-      downloadProfile.href = profileUrl;
-      downloadProfile.setAttribute("download", "SudiCorp-Profile.pdf");
-    });
-  }
-
-  // --- الجزء المحدث: إرسال للـ Backend السحابي + واتساب ---
+  // --- الجزء الذي قمت بتصحيحه لك (الحفظ والواتساب) ---
   const form = $("#contactForm");
   const note = $("#formNote");
   const WA_NUMBER = "249125769999";
-  const BACKEND_URL = "https://sudi-backend.onrender.com/submit"; // رابطك في Render
+  const BACKEND_URL = "https://sudi-backend.onrender.com/submit"; 
 
   if (form) {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const fd = new FormData(form);
+      
       const d = {
-        name: fd.get("name"),
-        phone: fd.get("phone"),
-        service: fd.get("service"),
-        message: fd.get("message")
+        name: form.name.value,
+        phone: form.phone.value,
+        service: form.service.value,
+        message: form.message.value
       };
 
-      if (note) note.textContent = "جاري الحفظ سحابياً وتوجيهك لواتساب...";
+      if (note) {
+          note.textContent = "⌛ جاري الحفظ سحابياً...";
+          note.style.color = "#daa520";
+      }
 
-      // 1. محاولة الحفظ في قاعدة البيانات السحابية (Python)
       try {
-        await fetch(BACKEND_URL, {
+        // الحفظ في قاعدة البيانات
+        const resp = await fetch(BACKEND_URL, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(d)
         });
+
+        if (resp.ok) {
+            if (note) note.textContent = "✅ تم الحفظ! جاري فتح واتساب...";
+        }
       } catch (err) {
-        console.log("الـ Backend لا يستجيب حالياً، سيتم الاكتفاء بالواتساب.");
+        console.log("خطأ في الاتصال بالسيرفر:", err);
       }
 
-      // 2. التوجيه للواتساب كالمعتاد
+      // التوجيه للواتساب (يعمل دائماً حتى لو فشل السيرفر)
       const text = `طلب تواصل - شركة سودي\nالاسم: ${d.name}\nالخدمة: ${d.service}\nالرسالة: ${d.message}`;
       const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
-      window.open(url, "_blank");
       
-      form.reset();
+      setTimeout(() => {
+          window.open(url, "_blank");
+          form.reset();
+          if (note) note.textContent = "";
+      }, 1000);
     });
   }
 })();
