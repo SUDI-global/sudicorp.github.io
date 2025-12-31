@@ -38,24 +38,24 @@
     });
   });
 
-  // --- التعديل الرسمي لزر تحميل البروفايل ---
+  // زر تحميل البروفايل
   const downloadProfile = $("#downloadProfile");
   if (downloadProfile) {
     downloadProfile.addEventListener("click", (e) => {
-      // هذا الرابط سيعمل فور رفعك للملف في مجلد assets
       const profileUrl = "/assets/profile.pdf"; 
       downloadProfile.href = profileUrl;
       downloadProfile.setAttribute("download", "SudiCorp-Profile.pdf");
     });
   }
 
-  // إرسال البيانات عبر واتساب (نموذج التواصل)
+  // --- الجزء المحدث: إرسال للـ Backend السحابي + واتساب ---
   const form = $("#contactForm");
   const note = $("#formNote");
   const WA_NUMBER = "249125769999";
+  const BACKEND_URL = "https://sudi-backend.onrender.com/submit"; // رابطك في Render
 
   if (form) {
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
       const fd = new FormData(form);
       const d = {
@@ -64,12 +64,26 @@
         service: fd.get("service"),
         message: fd.get("message")
       };
-      
+
+      if (note) note.textContent = "جاري الحفظ سحابياً وتوجيهك لواتساب...";
+
+      // 1. محاولة الحفظ في قاعدة البيانات السحابية (Python)
+      try {
+        await fetch(BACKEND_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(d)
+        });
+      } catch (err) {
+        console.log("الـ Backend لا يستجيب حالياً، سيتم الاكتفاء بالواتساب.");
+      }
+
+      // 2. التوجيه للواتساب كالمعتاد
       const text = `طلب تواصل - شركة سودي\nالاسم: ${d.name}\nالخدمة: ${d.service}\nالرسالة: ${d.message}`;
       const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
       window.open(url, "_blank");
+      
       form.reset();
-      if (note) note.textContent = "تم توجيهك لواتساب...";
     });
   }
 })();
