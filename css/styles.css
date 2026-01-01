@@ -2,17 +2,13 @@
   --primary:#0b2d4d;
   --primary2:#133e64;
   --accent:#c9a24a;
-
   --paper:#ffffff;
   --soft:#f6f8fb;
   --line:#e6ebf2;
-
   --ink:#0f172a;
   --muted:#475569;
-
   --radius:18px;
   --radius2:26px;
-
   --shadow: 0 10px 30px rgba(15,23,42,.08);
   --shadow2: 0 18px 50px rgba(15,23,42,.10);
 }
@@ -53,7 +49,6 @@ button,input,select,textarea{font:inherit; color:inherit}
 }
 .skip:focus{transform:translateY(0)}
 
-/* اخفاء خلفية الدارك القديمة (لو لازالت في HTML) */
 .bg, .bg__grid, .bg__orb{display:none !important}
 
 /* Header */
@@ -157,14 +152,20 @@ button,input,select,textarea{font:inherit; color:inherit}
   transition:.18s;
   font-weight:800;
 }
+
+/* تحسين نافبار الهوفر */
 .nav__link:hover{
-  background: rgba(11,45,77,.06);
-  border-color: rgba(11,45,77,.10);
+  background: var(--primary);
+  color: #fff;
 }
 .nav__link--cta{
   background: linear-gradient(135deg, var(--primary), var(--primary2));
-  color:#fff;
+  color:#fff !important;
   border:0;
+}
+.nav__link--cta:hover {
+  background: var(--accent);
+  color: var(--primary) !important;
 }
 
 /* Hero */
@@ -218,6 +219,7 @@ button,input,select,textarea{font:inherit; color:inherit}
   margin-top:18px;
 }
 
+/* إصلاح الأزرار الجذري */
 .btn{
   display:inline-flex;
   align-items:center;
@@ -227,24 +229,38 @@ button,input,select,textarea{font:inherit; color:inherit}
   border-radius:12px;
   border:1px solid var(--line);
   background: #fff;
-  transition: transform .14s, background .14s, border-color .14s;
+  transition: all .2s ease;
   cursor:pointer;
   user-select:none;
   font-weight:900;
 }
-.btn:hover{transform: translateY(-1px); background: var(--soft); border-color: #d7deea}
-.btn:active{transform: translateY(0)}
+
+.btn:hover{
+    transform: translateY(-2px);
+    background: var(--soft);
+    border-color: var(--accent);
+}
 
 .btn--primary{
   background: linear-gradient(135deg, var(--primary), var(--primary2));
   border:0;
-  color:#fff;
+  color:#fff !important;
   box-shadow: var(--shadow2);
 }
+.btn--primary:hover {
+    background: var(--accent);
+    color: var(--primary) !important;
+}
+
 .btn--ghost{
   background:#fff;
   color: var(--primary);
 }
+.btn--ghost:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
 .btn--secondary{
   background: linear-gradient(135deg, rgba(201,162,74,.22), rgba(11,45,77,.08));
   border:1px solid rgba(201,162,74,.35);
@@ -254,7 +270,12 @@ button,input,select,textarea{font:inherit; color:inherit}
   border:1px solid var(--primary);
   color: var(--primary);
 }
+.btn--outline:hover {
+    background: var(--primary);
+    color: #fff;
+}
 
+/* بقية كودك الأصلي */
 .stats{
   display:flex;
   gap:10px;
@@ -400,11 +421,11 @@ button,input,select,textarea{font:inherit; color:inherit}
   color: var(--ink);
   font-weight:900;
 }
-.seg:hover{background: var(--soft)}
+.seg:hover{background: var(--soft); border-color: var(--accent);}
 .seg.is-active{
-  background: rgba(11,45,77,.08);
-  border-color: rgba(11,45,77,.18);
-  color: var(--primary);
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
 }
 
 /* Cards grid */
@@ -427,7 +448,7 @@ button,input,select,textarea{font:inherit; color:inherit}
 .uCard:hover{
   transform: translateY(-2px);
   background: var(--soft);
-  border-color: #d7deea;
+  border-color: var(--accent);
 }
 .uCard__glow{display:none}
 .uCard__head{display:flex; align-items:center; gap:10px}
@@ -525,7 +546,7 @@ button,input,select,textarea{font:inherit; color:inherit}
   transition:.15s;
   box-shadow: var(--shadow);
 }
-.miniCard:hover{background: var(--soft); transform: translateY(-1px)}
+.miniCard:hover{background: var(--soft); transform: translateY(-1px); border-color: var(--accent);}
 .miniCard__k{color: var(--muted); font-size:.85rem; font-weight:800}
 .miniCard__v{font-weight:900; color: var(--primary)}
 
@@ -552,9 +573,74 @@ button,input,select,textarea{font:inherit; color:inherit}
   background:#fff;
   color: var(--primary);
   font-weight:900;
+  transition: .2s;
 }
-.sLink:hover{background: var(--soft)}
+.sLink:hover{background: var(--primary); color: #fff;}
 
+/* --- إضافة قسم السوشيال ميديا الجديد الاحترافي --- */
+.social-hub {
+  margin-top: 30px;
+  padding: 20px;
+  background: var(--soft);
+  border-radius: var(--radius2);
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.social-hub__title { font-weight: 900; color: var(--primary); font-size: 0.9rem; }
+
+.main_back {
+  position: absolute;
+  border-radius: 10px;
+  transform: rotate(90deg);
+  width: 11em;
+  height: 11em;
+  background: linear-gradient(270deg, var(--primary), var(--accent));
+  z-index: -2;
+  opacity: 0.1;
+}
+
+.main-social {
+  display: flex;
+  flex-wrap: wrap;
+  width: 14em;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.social-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: #fff;
+  border: 1px solid var(--line);
+  transition: 0.3s ease;
+  color: var(--primary);
+  font-size: 22px;
+}
+
+.main-social:hover .social-item {
+  margin: 0.2em;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.social-item:hover {
+    transform: scale(1.1);
+    color: #fff !important;
+}
+.social-item.fb:hover { background: #1877f2; }
+.social-item.inst:hover { background: #e4405f; }
+.social-item.tk:hover { background: #000; }
+.social-item.yt:hover { background: #ff0000; }
+.social-item.wa:hover { background: #25d366; }
+
+/* تكملة كود الفورم الأصلي */
 .form{
   border-radius: var(--radius2);
   border:1px solid var(--line);
@@ -577,7 +663,7 @@ button,input,select,textarea{font:inherit; color:inherit}
   outline:none;
 }
 .field__input:focus{
-  border-color: rgba(11,45,77,.35);
+  border-color: var(--primary);
   box-shadow: 0 0 0 5px rgba(11,45,77,.10);
 }
 .field__input--ta{min-height:120px; resize:vertical}
@@ -607,8 +693,9 @@ button,input,select,textarea{font:inherit; color:inherit}
   background: #fff;
   color: var(--primary);
   font-weight:900;
+  transition: .2s;
 }
-.footLink:hover{background: var(--soft)}
+.footLink:hover{background: var(--primary); color: #fff;}
 
 /* Floating WA */
 .floatWA{
