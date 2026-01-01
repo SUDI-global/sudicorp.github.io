@@ -751,3 +751,62 @@ button,input,select,textarea{font:inherit; color:inherit}
   html{scroll-behavior:auto}
   *{transition:none !important; animation:none !important;}
 }
+/* تنسيق الزر التفاعلي من Uiverse */
+.uiverse-wrapper {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.social-card {
+  width: 240px;
+  height: 70px;
+  background: white;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  border: 1px solid #eee;
+  overflow: hidden; /* ضروري لإخفاء الأيقونات في البداية */
+}
+
+.social-main-btn {
+  font-weight: bold;
+  color: #0b2d4d;
+  transition: 0.4s;
+}
+
+.social-list {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  transform: translateY(100%); /* دفع الأيقونات للأسفل لإخفائها */
+  transition: 0.4s;
+}
+
+/* حركة التفاعل عند مرور الماوس (Hover) */
+.social-card:hover .social-main-btn {
+  transform: translateY(-100%);
+}
+
+.social-card:hover .social-list {
+  transform: translateY(0);
+}
+
+.social-icon-btn {
+  transition: 0.3s;
+  color: #0b2d4d;
+}
+
+.social-icon-btn:hover {
+  transform: scale(1.2);
+  color: #c5a059; /* لون ذهبي يتناسب مع هويتك */
+}
