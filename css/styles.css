@@ -576,203 +576,129 @@ button,input,select,textarea{font:inherit; color:inherit}
   transition: .2s;
 }
 .sLink:hover{background: var(--primary); color: #fff;}
+/* --- التعديل النهائي لزر السوشيال ميديا (شبكة 3x3 متكاملة) --- */
 
-/* --- تعديل زر السوشيال ميديا ليصبح شبكة (Uiverse Grid) --- */
 .uiverse-wrapper {
-  margin-top: 25px;
-  display: flex;
-  justify-content: center;
-}
-
-.social-card {
-  width: 240px;
-  height: 70px;
-  background: white;
-  border-radius: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: relative;
-  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: var(--shadow);
-  border: 1px solid var(--line);
-  overflow: hidden;
-  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 320px; /* مساحة كافية لتوسع المربع */
+  margin: 30px 0;
 }
 
-.social-main-btn {
-  font-weight: 900;
-  color: var(--primary);
-  transition: 0.4s;
-  z-index: 2;
-}
-
-.social-list {
+/* الخلفية الملونة الدوارة خلف المربع */
+.main_back {
   position: absolute;
-  inset: 0;
-  background: var(--soft);
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* شبكة 3 أعمدة */
-  gap: 8px;
-  padding: 10px;
-  transform: translateY(100%); /* مختفية للأسفل */
-  transition: 0.5s ease-in-out;
+  border-radius: var(--radius);
+  width: 12em;
+  height: 12em;
+  background: linear-gradient(270deg, var(--primary), var(--accent), #ffb5d2);
   z-index: 1;
+  box-shadow: inset 0px 0px 180px 5px #ffffff;
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* حركة التفاعل عند مرور الماوس */
-.social-card:hover {
-  height: 220px; /* تكبير المربع ليظهر الشبكة */
+/* حاوية الأيقونات بنظام الـ Grid لضمان 9 أيقونات */
+.social-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 أعمدة متساوية */
+  gap: 10px;
+  width: 210px; /* عرض ثابت ليناسب 3 مربعات 60px مع الفجوات */
+  z-index: 5;
+  position: relative;
 }
 
-.social-card:hover .social-main-btn {
-  transform: translateY(-150%);
-  opacity: 0;
-}
-
-.social-card:hover .social-list {
-  transform: translateY(0);
-}
-
-.social-icon-btn {
+/* تنسيق المربع الصغير لكل منصة */
+.social-card-item {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: white;
-  border-radius: 10px;
-  transition: 0.3s;
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+  text-decoration: none;
   color: var(--primary);
+  font-size: 1.4em;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* الطبقة البيضاء النصية التي تغطي الأيقونات (تظهر أولاً) */
+.social-overlay {
+  position: absolute;
+  width: 200px; 
+  height: 200px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.5s ease;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  pointer-events: none; /* للسماح للماوس بالمرور للأيقونات خلفها */
   border: 1px solid var(--line);
 }
 
-/* إجبار الأيقونات على حجم محدد ومنع تضخمها */
-.social-icon-btn svg {
-  width: 22px !important;
-  height: 22px !important;
-  fill: currentColor;
-}
-
-.social-icon-btn:hover {
-  transform: scale(1.1);
-  background: var(--primary);
-  color: white;
-}
-
-/* ألوان مخصصة عند الهوفر لكل منصة */
-.social-icon-btn.fb:hover { background: #1877f2; border-color: #1877f2; }
-.social-icon-btn.inst:hover { background: #e4405f; border-color: #e4405f; }
-.social-icon-btn.wa:hover { background: #25d366; border-color: #25d366; }
-.social-icon-btn.tk:hover { background: #000; border-color: #000; }
-.social-icon-btn.yt:hover { background: #ff0000; border-color: #ff0000; }
-
-/* تكملة كود الفورم الأصلي */
-.form{
-  border-radius: var(--radius2);
-  border:1px solid var(--line);
-  background: #fff;
-  padding:16px;
-  box-shadow: var(--shadow);
-}
-.form__row{
-  display:grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap:10px;
-}
-.field{display:flex; flex-direction:column; gap:8px; margin-bottom:10px}
-.field__label{font-weight:900; color: var(--ink)}
-.field__input{
-  border-radius: 14px;
-  border:1px solid var(--line);
-  background: #fff;
-  padding:12px 12px;
-  outline:none;
-}
-.field__input:focus{
-  border-color: var(--primary);
-  box-shadow: 0 0 0 5px rgba(11,45,77,.10);
-}
-.field__input--ta{min-height:120px; resize:vertical}
-
-.form__actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
-.form__note{margin:10px 0 0; color: var(--muted); font-weight:800}
-
-/* Footer */
-.footer{
-  border-top:1px solid var(--line);
-  background: rgba(246,248,251,.75);
-  backdrop-filter: blur(10px);
-  padding: 18px 0;
-}
-.footer__wrap{
-  display:flex;
-  justify-content:space-between;
-  gap:12px;
-  flex-wrap:wrap;
-  align-items:center;
-}
-.footer__right{display:flex; gap:12px; flex-wrap:wrap}
-.footLink{
-  padding:8px 10px;
-  border-radius:12px;
-  border:1px solid var(--line);
-  background: #fff;
+.social-overlay p {
+  margin: 0;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 900;
+  letter-spacing: 1px;
+  font-size: 0.85em;
   color: var(--primary);
-  font-weight:900;
-  transition: .2s;
+  line-height: 1.5;
 }
-.footLink:hover{background: var(--primary); color: #fff;}
 
-/* Floating WA */
-.floatWA{
-  position:fixed;
-  left:16px; bottom:16px;
-  width:52px;height:52px;
-  border-radius:18px;
-  display:grid; place-items:center;
-  background: linear-gradient(135deg, var(--primary), var(--primary2));
-  color:#fff;
+/* --- حركات التفاعل عند تمرير الماوس (Hover) --- */
+
+/* إخفاء الطبقة البيضاء وتصغيرها */
+.uiverse-wrapper:hover .social-overlay {
+  opacity: 0;
+  transform: scale(0.6) rotate(5deg);
+  visibility: hidden;
+}
+
+/* دوران الخلفية الملونة */
+.uiverse-wrapper:hover .main_back {
+  transform: rotate(90deg) scale(1.1);
+}
+
+/* تأثير عند الوقوف على أيقونة محددة */
+.social-card-item:hover {
+  transform: translateY(-8px);
+  background: white;
   box-shadow: var(--shadow2);
-  z-index:60;
-  transition:.14s;
-}
-.floatWA:hover{transform: translateY(-2px)}
-
-/* Responsive */
-@media (max-width: 980px){
-  .hero__grid{grid-template-columns: 1fr; }
-  .contact{grid-template-columns: 1fr}
-  .cards{grid-template-columns: repeat(2, minmax(0,1fr))}
-  .grid3{grid-template-columns: repeat(2, minmax(0,1fr))}
 }
 
-@media (max-width: 640px){
-  .nav__toggle{display:inline-flex; align-items:center; justify-content:center}
+/* ألوان الهوية الخاصة بكل منصة عند الهوفر */
+.ic-fb:hover { color: #1877f2; }
+.ic-inst:hover { color: #cc39a4; }
+.ic-tk:hover { color: #000000; }
+.ic-wa:hover { color: #25d366; }
+.ic-tw:hover { color: #1da1f2; }
+.ic-yt:hover { color: #ff0000; }
+.ic-li:hover { color: #0077b5; }
+.ic-tg:hover { color: #0088cc; }
+.ic-gh:hover { color: #333; }
 
-  .nav__menu{
-    position:absolute;
-    top:64px;
-    right: 4vw;
-    left: 4vw;
-    display:none;
-    flex-direction:column;
-    gap:8px;
-    padding:12px;
-    border-radius: 18px;
-    border:1px solid var(--line);
-    background: #fff;
-    box-shadow: var(--shadow2);
+/* إصلاح التجاوب للهواتف */
+@media (max-width: 640px) {
+  .uiverse-wrapper {
+    height: 280px;
   }
-  .nav__menu.is-open{display:flex}
-  .nav__link{width:100%; text-align:center}
-
-  .cards{grid-template-columns: 1fr}
-  .grid2{grid-template-columns: 1fr}
-  .grid3{grid-template-columns: 1fr}
-  .form__row{grid-template-columns: 1fr}
-}
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce){
-  html{scroll-behavior:auto}
-  *{transition:none !important; animation:none !important;}
+  .social-container, .social-overlay {
+    width: 180px;
+    height: 180px;
+  }
+  .social-card-item {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2em;
+  }
 }
