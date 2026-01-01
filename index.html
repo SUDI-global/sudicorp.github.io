@@ -13,11 +13,7 @@
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="shortcut icon" href="/favicon.ico">
 
-  <meta property="og:title" content="شركة سودي العالمية للاستثمار | SUDI Global" />
-  <meta property="og:description" content="منذ 2013 — حلول متكاملة في الطاقة، التجارة الدولية، والتحول الرقمي بمعايير مؤسسية." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://sudicorp.com/" />
-  <meta property="og:image" content="https://sudicorp.com/assets/logo.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,23 +21,6 @@
 
   <link rel="stylesheet" href="/css/styles.css" />
   <script defer src="/js/main.js"></script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "شركة سودي العالمية للاستثمار",
-    "image": "https://sudicorp.com/assets/logo.png",
-    "telephone": "+249125769999",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "الحي الدبلوماسي، مخطط العودة، فيلا 249",
-      "addressLocality": "الخرطوم",
-      "addressCountry": "SD"
-    },
-    "url": "https://sudicorp.com"
-  }
-  </script>
 
   <style>
     /* زر الواتساب العائم */
@@ -73,6 +52,99 @@
       margin-top: 20px;
       border: 1px solid #ddd;
     }
+
+    /* --- تنسيق زر السوشيال ميديا الاحترافي (Uiverse Style) --- */
+    .uiverse-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 30px 0;
+      position: relative;
+      height: 250px; /* مساحة كافية لتوسع الزر */
+    }
+
+    .main_back {
+      position: absolute;
+      border-radius: 10px;
+      width: 11em;
+      height: 11em;
+      background: linear-gradient(270deg, #03a9f4, #cc39a4, #ffb5d2);
+      z-index: 1;
+      box-shadow: inset 0px 0px 180px 5px #ffffff;
+      transition: all 0.5s ease;
+    }
+
+    .social-container {
+      display: flex;
+      flex-wrap: wrap;
+      width: 14em;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+      position: relative;
+    }
+
+    .social-card-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(5px);
+      margin: 5px;
+      transition: all 0.4s ease;
+      text-decoration: none;
+      color: #333;
+      font-size: 1.5em;
+    }
+
+    .social-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 4;
+      transition: all 0.5s ease;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .social-overlay p {
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 800;
+      letter-spacing: 1px;
+      font-size: 0.75em;
+      color: #0b2d4d;
+    }
+
+    /* تأثير الـ Hover */
+    .social-container:hover .social-overlay {
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0.8);
+    }
+
+    .social-container:hover ~ .main_back {
+      transform: rotate(90deg);
+    }
+
+    /* ألوان الأيقونات عند التمرين */
+    .social-card-item:hover { transform: translateY(-5px); background: white; }
+    .ic-fb:hover { color: #1877f2; }
+    .ic-inst:hover { color: #cc39a4; }
+    .ic-tk:hover { color: #000000; }
+    .ic-wa:hover { color: #25d366; }
+    .ic-yt:hover { color: #ff0000; }
+    .ic-li:hover { color: #0077b5; }
   </style>
 </head>
 
@@ -107,19 +179,6 @@
           <a class="nav__link nav__link--cta" href="#contact">اطلب تواصل</a>
         </div>
       </nav>
-    </div>
-
-    <div class="topbar">
-      <div class="container topbar__wrap">
-        <div class="topbar__left">
-          <span class="topbar__pill">إرث يمتد منذ 2013</span>
-        </div>
-        <div class="topbar__right">
-          <a class="topbar__link" href="mailto:sudi@sudicorp.com">sudi@sudicorp.com</a>
-          <span class="sep">•</span>
-          <a class="topbar__link" href="tel:+249125769999">+249 12 576 9999</a>
-        </div>
-      </div>
     </div>
   </header>
 
@@ -162,12 +221,6 @@
       <div class="container">
         <div class="sectionHead sectionHead--split">
           <div><h2 class="h2">قطاعات الاستثمار</h2></div>
-          <div class="filters">
-            <button class="seg is-active" data-filter="all">الكل</button>
-            <button class="seg" data-filter="trade">التجارة</button>
-            <button class="seg" data-filter="solar">الطاقة</button>
-            <button class="seg" data-filter="digital">التقنية</button>
-          </div>
         </div>
         <div class="cards" id="sectorCards">
           <article class="uCard" data-tags="trade"><div class="uCard__head">🛒 الإدارة التجارية</div><p>هيكلة وتشغيل المنشآت لضمان الكفاءة المالية.</p></article>
@@ -178,54 +231,40 @@
       </div>
     </section>
 
-    <section class="section" id="faq">
-      <div class="container">
-        <div class="sectionHead"><h2 class="h2">استفسارات شائعة</h2></div>
-        <div class="faq">
-          <details class="faq__item">
-            <summary>كيف تضمن سودي جودة المنتجات المصدرة؟</summary>
-            <p>نتبع سلاسل توريد مراقبة ونلتزم بكافة المعايير الصحية وشهادات الجودة الدولية المعتمدة.</p>
-          </details>
-          <details class="faq__item">
-            <summary>هل توفر الشركة حلول طاقة للمشاريع الزراعية؟</summary>
-            <p>نعم، متخصصون في تصميم وتركيب محطات الطاقة الشمسية المخصصة للري والتشغيل الزراعي الكثيف.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
     <section class="section" id="contact">
       <div class="container">
         <div class="contact">
           <div class="contact__left">
             <h2 class="h2">تواصل مباشر</h2>
             <p class="muted">الخرطوم، الحي الدبلوماسي، مخطط العودة، فيلا 249</p>
+            
             <div class="contactCards">
               <a class="miniCard" href="tel:+249125769999"><span>+249 12 576 9999</span></a>
-              <a class="miniCard" href="tel:+249121282300"><span>+249 12 128 2300</span></a>
               <a class="miniCard" href="mailto:sudi@sudicorp.com"><span>sudi@sudicorp.com</span></a>
             </div>
+
             <div class="map-container">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15379.761000!2d32.55!3d15.55!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTXCsDMzJzAwLjAiTiAzMsKwMzMnMDAuMCJF!5e0!3m2!1sar!2ssd!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3844.5!2d32.5!3d15.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTXCsDMwJzAwLjAiTiAzMsKwMzAnMDAuMCJF!5e0!3m2!1sen!2ssd!4v1625000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
-     <div class="uiverse-wrapper">
-  <div class="social-card">
-    <div class="social-main-btn">
-      <span>HOVER FOR SOCIAL</span>
-    </div>
-    <div class="social-list">
-      <a href="https://www.facebook.com/sudifoods" class="social-icon-btn fb" target="_blank">
-        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-      </a>
-      <a href="https://www.instagram.com/sudifoods" class="social-icon-btn inst" target="_blank">
-        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849s-.011 3.585-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.849-.07c-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849s.012-3.584.07-4.849c.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.337 2.62 6.77 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.338-.2 6.77-2.62 6.98-6.98.058-1.281.072-1.689.072-4.948s-.014-3.667-.072-4.947c-.2-4.338-2.619-6.77-6.98-6.98-1.281-.058-1.689-.072-4.948-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-      </a>
-      <a href="https://www.tiktok.com/@sudifoods" class="social-icon-btn tk" target="_blank">
-        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12.525.02c1.31 0 2.591.214 3.75.606V5.32c-1.027-.301-2.111-.459-3.25-.459-2.73 0-4.944 2.214-4.944 4.944 0 .043.001.085.002.128V15.3c0 2.73 2.214 4.944 4.944 4.944 2.73 0 4.944-2.214 4.944-4.944V4.458c1.513 1.111 3.375 1.77 5.4 1.77V2.2c-2.433 0-4.629-1.213-5.925-3.1h-4.921V15.3c0 1.104-.896 2-2 2s-2-.896-2-2 .896-2 2-2c.117 0 .231.01.342.03V10.12c-.113-.007-.227-.01-.342-.01-2.73 0-4.944 2.214-4.944 4.944 0 2.73 2.214 4.944 4.944 4.944 2.73 0 4.944-2.214 4.944-4.944V.02h-4.444z"/></svg>
-      </a>
-    </div>
-  </div>
-</div>
+
+            <div class="uiverse-wrapper">
+              <div class="social-container">
+                <div class="social-overlay">
+                  <p>HOVER</p>
+                  <p>FOR</p>
+                  <p>SOCIAL</p>
+                </div>
+                <a href="https://facebook.com/sudifoods" target="_blank" class="social-card-item ic-fb"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com/sudifoods" target="_blank" class="social-card-item ic-inst"><i class="fab fa-instagram"></i></a>
+                <a href="https://tiktok.com/@sudifoods" target="_blank" class="social-card-item ic-tk"><i class="fab fa-tiktok"></i></a>
+                <a href="https://wa.me/249125769999" target="_blank" class="social-card-item ic-wa"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" target="_blank" class="social-card-item ic-li"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank" class="social-card-item ic-yt"><i class="fab fa-youtube"></i></a>
+              </div>
+              <div class="main_back"></div>
+            </div>
+
+          </div>
 
           <form class="form" id="contactForm">
             <label class="field"><span class="field__label">الاسم الكامل</span><input class="field__input" name="name" type="text" required /></label>
@@ -242,7 +281,6 @@
             </label>
             <label class="field"><span class="field__label">الرسالة</span><textarea class="field__input field__input--ta" name="message" required></textarea></label>
             <button class="btn btn--primary" type="submit">إرسال الطلب عبر واتساب</button>
-            <p id="formNote"></p>
           </form>
         </div>
       </div>
@@ -251,7 +289,7 @@
 
   <footer class="footer">
     <div class="container footer__wrap">
-      <p class="muted">© <span id="year"></span> شركة سودي العالمية للاستثمار. جميع الحقوق محفوظة.</p>
+      <p class="muted">© 2026 شركة سودي العالمية للاستثمار. جميع الحقوق محفوظة.</p>
       <div class="footer__right"><a href="#top">للأعلى ↑</a></div>
     </div>
   </footer>
