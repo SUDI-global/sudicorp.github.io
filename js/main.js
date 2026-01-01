@@ -8,6 +8,19 @@
   const $ = (q, el = document) => el.querySelector(q);
   const $$ = (q, el = document) => Array.from(el.querySelectorAll(q));
 
+  // Debounce helper for performance
+  const debounce = (func, wait = 150) => {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  };
+
   /* ============================================
      SMOOTH SCROLL NAVIGATION
      ============================================ */
@@ -98,11 +111,7 @@
     };
 
     toggle.addEventListener('click', () => {
-      if (menu.classList.contains('is-open')) {
-        closeMenu();
-      } else {
-        openMenu();
-      }
+      menu.classList.contains('is-open') ? closeMenu() : openMenu();
     });
 
     $$('.nav__link', menu).forEach(link => {
@@ -116,7 +125,7 @@
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
+      if (e.key === 'Escape' && menu.classList.contains('is-open')) {
         closeMenu();
       }
     });
@@ -129,6 +138,8 @@
   function initSectorFilters() {
     const filterBtns = $$('.seg');
     const sectorCards = $$('#sectorCards .uCard');
+
+    if (filterBtns.length === 0 || sectorCards.length === 0) return;
 
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -156,32 +167,23 @@
   }
 
   /* ============================================
-     FAQ ACCORDION
+     FAQ ACCORDION (IMPROVED)
      ============================================ */
 
   function initFAQ() {
     const faqItems = $$('.faq__item');
     
-    faqItems.forEach(item => {
-      const summary = item.querySelector('summary');
-      
-      if (summary) {
-        summary.addEventListener('click', (e) => {
-          e.preventDefault();
-          
-          faqItems.forEach(otherItem => {
-            if (otherItem !== item && otherItem.hasAttribute('open')) {
-              otherItem.removeAttribute('open');
+    faqItems.forEach((item, index) => {
+      item.addEventListener('toggle', (e) => {
+        // Close other open items
+        if (e.target.open) {
+          faqItems.forEach((otherItem, otherIndex) => {
+            if (otherIndex !== index && otherItem.open) {
+              otherItem.open = false;
             }
           });
-          
-          if (item.hasAttribute('open')) {
-            item.removeAttribute('open');
-          } else {
-            item.setAttribute('open', true);
-          }
-        });
-      }
+        }
+      });
     });
   }
 
@@ -197,59 +199,57 @@
 
     if (!form) return;
 
+    // Helper function to show message
+    const showMessage = (text, color) => {
+      if (note) {
+        note.textContent = text;
+        note.style.color = color;
+      }
+    };
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       const formData = {
-        name: form.name.value.trim(),
-        phone: form.phone.value.trim(),
-        service: form.service.value.trim(),
-        message: form.message.value.trim()
+        name: form.name?.value?.trim() || '',
+        phone: form.phone?.value?.trim() || '',
+        service: form.service?.value?.trim() || '',
+        message: form.message?.value?.trim() || ''
       };
 
+      // Validation
       if (!formData.name || !formData.phone || !formData.service || !formData.message) {
-        if (note) {
-          note.textContent = '⚠️ يرجى ملء جميع الحقول المطلوبة';
-          note.style.color = '#dc2626';
-        }
+        showMessage('⚠️ يرجى ملء جميع الحقول المطلوبة', '#dc2626');
         return;
       }
 
-      if (!/^\+?[0-9\s\-()]+$/.test(formData.phone)) {
-        if (note) {
-          note.textContent = '⚠️ رقم الجوال غير صحيح';
-          note.style.color = '#dc2626';
-        }
+      if (!/^\+?[0-9\s\-()]{7,}$/.test(formData.phone)) {
+        showMessage('⚠️ رقم الجوال غير صحيح (على الأقل 7 أرقام)', '#dc2626');
         return;
       }
 
       const submitBtn = form.querySelector('button[type="submit"]');
+      if (!submitBtn) return;
+
       const originalText = submitBtn.textContent;
       submitBtn.disabled = true;
       submitBtn.textContent = '⌛ جاري الإرسال...';
 
-      if (note) {
-        note.textContent = '⌛ جاري الحفظ سحابياً...';
-        note.style.color = '#daa520';
-      }
+      showMessage('⌛ جاري الحفظ سحابياً...', '#daa520');
 
       try {
         const response = await fetch(BACKEND_URL, {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(formData)
         });
 
         if (response.ok) {
-          if (note) {
-            note.textContent = '✅ تم الحفظ بنجاح! جاري فتح واتساب...';
-            note.style.color = '#16a34a';
-          }
+          showMessage('✅ تم الحفظ بنجاح! جاري فتح واتساب...', '#16a34a');
         }
       } catch (error) {
         console.warn('خطأ في الاتصال بالسيرفر:', error);
+        showMessage('⚠️ سيتم إرسال الرسالة عبر واتساب فقط', '#ff9800');
       }
 
       setTimeout(() => {
@@ -259,7 +259,6 @@
         window.open(waURL, '_blank');
         
         form.reset();
-        
         submitBtn.disabled = false;
         submitBtn.textContent = originalText;
         
@@ -273,43 +272,26 @@
   }
 
   /* ============================================
-     HEADER STICKY BEHAVIOR
-     ============================================ */
-
-  function initHeaderBehavior() {
-    const header = $('.header');
-    let lastScrollY = 0;
-
-    window.addEventListener('scroll', () => {
-      const currentScrollY = window.scrollY;
-      lastScrollY = currentScrollY;
-    }, { passive: true });
-  }
-
-  /* ============================================
      TOUCH SUPPORT FOR MOBILE
      ============================================ */
 
   function initTouchSupport() {
     let touchStartX = 0;
-    let touchStartY = 0;
 
     document.addEventListener('touchstart', (e) => {
       touchStartX = e.touches[0].clientX;
-      touchStartY = e.touches[0].clientY;
     }, { passive: true });
 
     document.addEventListener('touchend', (e) => {
       const touchEndX = e.changedTouches[0].clientX;
-      const touchEndY = e.changedTouches[0].clientY;
       const diffX = touchStartX - touchEndX;
-      const diffY = touchStartY - touchEndY;
 
-      if (Math.abs(diffX) > Math.abs(diffY) && diffX > 50) {
+      // Swipe right to close menu
+      if (Math.abs(diffX) > 50 && diffX > 0) {
         const menu = $('#navMenu');
         const toggle = $('.nav__toggle');
         
-        if (menu && menu.classList.contains('is-open')) {
+        if (menu?.classList.contains('is-open')) {
           menu.classList.remove('is-open');
           toggle.setAttribute('aria-expanded', 'false');
           document.body.classList.remove('nav-open');
@@ -329,25 +311,28 @@
       const imageObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.src = entry.target.dataset.src || entry.target.src;
+            const src = entry.target.dataset.src || entry.target.src;
+            entry.target.src = src;
             entry.target.removeAttribute('loading');
             imageObserver.unobserve(entry.target);
           }
         });
-      });
+      }, { threshold: 0.01 });
 
       images.forEach(img => imageObserver.observe(img));
     }
   }
 
   /* ============================================
-     ACTIVE LINK HIGHLIGHTING
+     ACTIVE LINK HIGHLIGHTING (with debounce)
      ============================================ */
 
   function initActiveLinks() {
     const links = $$('.nav__link[href^="#"]');
     
-    window.addEventListener('scroll', () => {
+    if (links.length === 0) return;
+
+    const updateActiveLink = debounce(() => {
       let current = '';
       
       links.forEach(link => {
@@ -358,12 +343,11 @@
       });
 
       links.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === current) {
-          link.classList.add('active');
-        }
+        link.classList.toggle('active', link.getAttribute('href') === current);
       });
-    }, { passive: true });
+    }, 100);
+
+    window.addEventListener('scroll', updateActiveLink, { passive: true });
   }
 
   /* ============================================
@@ -372,20 +356,23 @@
 
   function initCounterAnimation() {
     const stats = $$('.stat__num');
-    const observed = new Set();
+    
+    if (stats.length === 0) return;
 
+    const observed = new Set();
     const counterObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting && !observed.has(entry.target)) {
           observed.add(entry.target);
           
           const target = entry.target;
-          const finalValue = parseInt(target.textContent.replace(/\D/g, ''));
-          const suffix = target.textContent.replace(/\d/g, '');
+          const text = target.textContent;
+          const finalValue = parseInt(text.replace(/\D/g, ''));
+          const suffix = text.replace(/\d/g, '');
           
           if (!isNaN(finalValue)) {
             let current = 0;
-            const increment = Math.ceil(finalValue / 30);
+            const increment = Math.max(1, Math.ceil(finalValue / 30));
             
             const timer = setInterval(() => {
               current += increment;
@@ -411,28 +398,14 @@
      ============================================ */
 
   function initDarkModeSupport() {
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.documentElement.classList.add('dark-mode');
-    }
+    const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    const setDarkMode = (isDark) => {
+      document.documentElement.classList.toggle('dark-mode', isDark);
+    };
 
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-      if (e.matches) {
-        document.documentElement.classList.add('dark-mode');
-      } else {
-        document.documentElement.classList.remove('dark-mode');
-      }
-    });
-  }
-
-  /* ============================================
-     YEAR UPDATE
-     ============================================ */
-
-  function updateYear() {
-    const yearElement = $('#year');
-    if (yearElement) {
-      yearElement.textContent = new Date().getFullYear();
-    }
+    setDarkMode(darkModeQuery.matches);
+    darkModeQuery.addEventListener('change', (e) => setDarkMode(e.matches));
   }
 
   /* ============================================
@@ -441,29 +414,28 @@
 
   function init() {
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', () => {
-        initAll();
-      });
+      document.addEventListener('DOMContentLoaded', initAll);
     } else {
       initAll();
     }
   }
 
   function initAll() {
-    updateYear();
+    // Initialize core functions
     initMobileNav();
     initSectorFilters();
     initFAQ();
     initContactForm();
-    initHeaderBehavior();
     initTouchSupport();
     initLazyLoading();
     initActiveLinks();
     initCounterAnimation();
     initDarkModeSupport();
     
+    // Initialize scroll reveal animations
     new ScrollReveal();
 
+    // Initialize animate.css animations
     const observerForAnimations = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -480,6 +452,7 @@
 
   init();
 
+  // Expose functions if needed
   window.initSectorFilters = initSectorFilters;
   window.initFAQ = initFAQ;
 })();
