@@ -13,7 +13,7 @@
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="shortcut icon" href="/favicon.ico">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -53,34 +53,35 @@
       border: 1px solid #ddd;
     }
 
-    /* --- تنسيق زر السوشيال ميديا الاحترافي (Uiverse Style) --- */
+    /* --- تنسيق قسم السوشيال ميديا المطور (شبكة 3x3 كاملة) --- */
     .uiverse-wrapper {
+      position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 30px 0;
-      position: relative;
-      height: 250px; /* مساحة كافية لتوسع الزر */
+      height: 320px;
+      margin: 40px 0;
     }
 
+    /* الخلفية الملونة الدوارة */
     .main_back {
       position: absolute;
       border-radius: 10px;
-      width: 11em;
-      height: 11em;
+      width: 12em;
+      height: 12em;
       background: linear-gradient(270deg, #03a9f4, #cc39a4, #ffb5d2);
       z-index: 1;
       box-shadow: inset 0px 0px 180px 5px #ffffff;
-      transition: all 0.5s ease;
+      transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
+    /* حاوية الأيقونات بنظام الـ Grid */
     .social-container {
-      display: flex;
-      flex-wrap: wrap;
-      width: 14em;
-      align-items: center;
-      justify-content: center;
-      z-index: 3;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 أعمدة */
+      gap: 10px;
+      width: 210px; /* عرض ثابت لضمان تناسق الـ 9 أيقونات */
+      z-index: 5;
       position: relative;
     }
 
@@ -90,61 +91,66 @@
       justify-content: center;
       width: 60px;
       height: 60px;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(5px);
-      margin: 5px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
       transition: all 0.4s ease;
       text-decoration: none;
       color: #333;
-      font-size: 1.5em;
+      font-size: 1.4em;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
+    /* الطبقة البيضاء النصية */
     .social-overlay {
       position: absolute;
-      width: 100%;
-      height: 100%;
+      width: 200px; /* مطابقة لعرض الشبكة */
+      height: 200px;
       background: white;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      z-index: 4;
+      z-index: 10;
       transition: all 0.5s ease;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
       cursor: pointer;
-      text-align: center;
+      pointer-events: none; /* للسماح بالمرور للأيقونات خلفها */
     }
 
     .social-overlay p {
       margin: 0;
       font-family: 'Cairo', sans-serif;
       font-weight: 800;
-      letter-spacing: 1px;
-      font-size: 0.75em;
+      letter-spacing: 2px;
+      font-size: 0.8em;
       color: #0b2d4d;
+      line-height: 1.4;
     }
 
-    /* تأثير الـ Hover */
-    .social-container:hover .social-overlay {
+    /* تفعيل الحركات عند الـ Hover */
+    .uiverse-wrapper:hover .social-overlay {
       opacity: 0;
+      transform: scale(0.6) rotate(10deg);
       visibility: hidden;
-      transform: scale(0.8);
     }
 
-    .social-container:hover ~ .main_back {
-      transform: rotate(90deg);
+    .uiverse-wrapper:hover .main_back {
+      transform: rotate(90deg) scale(1.1);
     }
 
-    /* ألوان الأيقونات عند التمرين */
-    .social-card-item:hover { transform: translateY(-5px); background: white; }
+    /* ألوان الأيقونات الفردية */
+    .social-card-item:hover { transform: translateY(-8px); background: white; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
     .ic-fb:hover { color: #1877f2; }
     .ic-inst:hover { color: #cc39a4; }
     .ic-tk:hover { color: #000000; }
     .ic-wa:hover { color: #25d366; }
+    .ic-tw:hover { color: #1da1f2; }
     .ic-yt:hover { color: #ff0000; }
     .ic-li:hover { color: #0077b5; }
+    .ic-tg:hover { color: #0088cc; }
+    .ic-gh:hover { color: #333; }
   </style>
 </head>
 
@@ -193,11 +199,6 @@
             <a class="btn btn--primary" href="#contact">ابدأ مشروعك</a>
             <a class="btn btn--ghost" href="#sectors">استعرض القطاعات</a>
           </div>
-          <div class="stats">
-            <div class="stat"><div class="stat__num">12+</div><div class="stat__txt">عاماً من الخبرة</div></div>
-            <div class="stat"><div class="stat__num">10+</div><div class="stat__txt">قطاعات استثمارية</div></div>
-            <div class="stat"><div class="stat__num">100%</div><div class="stat__txt">التزام بالجودة</div></div>
-          </div>
         </div>
 
         <div class="hero__card">
@@ -244,7 +245,7 @@
             </div>
 
             <div class="map-container">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3844.5!2d32.5!3d15.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTXCsDMwJzAwLjAiTiAzMsKwMzAnMDAuMCJF!5e0!3m2!1sen!2ssd!4v1625000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3844.7554!2d32.53!3d15.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sar!2ssd!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
 
             <div class="uiverse-wrapper">
@@ -254,12 +255,17 @@
                   <p>FOR</p>
                   <p>SOCIAL</p>
                 </div>
-                <a href="https://facebook.com/sudifoods" target="_blank" class="social-card-item ic-fb"><i class="fab fa-facebook-f"></i></a>
                 <a href="https://instagram.com/sudifoods" target="_blank" class="social-card-item ic-inst"><i class="fab fa-instagram"></i></a>
-                <a href="https://tiktok.com/@sudifoods" target="_blank" class="social-card-item ic-tk"><i class="fab fa-tiktok"></i></a>
-                <a href="https://wa.me/249125769999" target="_blank" class="social-card-item ic-wa"><i class="fab fa-whatsapp"></i></a>
-                <a href="#" target="_blank" class="social-card-item ic-li"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank" class="social-card-item ic-tw"><i class="fab fa-x-twitter"></i></a>
                 <a href="#" target="_blank" class="social-card-item ic-yt"><i class="fab fa-youtube"></i></a>
+                
+                <a href="https://facebook.com/sudifoods" target="_blank" class="social-card-item ic-fb"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-card-item" style="color: #00d2ff;"><i class="fa-solid fa-cloud"></i></a>
+                <a href="#" class="social-card-item" style="color: #7289da;"><i class="fab fa-discord"></i></a>
+                
+                <a href="#" target="_blank" class="social-card-item ic-gh"><i class="fab fa-github"></i></a>
+                <a href="https://t.me/sudicorp" target="_blank" class="social-card-item ic-tg"><i class="fab fa-telegram"></i></a>
+                <a href="https://tiktok.com/@sudifoods" target="_blank" class="social-card-item ic-tk"><i class="fab fa-tiktok"></i></a>
               </div>
               <div class="main_back"></div>
             </div>
