@@ -577,68 +577,93 @@ button,input,select,textarea{font:inherit; color:inherit}
 }
 .sLink:hover{background: var(--primary); color: #fff;}
 
-/* --- إضافة قسم السوشيال ميديا الجديد الاحترافي --- */
-.social-hub {
-  margin-top: 30px;
-  padding: 20px;
-  background: var(--soft);
-  border-radius: var(--radius2);
-  border: 1px solid var(--line);
+/* --- تعديل زر السوشيال ميديا ليصبح شبكة (Uiverse Grid) --- */
+.uiverse-wrapper {
+  margin-top: 25px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-}
-.social-hub__title { font-weight: 900; color: var(--primary); font-size: 0.9rem; }
-
-.main_back {
-  position: absolute;
-  border-radius: 10px;
-  transform: rotate(90deg);
-  width: 11em;
-  height: 11em;
-  background: linear-gradient(270deg, var(--primary), var(--accent));
-  z-index: -2;
-  opacity: 0.1;
+  justify-content: center;
 }
 
-.main-social {
+.social-card {
+  width: 240px;
+  height: 70px;
+  background: white;
+  border-radius: 15px;
   display: flex;
-  flex-wrap: wrap;
-  width: 14em;
   align-items: center;
   justify-content: center;
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.social-main-btn {
+  font-weight: 900;
+  color: var(--primary);
+  transition: 0.4s;
+  z-index: 2;
+}
+
+.social-list {
+  position: absolute;
+  inset: 0;
+  background: var(--soft);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* شبكة 3 أعمدة */
+  gap: 8px;
+  padding: 10px;
+  transform: translateY(100%); /* مختفية للأسفل */
+  transition: 0.5s ease-in-out;
   z-index: 1;
 }
 
-.social-item {
+/* حركة التفاعل عند مرور الماوس */
+.social-card:hover {
+  height: 220px; /* تكبير المربع ليظهر الشبكة */
+}
+
+.social-card:hover .social-main-btn {
+  transform: translateY(-150%);
+  opacity: 0;
+}
+
+.social-card:hover .social-list {
+  transform: translateY(0);
+}
+
+.social-icon-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 60px;
-  height: 60px;
-  background: #fff;
-  border: 1px solid var(--line);
-  transition: 0.3s ease;
-  color: var(--primary);
-  font-size: 22px;
-}
-
-.main-social:hover .social-item {
-  margin: 0.2em;
+  background: white;
   border-radius: 10px;
-  box-shadow: var(--shadow);
+  transition: 0.3s;
+  color: var(--primary);
+  border: 1px solid var(--line);
 }
 
-.social-item:hover {
-    transform: scale(1.1);
-    color: #fff !important;
+/* إجبار الأيقونات على حجم محدد ومنع تضخمها */
+.social-icon-btn svg {
+  width: 22px !important;
+  height: 22px !important;
+  fill: currentColor;
 }
-.social-item.fb:hover { background: #1877f2; }
-.social-item.inst:hover { background: #e4405f; }
-.social-item.tk:hover { background: #000; }
-.social-item.yt:hover { background: #ff0000; }
-.social-item.wa:hover { background: #25d366; }
+
+.social-icon-btn:hover {
+  transform: scale(1.1);
+  background: var(--primary);
+  color: white;
+}
+
+/* ألوان مخصصة عند الهوفر لكل منصة */
+.social-icon-btn.fb:hover { background: #1877f2; border-color: #1877f2; }
+.social-icon-btn.inst:hover { background: #e4405f; border-color: #e4405f; }
+.social-icon-btn.wa:hover { background: #25d366; border-color: #25d366; }
+.social-icon-btn.tk:hover { background: #000; border-color: #000; }
+.social-icon-btn.yt:hover { background: #ff0000; border-color: #ff0000; }
 
 /* تكملة كود الفورم الأصلي */
 .form{
@@ -750,63 +775,4 @@ button,input,select,textarea{font:inherit; color:inherit}
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
   *{transition:none !important; animation:none !important;}
-}
-/* تنسيق الزر التفاعلي من Uiverse */
-.uiverse-wrapper {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-}
-
-.social-card {
-  width: 240px;
-  height: 70px;
-  background: white;
-  border-radius: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  transition: all 0.4s ease;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-  border: 1px solid #eee;
-  overflow: hidden; /* ضروري لإخفاء الأيقونات في البداية */
-}
-
-.social-main-btn {
-  font-weight: bold;
-  color: #0b2d4d;
-  transition: 0.4s;
-}
-
-.social-list {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #f8f9fa;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  transform: translateY(100%); /* دفع الأيقونات للأسفل لإخفائها */
-  transition: 0.4s;
-}
-
-/* حركة التفاعل عند مرور الماوس (Hover) */
-.social-card:hover .social-main-btn {
-  transform: translateY(-100%);
-}
-
-.social-card:hover .social-list {
-  transform: translateY(0);
-}
-
-.social-icon-btn {
-  transition: 0.3s;
-  color: #0b2d4d;
-}
-
-.social-icon-btn:hover {
-  transform: scale(1.2);
-  color: #c5a059; /* لون ذهبي يتناسب مع هويتك */
 }
