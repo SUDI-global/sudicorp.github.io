@@ -14,3 +14,36 @@ header {
   backdrop-filter: blur(10px);
   z-index: 100;
 }
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-content h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+  margin-bottom: var(--space-md);
+}
+
+.hero-content p {
+  max-width: 600px;
+  color: var(--color-muted);
+  margin-bottom: var(--space-md);
+}
+
+.hero-actions {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--color-text);
+  border-color: var(--color-text);
+}
+
+.btn.ghost:hover {
+  background: var(--color-text);
+  color: #000;
+}
