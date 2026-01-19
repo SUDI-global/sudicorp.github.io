@@ -1,0 +1,25 @@
+:root {
+  /* Colors */
+  --color-bg: #0b0d10;
+  --color-surface: #12151a;
+  --color-text: #e6e6e6;
+  --color-muted: #9aa0a6;
+  --color-accent: #c9a24d; /* Gold */
+
+  /* Typography */
+  --font-main: 'Inter', system-ui, sans-serif;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 6rem;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+
+  /* Transition */
+  --transition: 0.3s ease;
+}
