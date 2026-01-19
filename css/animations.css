@@ -1,0 +1,12 @@
+@keyframes float {
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal-on-scroll {
+  animation: fadeInUp .6s ease both;
+}
