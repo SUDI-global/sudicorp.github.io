@@ -1588,9 +1588,15 @@ body.nav-open {
     justify-self: start;
   }
 
-  .header__wrap {
-    flex-wrap: wrap;
-  }
+ .header__wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  gap: 20px;
+  flex-wrap: wrap;   /* ❌ هذا سبب الكارثة */
+}
+
 
   .nav__toggle {
     display: inline-flex;
@@ -1632,4 +1638,29 @@ body.nav-open {
   .portfolioCard img {
     height: 180px;
   }
+}
+@media (max-width: 768px) {
+
+  .brand__logo {
+    width: 36px;
+    height: 36px;
+    padding: 3px;
+  }
+
+  .brand__name {
+    font-size: 0.95rem;
+  }
+
+  .brand__tag {
+    font-size: 0.7rem;
+  }
+
+  .nav__menu {
+    display: none;
+  }
+
+  .nav__toggle {
+    display: inline-flex;
+  }
+
 }
