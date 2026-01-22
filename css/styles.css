@@ -136,11 +136,8 @@ textarea {
 }
 
 .header__wrap {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 16px;
-  gap: 20px;
+   .header__wrap {
+    flex-wrap: nowrap; /* ✅ */
 }
 
 .brand {
@@ -1663,4 +1660,23 @@ body.nav-open {
     display: inline-flex;
   }
 
+}
+.button {
+  --white: #ffe7ff;
+  --purple-100: #f4b1fd;
+  --purple-200: #d190ff;
+  --purple-300: #c389f2;
+  --purple-400: #8e26e2;
+  --purple-500: #5e2b83;
+  --radius: 18px;
+
+  border-radius: var(--radius);
+  outline: none;
+  cursor: pointer;
+  font-size: 18px;
+  background: transparent;
+  border: 0;
+  position: relative;
+  width: 200px;
+  height: 64px;
 }
