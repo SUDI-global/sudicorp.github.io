@@ -82,10 +82,48 @@
           <p class="lead animate__animated animate__fadeInUp" style="--animate-delay: 0.2s;">
             نقدم حلولاً متكاملة في التجارة الدولية، الطاقة المتجددة، والتحول الرقمي. نجمع بين الخبرة المحلية والمعايير العالمية لتحقيق نتائج ملموسة.
           </p>
-          <div class="hero__actions animate__animated animate__fadeInUp" style="--animate-delay: 0.3s;">
-            <a class="btn btn--primary" href="#contact" onclick="smoothScroll(event)">ابدأ مشروعك</a>
-            <a class="btn btn--ghost" href="#sectors" onclick="smoothScroll(event)">استعرض القطاعات</a>
-          </div>
+     <div class="hero__actions animate__animated animate__fadeInUp" style="--animate-delay: 0.3s;">
+
+  <!-- زر الأنيميشن -->
+  <button class="button" onclick="smoothScrollToContact()">
+    <div class="bg"></div>
+
+    <svg class="splash" viewBox="0 0 342 208"></svg>
+
+    <div class="wrap">
+      <svg class="path" viewBox="0 0 221 42">
+        <path
+          stroke-linecap="round"
+          stroke-width="3"
+          d="M182.674 2H203C211.837 2 219 9.16344 219 18V24C219 32.8366 211.837 40 203 40H18C9.16345 40 2 32.8366 2 24V18C2 9.16344 9.16344 2 18 2H47.8855" />
+      </svg>
+
+      <div class="outline"></div>
+
+      <div class="content">
+        <span class="char state-1">
+          <span data-label="ا" style="--i:1">ا</span>
+          <span data-label="ب" style="--i:2">ب</span>
+          <span data-label="د" style="--i:3">د</span>
+          <span data-label="أ" style="--i:4">أ</span>
+        </span>
+
+        <div class="icon"><div></div></div>
+
+        <span class="char state-2">
+          <span data-label="ا" style="--i:1">ا</span>
+          <span data-label="ل" style="--i:2">ل</span>
+          <span data-label="آن" style="--i:3">آن</span>
+        </span>
+      </div>
+    </div>
+  </button>
+
+  <!-- الزر الثاني يبقى عادي -->
+  <a class="btn btn--ghost" href="#sectors" onclick="smoothScroll(event)">استعرض القطاعات</a>
+
+</div>
+
         </div>
 
         <div class="hero__card animate__animated animate__fadeInRight" style="--animate-delay: 0.2s;">
