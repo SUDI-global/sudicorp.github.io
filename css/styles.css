@@ -1595,13 +1595,13 @@ body.nav-open {
     justify-self: start;
   }
 
- .header__wrap {
+.header__wrap {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 12px 16px;
   gap: 20px;
-  flex-wrap: wrap;   /* ❌ هذا سبب الكارثة */
+  flex-wrap: nowrap; /* ✅ إجباري */
 }
 
 
