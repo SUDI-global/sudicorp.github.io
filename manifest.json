@@ -1,0 +1,29 @@
+{
+  "name": "SUDI Global Investment Company",
+  "short_name": "SUDI Global",
+  "description": "شركة سودي العالمية للاستثمار - خبراء في الطاقة الشمسية، استيراد وتصدير اللحوم والحبوب، تطوير الشركات والحلول الرقمية",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0b2d4d",
+  "orientation": "portrait-primary",
+  "dir": "rtl",
+  "lang": "ar",
+  "icons": [
+    {
+      "src": "assets/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "business",
+    "finance",
+    "productivity"
+  ],
+  "screenshots": [],
+  "related_applications": [],
+  "prefer_related_applications": false
+}
