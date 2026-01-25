@@ -1,7 +1,6 @@
 // Service Worker for SUDI Global Website
 // Version 1.0.0
 
-const CACHE_NAME = 'sudi-global-v1';
 const STATIC_CACHE = 'sudi-static-v1';
 const DYNAMIC_CACHE = 'sudi-dynamic-v1';
 
@@ -81,8 +80,8 @@ self.addEventListener('fetch', (event) => {
         // Fetch from network and cache dynamic content
         return fetch(request)
           .then((networkResponse) => {
-            // Don't cache non-successful responses
-            if (!networkResponse || networkResponse.status !== 200) {
+            // Only cache successful responses (status 200-299)
+            if (!networkResponse || !networkResponse.ok) {
               return networkResponse;
             }
             

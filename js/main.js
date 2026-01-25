@@ -199,9 +199,10 @@
     return div.innerHTML;
   }
 
-  // Validate phone number format (10-20 digits with optional +, spaces, dashes, parentheses)
+  // Validate phone number format (10-20 actual digits, can include formatting)
   function validatePhone(phone) {
-    return /^\+?[0-9\s\-()]{10,20}$/.test(phone.trim());
+    const digitsOnly = phone.replace(/\D/g, '');
+    return digitsOnly.length >= 10 && digitsOnly.length <= 20;
   }
 
   // Enforce character limits for security
@@ -222,6 +223,7 @@
     if (!form) return;
 
     // Rate limiting: 5 requests per 5 minutes (300000ms)
+    // NOTE: Client-side only. For production, implement server-side rate limiting.
     const RATE_LIMIT_MS = 300000; // 5 minutes
     const MAX_SUBMISSIONS = 5;
     let submissionTimes = [];

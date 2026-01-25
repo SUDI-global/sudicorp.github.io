@@ -2,6 +2,8 @@
 # Protects against XSS, clickjacking, MIME sniffing, and other attacks
 
 # Content Security Policy - Strict but allows necessary external resources
+# NOTE: 'unsafe-inline' is used for compatibility with existing inline scripts/styles
+# For production hardening, consider moving inline scripts to external files and using nonces
 <IfModule mod_headers.c>
     Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data: https: blob:; font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com; connect-src 'self' https://sudi-backend.onrender.com; frame-src 'none'; object-src 'none';"
     
