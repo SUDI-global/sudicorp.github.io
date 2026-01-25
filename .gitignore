@@ -1,0 +1,20 @@
+# Development files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Archive folder
+archive/
+
+# Temporary files
+*.tmp
+*.bak
+*~
+
+# Node modules (if used in future)
+node_modules/
+
+# Logs
+*.log
+logs/
