@@ -188,7 +188,30 @@
   }
 
   /* ============================================
-     CONTACT FORM HANDLER
+     SECURITY UTILITIES
+     ============================================ */
+
+  // XSS Protection: Sanitize input by escaping HTML entities
+  function sanitizeInput(str) {
+    if (!str) return '';
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  // Validate phone number format (10-20 actual digits, can include formatting)
+  function validatePhone(phone) {
+    const digitsOnly = phone.replace(/\D/g, '');
+    return digitsOnly.length >= 10 && digitsOnly.length <= 20;
+  }
+
+  // Enforce character limits for security
+  function enforceMaxLength(str, maxLength) {
+    return str.substring(0, maxLength);
+  }
+
+  /* ============================================
+     CONTACT FORM HANDLER (WITH SECURITY ENHANCEMENTS)
      ============================================ */
 
   function initContactForm() {
@@ -199,6 +222,17 @@
 
     if (!form) return;
 
+    // Rate limiting: 5 requests per 5 minutes (300000ms)
+    // NOTE: Client-side only. For production, implement server-side rate limiting.
+    const RATE_LIMIT_MS = 300000; // 5 minutes
+    const MAX_SUBMISSIONS = 5;
+    let submissionTimes = [];
+
+    // Character limits for security
+    const MAX_NAME_LENGTH = 100;
+    const MAX_PHONE_LENGTH = 20;
+    const MAX_MESSAGE_LENGTH = 1000;
+
     // Helper function to show message
     const showMessage = (text, color) => {
       if (note) {
@@ -207,14 +241,42 @@
       }
     };
 
+    // Check rate limit
+    const checkRateLimit = () => {
+      const now = Date.now();
+      submissionTimes = submissionTimes.filter(time => now - time < RATE_LIMIT_MS);
+      
+      if (submissionTimes.length >= MAX_SUBMISSIONS) {
+        return false;
+      }
+      
+      submissionTimes.push(now);
+      return true;
+    };
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const formData = {
+      // Rate limiting check
+      if (!checkRateLimit()) {
+        showMessage('⚠️ لقد تجاوزت الحد المسموح. يرجى الانتظار 5 دقائق قبل المحاولة مرة أخرى.', '#dc2626');
+        return;
+      }
+
+      // Get and sanitize form data
+      const rawData = {
         name: form.name?.value?.trim() || '',
         phone: form.phone?.value?.trim() || '',
         service: form.service?.value?.trim() || '',
         message: form.message?.value?.trim() || ''
+      };
+
+      // Apply character limits
+      const formData = {
+        name: enforceMaxLength(rawData.name, MAX_NAME_LENGTH),
+        phone: enforceMaxLength(rawData.phone, MAX_PHONE_LENGTH),
+        service: rawData.service,
+        message: enforceMaxLength(rawData.message, MAX_MESSAGE_LENGTH)
       };
 
       // Validation
@@ -223,10 +285,19 @@
         return;
       }
 
-      if (!/^\+?[0-9\s\-()]{7,}$/.test(formData.phone)) {
-        showMessage('⚠️ رقم الجوال غير صحيح (على الأقل 7 أرقام)', '#dc2626');
+      // Enhanced phone validation (10-20 digits)
+      if (!validatePhone(formData.phone)) {
+        showMessage('⚠️ رقم الجوال غير صحيح (يجب أن يحتوي على 10-20 رقم)', '#dc2626');
         return;
       }
+
+      // Sanitize inputs to prevent XSS
+      const sanitizedData = {
+        name: sanitizeInput(formData.name),
+        phone: sanitizeInput(formData.phone),
+        service: sanitizeInput(formData.service),
+        message: sanitizeInput(formData.message)
+      };
 
       const submitBtn = form.querySelector('button[type="submit"]');
       if (!submitBtn) return;
@@ -241,7 +312,7 @@
         const response = await fetch(BACKEND_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formData)
+          body: JSON.stringify(sanitizedData)
         });
 
         if (response.ok) {
@@ -253,7 +324,8 @@
       }
 
       setTimeout(() => {
-        const waMessage = `طلب تواصل جديد من شركة سودي\n\n👤 الاسم: ${formData.name}\n📞 الجوال: ${formData.phone}\n🏢 الخدمة: ${formData.service}\n📝 الرسالة:\n${formData.message}`;
+        // Use sanitized data for WhatsApp message
+        const waMessage = `طلب تواصل جديد من شركة سودي\n\n👤 الاسم: ${sanitizedData.name}\n📞 الجوال: ${sanitizedData.phone}\n🏢 الخدمة: ${sanitizedData.service}\n📝 الرسالة:\n${sanitizedData.message}`;
         const waURL = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(waMessage)}`;
         
         window.open(waURL, '_blank');
@@ -298,6 +370,26 @@
         }
       }
     }, { passive: true });
+  }
+
+  /* ============================================
+     IMAGE ERROR HANDLING
+     ============================================ */
+
+  function initImageErrorHandling() {
+    const images = $$('img');
+    
+    // Placeholder SVG for broken images
+    const placeholderSVG = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300"%3E%3Crect fill="%23f3f4f6" width="400" height="300"/%3E%3Ctext x="50%25" y="50%25" text-anchor="middle" dy=".3em" fill="%239ca3af" font-family="Arial, sans-serif" font-size="18"%3EImage not available%3C/text%3E%3C/svg%3E';
+    
+    images.forEach(img => {
+      img.addEventListener('error', function() {
+        if (this.src !== placeholderSVG) {
+          this.src = placeholderSVG;
+          this.alt = 'الصورة غير متوفرة';
+        }
+      }, { once: true });
+    });
   }
 
   /* ============================================
@@ -394,6 +486,36 @@
   }
 
   /* ============================================
+     SERVICE WORKER REGISTRATION (PWA)
+     ============================================ */
+
+  function initServiceWorker() {
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then((registration) => {
+            console.log('✅ Service Worker registered successfully:', registration.scope);
+            
+            // Check for updates
+            registration.addEventListener('updatefound', () => {
+              const newWorker = registration.installing;
+              console.log('🔄 Service Worker update found');
+              
+              newWorker.addEventListener('statechange', () => {
+                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                  console.log('📦 New content available, please refresh.');
+                }
+              });
+            });
+          })
+          .catch((error) => {
+            console.warn('❌ Service Worker registration failed:', error);
+          });
+      });
+    }
+  }
+
+  /* ============================================
      DARK MODE SUPPORT
      ============================================ */
 
@@ -427,10 +549,12 @@
     initFAQ();
     initContactForm();
     initTouchSupport();
+    initImageErrorHandling();
     initLazyLoading();
     initActiveLinks();
     initCounterAnimation();
     initDarkModeSupport();
+    initServiceWorker();
     
     // Initialize scroll reveal animations
     new ScrollReveal();
