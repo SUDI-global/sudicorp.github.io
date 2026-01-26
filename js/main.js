@@ -49,6 +49,27 @@
   };
 
   /* ============================================
+     SPECIAL SCROLL TO CONTACT SECTION
+     ============================================ */
+
+  // Special function for scroll to contact section
+  window.smoothScrollToContact = function() {
+    const contactSection = document.querySelector('#contact');
+    if (contactSection) {
+      const header = document.querySelector('.header');
+      const headerHeight = header ? header.offsetHeight : 0;
+      const targetPosition = contactSection.offsetTop - headerHeight - 20;
+      
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+      
+      window.history.pushState(null, null, '#contact');
+    }
+  };
+
+  /* ============================================
      SCROLL REVEAL ANIMATION
      ============================================ */
 
