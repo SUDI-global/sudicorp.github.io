@@ -61,6 +61,32 @@
             50% { transform: translateY(-10px); }
         }
         
+        /* تأثيرات 3D للأيقونات */
+        .icon i, .service-icon i, .info-icon {
+            background: linear-gradient(145deg, #3ba8e0 0%, #1a5490 50%, #0b2d4d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(2px 2px 4px rgba(11, 45, 77, 0.3)) 
+                    drop-shadow(4px 4px 8px rgba(11, 45, 77, 0.2))
+                    drop-shadow(-1px -1px 2px rgba(59, 168, 224, 0.4));
+            transform-style: preserve-3d;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .value-card:hover .icon i,
+        .service-card:hover .service-icon i {
+            filter: drop-shadow(3px 3px 6px rgba(11, 45, 77, 0.4)) 
+                    drop-shadow(6px 6px 12px rgba(11, 45, 77, 0.3))
+                    drop-shadow(-2px -2px 4px rgba(59, 168, 224, 0.6))
+                    drop-shadow(0px 0px 15px rgba(59, 168, 224, 0.3));
+            transform: perspective(500px) rotateY(15deg) rotateX(-10deg) scale(1.15);
+            background: linear-gradient(145deg, #3ba8e0 0%, #2a7fb8 30%, #1a5490 70%, #0b2d4d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
         body {
             font-family: 'Cairo', sans-serif;
             background: linear-gradient(135deg, #0b2d4d 0%, #1a5490 30%, #2a7fb8 70%, #3ba8e0 100%);
