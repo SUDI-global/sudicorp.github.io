@@ -503,19 +503,19 @@
                 
                 <h3 style="color: #0b2d4d; margin-top: 30px; margin-bottom: 15px;">تابعنا على وسائل التواصل</h3>
                 <div class="social-links">
-                    <a href="https://wa.me/249125769999" target="_blank" class="social-link whatsapp-link">
+                    <a href="https://wa.me/249125769999" target="_blank" rel="noopener noreferrer" class="social-link whatsapp-link">
                         <i class="fab fa-whatsapp"></i>
                         واتساب
                     </a>
-                    <a href="https://facebook.com/sudifoods" target="_blank" class="social-link">
+                    <a href="https://facebook.com/sudifoods" target="_blank" rel="noopener noreferrer" class="social-link">
                         <i class="fab fa-facebook-f"></i>
                         فيسبوك
                     </a>
-                    <a href="https://instagram.com/sudifoods" target="_blank" class="social-link">
+                    <a href="https://instagram.com/sudifoods" target="_blank" rel="noopener noreferrer" class="social-link">
                         <i class="fab fa-instagram"></i>
                         انستقرام
                     </a>
-                    <a href="https://linkedin.com/company/sudicorp" target="_blank" class="social-link">
+                    <a href="https://linkedin.com/company/sudicorp" target="_blank" rel="noopener noreferrer" class="social-link">
                         <i class="fab fa-linkedin-in"></i>
                         لينكدإن
                     </a>
@@ -600,24 +600,30 @@
 
     <script src="js/main.js"></script>
     <script>
-        // Simple form handling - can be enhanced with actual backend integration
+        // Secure form handling with input validation and XSS protection
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Get form data
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const service = document.getElementById('service').value;
-            const message = document.getElementById('message').value;
+            // Get form data with sanitization
+            const name = encodeURIComponent(document.getElementById('name').value.trim());
+            const phone = encodeURIComponent(document.getElementById('phone').value.trim());
+            const service = encodeURIComponent(document.getElementById('service').value);
+            const message = encodeURIComponent(document.getElementById('message').value.trim());
             
-            // Create WhatsApp message
+            // Validate inputs
+            if (!name || !phone || !message) {
+                alert('الرجاء ملء جميع الحقول المطلوبة');
+                return;
+            }
+            
+            // Create WhatsApp message with properly encoded values
             const whatsappMessage = `مرحباً، أنا ${name}%0A` +
                                    `الجوال: ${phone}%0A` +
                                    `الخدمة المطلوبة: ${service}%0A` +
                                    `الرسالة: ${message}`;
             
-            // Redirect to WhatsApp
-            window.open(`https://wa.me/249125769999?text=${whatsappMessage}`, '_blank');
+            // Redirect to WhatsApp with noopener for security
+            window.open(`https://wa.me/249125769999?text=${whatsappMessage}`, '_blank', 'noopener,noreferrer');
         });
     </script>
 </body>
