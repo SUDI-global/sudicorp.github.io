@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="SUDI Global Investment Company">
+    
+    <title>خدماتنا | شركة سودي العالمية للاستثمار</title>
+    <meta name="description" content="خدمات شاملة في الطاقة الشمسية، التجارة الدولية، التحول الرقمي، والاستشارات المالية">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://sudicorp.com/services.html" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sudicorp.com/services.html" />
+    <meta property="og:title" content="خدماتنا | شركة سودي العالمية" />
+    <meta property="og:description" content="خدمات متكاملة في الطاقة المتجددة والتجارة الدولية والحلول الرقمية" />
+    <meta property="og:image" content="https://sudicorp.com/assets/logo.png" />
+    
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+    
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
+    
+    <style>
+        /* تحريك خفي للخلفية */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #0b2d4d 0%, #1a5490 30%, #2a7fb8 70%, #3ba8e0 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .services-header {
+            background: linear-gradient(135deg, rgba(11, 45, 77, 0.95) 0%, rgba(26, 84, 144, 0.95) 100%);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 80px 0 60px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .services-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .service-card {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-top: 5px solid transparent;
+            border-image: linear-gradient(90deg, #0b2d4d, #1a5490, #3ba8e0) 1;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(59, 168, 224, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .service-card:hover::before {
+            left: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+            border-top-width: 8px;
+        }
+        
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            transition: all 0.4s ease;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+            color: #1a5490;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.2) rotate(360deg);
+        }
+        
+        .service-card h2 {
+            color: #0b2d4d;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+        }
+        
+        .service-features {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        
+        .service-features li {
+            padding: 8px 0;
+            color: #555;
+            position: relative;
+            padding-right: 25px;
+        }
+        
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            color: #1a5490;
+            font-weight: bold;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #0b2d4d 0%, #1a5490 50%, #3ba8e0 100%);
+            background-size: 200% 100%;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            margin-top: 15px;
+            box-shadow: 0 5px 20px rgba(11, 45, 77, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 35px rgba(11, 45, 77, 0.5);
+            background-position: 100% 0;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,249,250,0.95) 100%);
+            color: #0b2d4d;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            margin: 20px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            border: 2px solid rgba(255,255,255,0.8);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .back-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(11, 45, 77, 0.1);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .back-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .back-btn:hover {
+            transform: translateX(-10px) scale(1.05);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, #0b2d4d 0%, #1a5490 100%);
+            color: white;
+        }
+        
+        .process-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 60px 40px;
+            border-radius: 20px;
+            margin-top: 60px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+            animation: fadeInUp 1s ease-out;
+            transition: all 0.4s ease;
+        }
+        
+        .process-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+        
+        .process-section h2 {
+            text-align: center;
+            color: #0b2d4d;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .process-step {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, rgba(248,249,250,0.9) 0%, rgba(233,236,239,0.9) 100%);
+            border-radius: 15px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .process-step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #0b2d4d, #1a5490, #3ba8e0);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .process-step:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .process-step:hover {
+            background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(248,249,250,1) 100%);
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #0b2d4d 0%, #1a5490 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+            box-shadow: 0 5px 20px rgba(11, 45, 77, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .process-step:hover .step-number {
+            transform: scale(1.2) rotate(360deg);
+            box-shadow: 0 8px 30px rgba(11, 45, 77, 0.6);
+        }
+        
+        .process-step h3 {
+            color: #0b2d4d;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="services-header">
+        <div class="container">
+            <h1>خدماتنا المتكاملة</h1>
+            <p style="font-size: 1.3rem; opacity: 0.9; max-width: 700px; margin: 0 auto;">
+                نوفر حلولاً شاملة ومتخصصة لدعم نمو مشروعك في مختلف القطاعات
+            </p>
+            <a href="index.html" class="back-btn">← العودة للرئيسية</a>
+        </div>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="container">
+        <div class="services-grid">
+            <!-- Service 1: Solar Energy -->
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-solar-panel"></i></div>
+                <h2>الطاقة الشمسية والطاقة النظيفة</h2>
+                <p>حلول متكاملة للطاقة المتجددة بأحدث التقنيات العالمية</p>
+                <ul class="service-features">
+                    <li>تصميم وتركيب أنظمة الطاقة الشمسية</li>
+                    <li>صيانة ودعم فني مستمر</li>
+                    <li>استشارات الطاقة المتجددة</li>
+                    <li>حلول التخزين والبطاريات</li>
+                    <li>أنظمة الطاقة الريحية</li>
+                </ul>
+                <a href="contact.html" class="cta-button">اطلب استشارة مجانية</a>
+            </div>
+
+            <!-- Service 2: International Trade -->
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-ship"></i></div>
+                <h2>التجارة الدولية والتصدير</h2>
+                <p>خدمات الاستيراد والتصدير مع شبكة عالمية موثوقة</p>
+                <ul class="service-features">
+                    <li>تصدير اللحوم السودانية عالية الجودة</li>
+                    <li>تصدير الحبوب والمنتجات الزراعية</li>
+                    <li>استيراد السلع والمعدات</li>
+                    <li>التخليص الجمركي والشحن الدولي</li>
+                    <li>إدارة سلاسل التوريد</li>
+                </ul>
+                <a href="contact.html" class="cta-button">ابدأ عملية التصدير</a>
+            </div>
+
+            <!-- Service 3: Digital Solutions -->
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+                <h2>الحلول الرقمية والتطوير</h2>
+                <p>تطوير برمجيات مخصصة وحلول تقنية متقدمة</p>
+                <ul class="service-features">
+                    <li>تطوير المواقع والتطبيقات</li>
+                    <li>تصميم واجهات المستخدم (UI/UX)</li>
+                    <li>أنظمة إدارة المحتوى (CMS)</li>
+                    <li>تطبيقات الجوال (iOS & Android)</li>
+                    <li>حلول التجارة الإلكترونية</li>
+                </ul>
+                <a href="contact.html" class="cta-button">احصل على عرض سعر</a>
+            </div>
+
+            <!-- Service 4: Financial Consulting -->
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-chart-pie"></i></div>
+                <h2>الإدارة المالية والاستشارات</h2>
+                <p>استشارات مالية احترافية وخدمات محاسبية متكاملة</p>
+                <ul class="service-features">
+                    <li>التخطيط المالي الاستراتيجي</li>
+                    <li>إعداد التقارير المالية</li>
+                    <li>تدقيق الحسابات</li>
+                    <li>دراسات الجدوى الاقتصادية</li>
+                    <li>الاستشارات الضريبية</li>
+                </ul>
+                <a href="contact.html" class="cta-button">استشر خبراءنا</a>
+            </div>
+
+            <!-- Service 5: Digital Marketing -->
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
+                <h2>التسويق الرقمي والعلاقات العامة</h2>
+                <p>استراتيجيات تسويقية مبتكرة لتعزيز حضورك الرقمي</p>
+                <ul class="service-features">
+                    <li>إدارة وسائل التواصل الاجتماعي</li>
+                    <li>تحسين محركات البحث (SEO)</li>
+                    <li>الحملات الإعلانية الرقمية</li>
+                    <li>تصميم الهوية البصرية</li>
+                    <li>إنتاج المحتوى الإبداعي</li>
+                </ul>
+                <a href="contact.html" class="cta-button">خطط حملتك</a>
+            </div>
+
+            <!-- Service 6: Business Development -->
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-building"></i></div>
+                <h2>تطوير وهندسة الشركات</h2>
+                <p>إعادة هيكلة وتطوير الشركات لتحقيق الأداء الأمثل</p>
+                <ul class="service-features">
+                    <li>إعادة هيكلة الشركات</li>
+                    <li>تطوير العمليات التشغيلية</li>
+                    <li>تدريب وتطوير الموارد البشرية</li>
+                    <li>استشارات إدارية استراتيجية</li>
+                    <li>تحليل الأداء المؤسسي</li>
+                </ul>
+                <a href="contact.html" class="cta-button">طور شركتك</a>
+            </div>
+        </div>
+
+        <!-- Process Section -->
+        <div class="process-section">
+            <h2>كيف نعمل معك؟</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>التواصل الأولي</h3>
+                    <p>نستمع لاحتياجاتك وأهدافك</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>التحليل والتخطيط</h3>
+                    <p>نضع خطة عمل مفصلة</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>التنفيذ</h3>
+                    <p>نبدأ العمل بفريق محترف</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>المتابعة والتقييم</h3>
+                    <p>نضمن جودة النتائج</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h3>الدعم المستمر</h3>
+                    <p>نبقى معك بعد التسليم</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div style="background: linear-gradient(135deg, #0b2d4d 0%, #1a5490 100%); color: white; padding: 60px; border-radius: 15px; text-align: center; margin-top: 60px;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">جاهز للبدء؟</h2>
+            <p style="font-size: 1.3rem; margin-bottom: 30px; opacity: 0.9;">دعنا نساعدك في اختيار الخدمة المناسبة لاحتياجاتك</p>
+            <a href="contact.html" style="display: inline-block; background: white; color: #0b2d4d; padding: 15px 50px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 1.2rem; margin-left: 15px;">
+                تواصل معنا الآن
+            </a>
+            <a href="https://wa.me/249125769999" target="_blank" style="display: inline-block; background: #25D366; color: white; padding: 15px 50px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 1.2rem;">
+                واتساب مباشر
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background: #0b2d4d; color: white; padding: 40px 0; text-align: center;">
+        <div class="container">
+            <p style="margin: 0; font-size: 1rem;">© 2026 شركة سودي العالمية للاستثمار. جميع الحقوق محفوظة.</p>
+            <p style="margin: 10px 0 0;">
+                <a href="index.html" style="color: white; margin: 0 15px;">الرئيسية</a> |
+                <a href="about.html" style="color: white; margin: 0 15px;">من نحن</a> |
+                <a href="projects.html" style="color: white; margin: 0 15px;">المشاريع</a> |
+                <a href="contact.html" style="color: white; margin: 0 15px;">اتصل بنا</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

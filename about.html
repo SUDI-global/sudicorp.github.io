@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="SUDI Global Investment Company">
+    
+    <title>من نحن | شركة سودي العالمية للاستثمار</title>
+    <meta name="description" content="تعرف على شركة سودي العالمية - شركة سودانية رائدة في الاستثمارات متعددة القطاعات منذ 2013">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://sudicorp.com/about.html" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sudicorp.com/about.html" />
+    <meta property="og:title" content="من نحن | شركة سودي العالمية" />
+    <meta property="og:description" content="شركة سودي العالمية - رائدة في الاستثمارات متعددة القطاعات منذ 2013" />
+    <meta property="og:image" content="https://sudicorp.com/assets/logo.png" />
+    
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+    
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
+    
+    <style>
+        /* تحريك خفي للخلفية */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #0b2d4d 0%, #1a5490 30%, #2a7fb8 70%, #3ba8e0 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+        }
+        
+        .about-header {
+            background: linear-gradient(135deg, rgba(11, 45, 77, 0.95) 0%, rgba(26, 84, 144, 0.95) 100%);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 80px 0 60px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .about-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .about-header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeInUp 1.2s ease-out;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .about-section {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: fadeInUp 0.8s ease-out;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        .about-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+        
+        .about-section h2 {
+            color: #0b2d4d;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .about-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #0b2d4d, #1a5490, #3ba8e0);
+            border-radius: 2px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .timeline-year {
+            background: linear-gradient(135deg, #0b2d4d 0%, #1a5490 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-left: 30px;
+            min-width: 100px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(11, 45, 77, 0.4);
+            transition: all 0.3s ease;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .timeline-year:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(11, 45, 77, 0.6);
+        }
+        
+        .timeline-content {
+            flex: 1;
+            padding: 15px 25px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-right: 4px solid #1a5490;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .value-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(248,249,250,0.9) 100%);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border: 2px solid rgba(255,255,255,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #0b2d4d, #1a5490, #3ba8e0);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .value-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(248,249,250,1) 100%);
+        }
+        
+        .value-card .icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+            display: inline-block;
+            color: #0b2d4d;
+        }
+        
+        .value-card:hover .icon {
+            transform: scale(1.2) rotate(5deg);
+            animation: pulse 1s ease infinite;
+        }
+        
+        .value-card h3 {
+            color: #0b2d4d;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,249,250,0.95) 100%);
+            color: #0b2d4d;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            margin: 20px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            border: 2px solid rgba(255,255,255,0.8);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .back-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(11, 45, 77, 0.1);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .back-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .back-btn:hover {
+            transform: translateX(-10px) scale(1.05);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, #0b2d4d 0%, #1a5490 100%);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="about-header">
+        <div class="container">
+            <h1>من نحن</h1>
+            <p>شركة سودانية رائدة في الاستثمارات متعددة القطاعات</p>
+            <a href="index.html" class="back-btn">← العودة للرئيسية</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- About Section -->
+        <div class="about-section">
+            <h2>نبذة عن الشركة</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8; color: #555;">
+                <strong>شركة سودي العالمية للاستثمار</strong> هي شركة سودانية رسمية متخصصة في الاستثمارات متعددة القطاعات، 
+                تأسست في عام 2013 برؤية واضحة لدعم الاقتصاد السوداني من خلال حلول تجارية واستثمارية مبتكرة.
+            </p>
+            <p style="font-size: 1.1rem; line-height: 1.8; color: #555; margin-top: 15px;">
+                نعمل في مجالات متنوعة تشمل الطاقة المتجددة، التجارة الدولية، التحول الرقمي، والاستشارات المالية.
+                نجمع بين الخبرة المحلية والمعايير العالمية لتقديم خدمات عالية الجودة لعملائنا.
+            </p>
+        </div>
+
+        <!-- Vision & Mission -->
+        <div class="about-section">
+            <h2>رؤيتنا ورسالتنا</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="icon"><i class="fas fa-bullseye"></i></div>
+                    <h3>رؤيتنا</h3>
+                    <p>أن نكون الشركة الرائدة في المنطقة في مجالات الطاقة المتجددة والتجارة الدولية والتحول الرقمي</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>رسالتنا</h3>
+                    <p>تقديم حلول متكاملة وموثوقة تساهم في نمو الشركات والمؤسسات مع الالتزام بأعلى معايير الجودة</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon"><i class="fas fa-star"></i></div>
+                    <h3>قيمنا</h3>
+                    <p>النزاهة، الابتكار، التميز، المسؤولية الاجتماعية، والشراكة الاستراتيجية</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="about-section">
+            <h2>مسيرتنا</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2013</div>
+                    <div class="timeline-content">
+                        <h3>التأسيس</h3>
+                        <p>تأسيس شركة سودي العالمية للاستثمار في الخرطوم، السودان</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2015</div>
+                    <div class="timeline-content">
+                        <h3>التوسع في الطاقة المتجددة</h3>
+                        <p>بدء أعمال تركيب أنظمة الطاقة الشمسية للمنشآت الصناعية والسكنية</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2018</div>
+                    <div class="timeline-content">
+                        <h3>دخول مجال التجارة الدولية</h3>
+                        <p>بدء عمليات تصدير اللحوم والحبوب السودانية إلى الأسواق العالمية</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2021</div>
+                    <div class="timeline-content">
+                        <h3>التحول الرقمي</h3>
+                        <p>إطلاق قسم الحلول الرقمية والتطوير البرمجي</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2026</div>
+                    <div class="timeline-content">
+                        <h3>النمو المستمر</h3>
+                        <p>أكثر من 25 عميل راضي و 6 مشاريع منجزة عبر 5 قطاعات استثمارية</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Core Values -->
+        <div class="about-section">
+            <h2>ما يميزنا</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>الموثوقية</h3>
+                    <p>شركة مسجلة رسمياً مع سجل حافل من الإنجازات</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon"><i class="fas fa-gem"></i></div>
+                    <h3>الجودة العالية</h3>
+                    <p>معايير عالمية في جميع خدماتنا ومشاريعنا</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon"><i class="fas fa-handshake"></i></div>
+                    <h3>الشراكة الحقيقية</h3>
+                    <p>نعمل مع عملائنا كشركاء في النجاح</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon"><i class="fas fa-rocket"></i></div>
+                    <h3>الابتكار المستمر</h3>
+                    <p>نواكب أحدث التقنيات والممارسات العالمية</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>التركيز على النتائج</h3>
+                    <p>نقيس نجاحنا بنجاح عملائنا</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon"><i class="fas fa-globe"></i></div>
+                    <h3>المسؤولية الاجتماعية</h3>
+                    <p>ملتزمون بتنمية المجتمع والاقتصاد المحلي</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="about-section" style="text-align: center; background: linear-gradient(135deg, #0b2d4d 0%, #1a5490 100%); color: white;">
+            <h2 style="color: white;">هل أنت مستعد للبدء؟</h2>
+            <p style="font-size: 1.2rem; margin: 20px 0;">دعنا نساعدك في تحقيق أهدافك الاستثمارية والتجارية</p>
+            <a href="contact.html" style="display: inline-block; background: white; color: #0b2d4d; padding: 15px 40px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 1.1rem; margin-top: 20px;">
+                تواصل معنا الآن
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background: #0b2d4d; color: white; padding: 40px 0; margin-top: 60px; text-align: center;">
+        <div class="container">
+            <p style="margin: 0; font-size: 1rem;">© 2026 شركة سودي العالمية للاستثمار. جميع الحقوق محفوظة.</p>
+            <p style="margin: 10px 0 0;">
+                <a href="index.html" style="color: white; margin: 0 15px;">الرئيسية</a> |
+                <a href="services.html" style="color: white; margin: 0 15px;">الخدمات</a> |
+                <a href="projects.html" style="color: white; margin: 0 15px;">المشاريع</a> |
+                <a href="contact.html" style="color: white; margin: 0 15px;">اتصل بنا</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
