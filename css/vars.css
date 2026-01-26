@@ -1,1 +1,25 @@
 
+/* ========== CSS VARIABLES ========== */
+:root {
+  /* Colors */
+  --primary: #0b2d4d;
+  --primary2: #133e64;
+  --accent: #c9a24a;
+  --paper: #ffffff;
+  --soft: #f6f8fb;
+  --line: #e6ebf2;
+  --ink: #0f172a;
+  --muted: #475569;
+  
+  /* Border Radius */
+  --radius: 18px;
+  --radius2: 26px;
+  
+  /* Shadows */
+  --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  --shadow2: 0 18px 50px rgba(15, 23, 42, 0.1);
+  --shadow3: 0 25px 60px rgba(15, 23, 42, 0.15);
+  
+  /* Transitions */
+  --transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
