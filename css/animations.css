@@ -1,12 +1,46 @@
+/* ========== ANIMATIONS ========== */
+
+/* Float Animation */
 @keyframes float {
-  50% { transform: translateY(-20px); }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
 }
 
+/* Fade In Up Animation */
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.reveal-on-scroll {
-  animation: fadeInUp .6s ease both;
+/* Move Gradient Animation */
+@keyframes moveGradient {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(100px, 100px);
+  }
 }
+
+/* Reveal on Scroll */
+.reveal-on-scroll {
+  animation: fadeInUp 0.6s ease both;
+}
+
+/* Stat Item Animation Delay */
+.stat-item {
+  animation-delay: calc(0.1s * var(--item-index, 0));
+}
+
