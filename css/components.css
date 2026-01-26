@@ -542,12 +542,6 @@ body.nav-open {
   transform: scale(1.05);
 }
 
-.portfolioCard img {
-  width: 100%;
-  height: 210px;
-  object-fit: cover;
-}
-
 .portfolioCard__overlay {
   position: absolute;
   top: 0;
@@ -940,11 +934,7 @@ body.nav-open {
   gap: 6px;
 }
 
-.field label {
-  font-weight: 800;
-  color: var(--primary);
-}
-
+.field label,
 .field__label {
   font-weight: 800;
   color: var(--primary);
@@ -954,14 +944,7 @@ body.nav-open {
 
 .field input,
 .field textarea,
-.field select {
-  padding: 12px 14px;
-  border-radius: 12px;
-  border: 1px solid var(--line);
-  background: var(--soft);
-  transition: var(--transition);
-}
-
+.field select,
 .field__input {
   width: 100%;
   padding: 12px 14px;
@@ -975,11 +958,7 @@ body.nav-open {
 
 .field input:focus,
 .field textarea:focus,
-.field select:focus {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(11, 45, 77, 0.1);
-}
-
+.field select:focus,
 .field__input:focus {
   border-color: var(--primary);
   box-shadow: 0 0 0 3px rgba(11, 45, 77, 0.1);
