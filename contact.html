@@ -1,1 +1,624 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="SUDI Global Investment Company">
+    
+    <title>اتصل بنا | شركة سودي العالمية للاستثمار</title>
+    <meta name="description" content="تواصل مع شركة سودي العالمية - نحن هنا لمساعدتك في تحقيق أهدافك الاستثمارية والتجارية">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://sudicorp.com/contact.html" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sudicorp.com/contact.html" />
+    <meta property="og:title" content="اتصل بنا | شركة سودي العالمية" />
+    <meta property="og:description" content="تواصل معنا للحصول على استشارة مجانية أو لمعرفة المزيد عن خدماتنا" />
+    <meta property="og:image" content="https://sudicorp.com/assets/logo.png" />
+    
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+    
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
+    
+    <style>
+        /* تحريك خفي للخلفية */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* تأثيرات 3D للأيقونات */
+        .icon i, .service-icon i, .info-icon {
+            background: linear-gradient(145deg, #3ba8e0 0%, #1a5490 50%, #0b2d4d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(2px 2px 4px rgba(11, 45, 77, 0.3)) 
+                    drop-shadow(4px 4px 8px rgba(11, 45, 77, 0.2))
+                    drop-shadow(-1px -1px 2px rgba(59, 168, 224, 0.4));
+            transform-style: preserve-3d;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .value-card:hover .icon i,
+        .service-card:hover .service-icon i,
+        .contact-info-item:hover .info-icon,
+        .social-links a:hover i {
+            filter: drop-shadow(3px 3px 6px rgba(11, 45, 77, 0.4)) 
+                    drop-shadow(6px 6px 12px rgba(11, 45, 77, 0.3))
+                    drop-shadow(-2px -2px 4px rgba(59, 168, 224, 0.6))
+                    drop-shadow(0px 0px 15px rgba(59, 168, 224, 0.3));
+            transform: perspective(500px) rotateY(15deg) rotateX(-10deg) scale(1.15);
+            background: linear-gradient(145deg, #3ba8e0 0%, #2a7fb8 30%, #1a5490 70%, #0b2d4d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #0b2d4d 0%, #1a5490 30%, #2a7fb8 70%, #3ba8e0 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .contact-header {
+            background: linear-gradient(135deg, rgba(11, 45, 77, 0.95) 0%, rgba(26, 84, 144, 0.95) 100%);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 80px 0 60px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .contact-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .contact-info {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+            animation: fadeInUp 0.8s ease-out;
+            transition: all 0.4s ease;
+        }
+        
+        .contact-info:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+        
+        .contact-info h2 {
+            color: #0b2d4d;
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            padding: 15px;
+            background: linear-gradient(135deg, rgba(248,249,250,0.9) 0%, rgba(233,236,239,0.9) 100%);
+            border-radius: 15px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .info-item::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 5px;
+            background: linear-gradient(180deg, #0b2d4d, #1a5490, #3ba8e0);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .info-item:hover::before {
+            transform: scaleY(1);
+        }
+        
+        .info-item:hover {
+            background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(248,249,250,1) 100%);
+            transform: translateX(-10px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .info-icon {
+            font-size: 2rem;
+            color: #1a5490;
+            margin-left: 20px;
+        }
+        
+        .info-content h3 {
+            color: #0b2d4d;
+            margin: 0 0 8px 0;
+            font-size: 1.2rem;
+        }
+        
+        .info-content p {
+            margin: 0;
+            color: #666;
+            font-size: 1rem;
+        }
+        
+        .info-content a {
+            color: #1a5490;
+            text-decoration: none;
+        }
+        
+        .info-content a:hover {
+            text-decoration: underline;
+        }
+        
+        .contact-form {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+            animation: fadeInUp 0.9s ease-out;
+            transition: all 0.4s ease;
+        }
+        
+        .contact-form:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+        
+        .contact-form h2 {
+            color: #0b2d4d;
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            color: #0b2d4d;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+            box-sizing: border-box;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #1a5490;
+            box-shadow: 0 0 0 4px rgba(26, 84, 144, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #0b2d4d 0%, #1a5490 50%, #3ba8e0 100%);
+            background-size: 200% 100%;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-family: 'Cairo', sans-serif;
+            box-shadow: 0 8px 25px rgba(11, 45, 77, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .submit-btn:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 40px rgba(11, 45, 77, 0.5);
+            background-position: 100% 0;
+        }
+        
+        .submit-btn:active {
+            transform: translateY(0) scale(0.98);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, rgba(248,249,250,0.9) 0%, rgba(233,236,239,0.9) 100%);
+            border-radius: 12px;
+            text-decoration: none;
+            color: #0b2d4d;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(59, 168, 224, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .social-link:hover::before {
+            left: 100%;
+        }
+        
+        .social-link:hover {
+            background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(248,249,250,1) 100%);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .whatsapp-link {
+            background: linear-gradient(135deg, #25D366 0%, #1fb855 100%);
+            color: white;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+        }
+        
+        .whatsapp-link:hover {
+            background: linear-gradient(135deg, #1fb855 0%, #25D366 100%);
+            transform: translateY(-8px) scale(1.08);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
+        }
+        
+        .map-container {
+            margin-top: 60px;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+            animation: fadeInUp 1s ease-out;
+            transition: all 0.4s ease;
+        }
+        
+        .map-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+        
+        .map-container h2 {
+            color: #0b2d4d;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+            border-radius: 10px;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,249,250,0.95) 100%);
+            color: #0b2d4d;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            margin: 20px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            border: 2px solid rgba(255,255,255,0.8);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .back-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(11, 45, 77, 0.1);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .back-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .back-btn:hover {
+            transform: translateX(-10px) scale(1.05);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, #0b2d4d 0%, #1a5490 100%);
+            color: white;
+        }
+    </style>
+</head>
 
+<body>
+    <!-- Header -->
+    <div class="contact-header">
+        <div class="container">
+            <h1>تواصل معنا</h1>
+            <p style="font-size: 1.3rem; opacity: 0.9; max-width: 700px; margin: 0 auto;">
+                نحن هنا لمساعدتك - تواصل معنا اليوم واحصل على استشارة مجانية
+            </p>
+            <a href="index.html" class="back-btn">← العودة للرئيسية</a>
+        </div>
+    </div>
+
+    <!-- Contact Content -->
+    <div class="container">
+        <div class="contact-grid">
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <h2>معلومات الاتصال</h2>
+                
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt info-icon"></i>
+                    <div class="info-content">
+                        <h3>العنوان</h3>
+                        <p>الخرطوم، الحي الدبلوماسي<br>مخطط العودة، فيلا 249</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <i class="fas fa-phone info-icon"></i>
+                    <div class="info-content">
+                        <h3>الهاتف</h3>
+                        <p><a href="tel:+249125769999">+249 12 576 9999</a></p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <i class="fas fa-envelope info-icon"></i>
+                    <div class="info-content">
+                        <h3>البريد الإلكتروني</h3>
+                        <p><a href="mailto:sudi@sudicorp.com">sudi@sudicorp.com</a></p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <i class="fas fa-clock info-icon"></i>
+                    <div class="info-content">
+                        <h3>ساعات العمل</h3>
+                        <p>الأحد - الخميس: 8:00 ص - 5:00 م<br>الجمعة - السبت: مغلق</p>
+                    </div>
+                </div>
+                
+                <h3 style="color: #0b2d4d; margin-top: 30px; margin-bottom: 15px;">تابعنا على وسائل التواصل</h3>
+                <div class="social-links">
+                    <a href="https://wa.me/249125769999" target="_blank" class="social-link whatsapp-link">
+                        <i class="fab fa-whatsapp"></i>
+                        واتساب
+                    </a>
+                    <a href="https://facebook.com/sudifoods" target="_blank" class="social-link">
+                        <i class="fab fa-facebook-f"></i>
+                        فيسبوك
+                    </a>
+                    <a href="https://instagram.com/sudifoods" target="_blank" class="social-link">
+                        <i class="fab fa-instagram"></i>
+                        انستقرام
+                    </a>
+                    <a href="https://linkedin.com/company/sudicorp" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin-in"></i>
+                        لينكدإن
+                    </a>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <h2>أرسل لنا رسالة</h2>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">الاسم الكامل *</label>
+                        <input type="text" id="name" name="name" required placeholder="أدخل اسمك الكامل">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">رقم الجوال *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="+249 12 345 6789">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">البريد الإلكتروني</label>
+                        <input type="email" id="email" name="email" placeholder="example@email.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">نوع الخدمة *</label>
+                        <select id="service" name="service" required>
+                            <option value="">اختر القطاع</option>
+                            <option value="solar">طاقة شمسية</option>
+                            <option value="trade">استيراد وتصدير</option>
+                            <option value="accounting">استشارات محاسبية</option>
+                            <option value="digital">حلول رقمية</option>
+                            <option value="marketing">تسويق رقمي</option>
+                            <option value="development">تطوير الشركات</option>
+                            <option value="other">أخرى</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">رسالتك *</label>
+                        <textarea id="message" name="message" required placeholder="أخبرنا عن احتياجاتك أو استفساراتك..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">إرسال الرسالة</button>
+                </form>
+                
+                <p style="text-align: center; margin-top: 20px; color: #666; font-size: 0.9rem;">
+                    أو تواصل معنا مباشرة عبر 
+                    <a href="https://wa.me/249125769999" style="color: #25D366; font-weight: 600;">الواتساب</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Map Section -->
+        <div class="map-container">
+            <h2>موقعنا على الخريطة</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 20px;">
+                الخرطوم، الحي الدبلوماسي، مخطط العودة
+            </p>
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7649.767890769595!2d32.5397!3d15.6007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTXCsDM2JzAyLjUiTiAzMsKwMzInMjIuOSJF!5e0!3m2!1sen!2s!4v1234567890"
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background: #0b2d4d; color: white; padding: 40px 0; margin-top: 60px; text-align: center;">
+        <div class="container">
+            <p style="margin: 0; font-size: 1rem;">© 2026 شركة سودي العالمية للاستثمار. جميع الحقوق محفوظة.</p>
+            <p style="margin: 10px 0 0;">
+                <a href="index.html" style="color: white; margin: 0 15px;">الرئيسية</a> |
+                <a href="about.html" style="color: white; margin: 0 15px;">من نحن</a> |
+                <a href="services.html" style="color: white; margin: 0 15px;">الخدمات</a> |
+                <a href="projects.html" style="color: white; margin: 0 15px;">المشاريع</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Simple form handling - can be enhanced with actual backend integration
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            // Create WhatsApp message
+            const whatsappMessage = `مرحباً، أنا ${name}%0A` +
+                                   `الجوال: ${phone}%0A` +
+                                   `الخدمة المطلوبة: ${service}%0A` +
+                                   `الرسالة: ${message}`;
+            
+            // Redirect to WhatsApp
+            window.open(`https://wa.me/249125769999?text=${whatsappMessage}`, '_blank');
+        });
+    </script>
+</body>
+</html>
