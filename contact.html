@@ -30,24 +30,59 @@
     <link rel="stylesheet" href="css/styles.css" />
     
     <style>
+        /* تحريك خفي للخلفية */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
         body {
             font-family: 'Cairo', sans-serif;
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #0b2d4d 0%, #1a5490 30%, #2a7fb8 70%, #3ba8e0 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
             margin: 0;
             padding: 0;
         }
         
         .contact-header {
-            background: linear-gradient(135deg, #0b2d4d 0%, #1a5490 100%);
+            background: linear-gradient(135deg, rgba(11, 45, 77, 0.95) 0%, rgba(26, 84, 144, 0.95) 100%);
+            backdrop-filter: blur(10px);
             color: white;
             padding: 80px 0 60px;
             text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            animation: fadeInUp 0.8s ease-out;
         }
         
         .contact-header h1 {
             font-size: 3rem;
             font-weight: 800;
             margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out;
         }
         
         .container {
@@ -70,10 +105,17 @@
         }
         
         .contact-info {
-            background: white;
+            background: rgba(255, 255, 255, 0.98);
             padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+            animation: fadeInUp 0.8s ease-out;
+            transition: all 0.4s ease;
+        }
+        
+        .contact-info:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
         }
         
         .contact-info h2 {
@@ -87,14 +129,34 @@
             align-items: flex-start;
             margin-bottom: 25px;
             padding: 15px;
-            background: #f8f9fa;
-            border-radius: 10px;
-            transition: all 0.3s;
+            background: linear-gradient(135deg, rgba(248,249,250,0.9) 0%, rgba(233,236,239,0.9) 100%);
+            border-radius: 15px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .info-item::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 5px;
+            background: linear-gradient(180deg, #0b2d4d, #1a5490, #3ba8e0);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .info-item:hover::before {
+            transform: scaleY(1);
         }
         
         .info-item:hover {
-            background: #e9ecef;
-            transform: translateX(-5px);
+            background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(248,249,250,1) 100%);
+            transform: translateX(-10px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
         
         .info-icon {
@@ -125,10 +187,17 @@
         }
         
         .contact-form {
-            background: white;
+            background: rgba(255, 255, 255, 0.98);
             padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+            animation: fadeInUp 0.9s ease-out;
+            transition: all 0.4s ease;
+        }
+        
+        .contact-form:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
         }
         
         .contact-form h2 {
@@ -167,7 +236,8 @@
         .form-group textarea:focus {
             outline: none;
             border-color: #1a5490;
-            box-shadow: 0 0 0 3px rgba(26, 84, 144, 0.1);
+            box-shadow: 0 0 0 4px rgba(26, 84, 144, 0.2);
+            transform: translateY(-2px);
         }
         
         .form-group textarea {
@@ -177,21 +247,48 @@
         
         .submit-btn {
             width: 100%;
-            background: linear-gradient(135deg, #0b2d4d 0%, #1a5490 100%);
+            background: linear-gradient(135deg, #0b2d4d 0%, #1a5490 50%, #3ba8e0 100%);
+            background-size: 200% 100%;
             color: white;
             padding: 15px;
             border: none;
-            border-radius: 8px;
+            border-radius: 30px;
             font-size: 1.1rem;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             font-family: 'Cairo', sans-serif;
+            box-shadow: 0 8px 25px rgba(11, 45, 77, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .submit-btn:hover::before {
+            width: 400px;
+            height: 400px;
         }
         
         .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(11, 45, 77, 0.3);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 40px rgba(11, 45, 77, 0.5);
+            background-position: 100% 0;
+        }
+        
+        .submit-btn:active {
+            transform: translateY(0) scale(0.98);
         }
         
         .social-links {
@@ -206,34 +303,63 @@
             align-items: center;
             gap: 10px;
             padding: 12px 20px;
-            background: #f8f9fa;
-            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(248,249,250,0.9) 0%, rgba(233,236,239,0.9) 100%);
+            border-radius: 12px;
             text-decoration: none;
             color: #0b2d4d;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(59, 168, 224, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .social-link:hover::before {
+            left: 100%;
         }
         
         .social-link:hover {
-            background: #e9ecef;
-            transform: scale(1.05);
+            background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(248,249,250,1) 100%);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
         
         .whatsapp-link {
-            background: #25D366;
+            background: linear-gradient(135deg, #25D366 0%, #1fb855 100%);
             color: white;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
         }
         
         .whatsapp-link:hover {
-            background: #1fb855;
+            background: linear-gradient(135deg, #1fb855 0%, #25D366 100%);
+            transform: translateY(-8px) scale(1.08);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
         }
         
         .map-container {
             margin-top: 60px;
-            background: white;
+            background: rgba(255, 255, 255, 0.98);
             padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+            animation: fadeInUp 1s ease-out;
+            transition: all 0.4s ease;
+        }
+        
+        .map-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
         }
         
         .map-container h2 {
@@ -252,14 +378,43 @@
         
         .back-btn {
             display: inline-block;
-            background: white;
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,249,250,0.95) 100%);
             color: #0b2d4d;
             padding: 12px 30px;
-            border-radius: 25px;
+            border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             margin: 20px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            border: 2px solid rgba(255,255,255,0.8);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .back-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(11, 45, 77, 0.1);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .back-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .back-btn:hover {
+            transform: translateX(-10px) scale(1.05);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, #0b2d4d 0%, #1a5490 100%);
+            color: white;
         }
         
         .back-btn:hover {
