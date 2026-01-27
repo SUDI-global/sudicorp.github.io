@@ -26,11 +26,13 @@
      ============================================ */
 
   window.smoothScroll = function(e) {
-    if (e && e.preventDefault) {
-      e.preventDefault();
-    }
-    
-    const href = this.getAttribute('href');
+  e.preventDefault();
+
+  const link = e.currentTarget;
+  if (!link) return;
+
+  const href = link.getAttribute('href');
+
     if (href && href.startsWith('#')) {
       const target = $(href);
       if (target) {
