@@ -1,646 +1,495 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#0b2d4d" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>SUDI Corp | شركة سودي العالمية للاستثمار</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+<style>
+/* ═══════════════════════════════════════
+   CSS VARIABLES & RESET 
+   ═══════════════════════════════════════ */
+:root {
+  --navy: #051320; 
+  --navy-light: #0a2036;
+  --gold: #D4AF37; 
+  --gold-light: #F3E5AB;
+  --gold-dark: #AA8C2C;
+  --white: #FFFFFF;
+  --off-white: #F4F6F8;
+  --gray-100: #E2E8F0;
+  --gray-400: #94A3B8;
+  --font-ar: 'Cairo', sans-serif;
+  --font-en: 'Inter', sans-serif;
+  --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-  <title>.شركة سودي العالمية للاستثمار | ريادة الاستثمار متعدد القطاعات</title>
-  <meta name="description" content="شركة سودي العالمية (SUDI) منذ 2013: خبراء في الطاقة الشمسية، استيراد وتصدير اللحوم والحبوب، تطوير الشركات والحلول الرقمية بالخرطوم." />
-  <meta name="keywords" content="سودي العالمية، طاقة شمسية السودان، تصدير لحوم، استشارات محاسبية، تطوير شركات، سوديكورب" />
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-  <meta name="author" content="SUDI Global Investment Company" />
+* { margin:0; padding:0; box-sizing:border-box; }
+::selection { background: var(--gold); color: var(--navy); }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--navy); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
+
+html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
+body { font-family: var(--font-ar); background: var(--navy); color: var(--white); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+/* ═══════════════════════════════════════
+   CUSTOM CURSOR (DESKTOP ONLY)
+   ═══════════════════════════════════════ */
+@media (pointer: fine) {
+  * { cursor: none !important; }
+  .cursor-dot { position: fixed; top: 0; left: 0; width: 8px; height: 8px; background-color: var(--gold); border-radius: 50%; pointer-events: none; z-index: 999999; transform: translate(-50%, -50%); transition: width 0.3s, height 0.3s; }
+  .cursor-outline { position: fixed; top: 0; left: 0; width: 40px; height: 40px; border: 1px solid rgba(212, 175, 55, 0.5); border-radius: 50%; pointer-events: none; z-index: 999998; transform: translate(-50%, -50%); transition: width 0.3s, height 0.3s, background-color 0.3s; }
+  .cursor-hover .cursor-dot { width: 0; height: 0; }
+  .cursor-hover .cursor-outline { width: 60px; height: 60px; background-color: rgba(212, 175, 55, 0.1); border-color: var(--gold); mix-blend-mode: difference; }
+}
+@media (pointer: coarse) {
+  .cursor-dot, .cursor-outline { display: none !important; }
+}
+
+/* ═══════════════════════════════════════
+   PREMIUM LOADER
+   ═══════════════════════════════════════ */
+#loader { position: fixed; inset: 0; background: var(--navy); z-index: 100000; display: flex; align-items: center; justify-content: center; flex-direction: column; transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.8s ease; }
+#loader.hidden { transform: translateY(-100%); opacity: 0; pointer-events: none; }
+.loader-logo-img { height: 60px; animation: pulseGlow 1.5s infinite alternate; }
+.loader-progress { width: 150px; height: 2px; background: rgba(255,255,255,0.1); margin-top: 30px; position: relative; overflow: hidden; }
+.loader-progress::after { content:''; position: absolute; top:0; left:0; height: 100%; width: 0%; background: var(--gold); animation: loadProgress 1.5s cubic-bezier(0.65, 0, 0.35, 1) forwards; }
+@keyframes loadProgress { to { width: 100%; } }
+@keyframes pulseGlow { from { filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.2)); } to { filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.6)); } }
+
+/* ═══════════════════════════════════════
+   GLASSMORPHISM NAVBAR & MOBILE MENU
+   ═══════════════════════════════════════ */
+.navbar { position: fixed; top: 0; right: 0; left: 0; z-index: 9999; padding: 20px 5%; display: flex; align-items: center; justify-content: space-between; transition: var(--transition); border-bottom: 1px solid transparent; }
+.navbar.scrolled { padding: 12px 5%; background: rgba(5, 19, 32, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+.nav-logo img { height: 40px; }
+
+.nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
+.nav-links a { color: var(--white); text-decoration: none; font-size: 0.95rem; font-weight: 500; position: relative; transition: color 0.3s; }
+.nav-links a::after { content:''; position:absolute; bottom:-6px; right:0; width:0; height:2px; background:var(--gold); transition:width 0.4s ease; }
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { width:100%; }
+
+.nav-cta { background: transparent; color: var(--gold) !important; border: 1px solid var(--gold); padding: 10px 24px !important; border-radius: 4px; font-weight: 600 !important; transition: var(--transition) !important; position: relative; overflow: hidden; }
+.nav-cta::before { content:''; position:absolute; top:0; left:0; width:100%; height:100%; background: var(--gold); transform: scaleX(0); transform-origin: right; transition: transform 0.5s ease; z-index:-1; }
+.nav-cta:hover::before { transform: scaleX(1); transform-origin: left; }
+.nav-cta:hover { color: var(--navy) !important; }
+
+/* Hamburger Menu (Mobile) */
+.menu-toggle { display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 10001; }
+.menu-toggle span { width: 30px; height: 2px; background: var(--gold); transition: 0.4s; border-radius: 2px; }
+.menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.menu-toggle.active span:nth-child(2) { opacity: 0; }
+.menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* ═══════════════════════════════════════
+   HERO SECTION (CINEMATIC)
+   ═══════════════════════════════════════ */
+.hero { height: 100vh; min-height: 600px; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; text-align: center; }
+.hero-bg { position: absolute; inset: 0; z-index: 0; background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat; transform: scale(1.1); animation: bgZoom 20s linear infinite alternate; }
+.hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to bottom, rgba(5,19,32,0.6) 0%, rgba(5,19,32,1) 100%); }
+@keyframes bgZoom { from { transform: scale(1); } to { transform: scale(1.15); } }
+.hero-content { position: relative; z-index: 2; width: 90%; max-width: 900px; padding-top: 60px; }
+.hero-subtitle { font-family: var(--font-en); color: var(--gold); letter-spacing: 3px; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 20px; display: block; opacity: 0; animation: fadeUp 1s ease forwards 1s; }
+.hero h1 { font-size: 4rem; font-weight: 900; line-height: 1.2; margin-bottom: 24px; clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); }
+.hero h1 .line { display: block; overflow: hidden; }
+.hero h1 .line span { display: inline-block; transform: translateY(100%); animation: revealText 1s cubic-bezier(0.77, 0, 0.175, 1) forwards; }
+@keyframes revealText { to { transform: translateY(0); } }
+.hero-desc { font-size: 1.1rem; color: var(--gray-100); line-height: 1.8; max-width: 600px; margin: 0 auto; opacity: 0; animation: fadeUp 1s ease forwards 1.6s; }
+.scroll-down { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 2; opacity: 0; animation: fadeUp 1s ease forwards 2s; display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--white); text-decoration: none; font-size: 0.8rem; }
+.mouse { width: 26px; height: 40px; border: 2px solid rgba(255,255,255,0.3); border-radius: 20px; position: relative; }
+.wheel { width: 3px; height: 6px; background: var(--gold); border-radius: 2px; position: absolute; top: 6px; left: 50%; transform: translateX(-50%); animation: scrollWheel 2s infinite; }
+@keyframes scrollWheel { 0% { top: 6px; opacity: 1; } 100% { top: 20px; opacity: 0; } }
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+/* ═══════════════════════════════════════
+   ABOUT SECTION
+   ═══════════════════════════════════════ */
+.about { padding: 120px 5%; background: var(--off-white); color: var(--navy); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1200px; margin: 0 auto; }
+.about-img-wrap { position: relative; border-radius: 16px; overflow: hidden; height: 500px; }
+.about-img { width: 100%; height: 120%; object-fit: cover; transform: translateY(-10%); }
+.experience-badge { position: absolute; bottom: -20px; right: -20px; background: var(--gold); color: var(--navy); padding: 30px; border-radius: 50%; width: 140px; height: 140px; display: flex; flex-direction: column; justify-content: center; align-items: center; box-shadow: 0 15px 30px rgba(212, 175, 55, 0.3); }
+.experience-badge h3 { font-size: 2.2rem; font-family: var(--font-en); font-weight: 900; line-height: 1; }
+.experience-badge p { font-size: 0.8rem; font-weight: 700; text-align: center; line-height: 1.2; margin-top: 5px; }
+.section-tag { color: var(--gold-dark); font-family: var(--font-en); letter-spacing: 2px; font-size: 0.8rem; text-transform: uppercase; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+.section-tag::before { content: ''; width: 30px; height: 1px; background: var(--gold-dark); }
+.about-content h2 { font-size: 2.5rem; font-weight: 800; line-height: 1.3; margin-bottom: 24px; }
+.about-content p { font-size: 1rem; color: #475569; line-height: 1.9; margin-bottom: 16px; }
+
+/* ═══════════════════════════════════════
+   SECTORS (APP-LIKE & RESPONSIVE)
+   ═══════════════════════════════════════ */
+.sectors { padding: 120px 5%; background: var(--navy); }
+.sectors-header { text-align: center; margin-bottom: 60px; }
+.sectors-header h2 { font-size: 2.8rem; color: var(--white); font-weight: 800; }
+.accordion-wrapper { display: flex; height: 500px; max-width: 1200px; margin: 0 auto; gap: 10px; }
+
+.acc-panel {
+  flex: 1; position: relative; border-radius: 12px; overflow: hidden; 
+  transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  background-size: cover; background-position: center; cursor: pointer;
+}
+.acc-panel::before {
+  content: ''; position: absolute; inset: 0; 
+  background: linear-gradient(to top, rgba(5,19,32,0.95) 0%, rgba(5,19,32,0.2) 100%); 
+  transition: var(--transition);
+}
+.acc-panel:hover { flex: 4; }
+.acc-panel:hover::before { background: linear-gradient(to top, rgba(5,19,32,0.95) 0%, rgba(5,19,32,0.05) 100%); }
+
+.acc-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 30px; display: flex; flex-direction: column; justify-content: flex-end; height: 100%; z-index: 2; }
+.acc-icon { width: 50px; height: 50px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 1.5rem; margin-bottom: 16px; transition: var(--transition); }
+.acc-panel:hover .acc-icon { background: var(--gold); color: var(--navy); transform: scale(1.1); }
+.acc-title { font-size: 1.3rem; font-weight: 700; color: var(--white); margin-bottom: 8px; white-space: nowrap; }
+.acc-desc { font-size: 0.95rem; color: rgba(255,255,255,0.85); line-height: 1.7; opacity: 0; transform: translateY(20px); transition: var(--transition); max-width: 350px; white-space: normal; }
+.acc-panel:hover .acc-desc { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
+
+/* ═══════════════════════════════════════
+   STATISTICS
+   ═══════════════════════════════════════ */
+.stats { padding: 80px 5%; background: var(--gold); color: var(--navy); }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; text-align: center; }
+.stat-item h3 { font-family: var(--font-en); font-size: 3.5rem; font-weight: 900; margin-bottom: 5px; line-height: 1; }
+.stat-item p { font-size: 1rem; font-weight: 700; }
+
+/* ═══════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════ */
+.footer { background: #030a12; padding: 80px 5% 30px; border-top: 1px solid rgba(255,255,255,0.05); }
+.footer-top { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto 60px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 50px; }
+.footer-brand p { color: var(--gray-400); max-width: 350px; margin-top: 16px; line-height: 1.8; font-size: 0.95rem; }
+.footer-links h4 { color: var(--white); font-size: 1.2rem; margin-bottom: 20px; }
+.footer-links ul { list-style: none; }
+.footer-links li { margin-bottom: 12px; }
+.footer-links a { color: var(--gray-400); text-decoration: none; transition: var(--transition); display: flex; align-items: center; gap: 10px; font-size: 0.95rem; direction: ltr; justify-content: flex-end;}
+.footer-links a:hover { color: var(--gold); }
+.footer-bottom { text-align: center; color: var(--gray-400); font-size: 0.85rem; }
+.big-text { font-size: 12vw; font-family: var(--font-en); font-weight: 900; color: rgba(255,255,255,0.02); text-align: center; line-height: 0.8; user-select: none; margin-bottom: 20px; }
+
+/* ═══════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════ */
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+/* ═══════════════════════════════════════
+   MOBILE RESPONSIVE (APP-LIKE EXPERIENCE)
+   ═══════════════════════════════════════ */
+@media (max-width: 992px) {
+  /* Navigation */
+  .menu-toggle { display: flex; }
+  .nav-links { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background: rgba(5,19,32,0.98); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); flex-direction: column; justify-content: center; align-items: center; gap: 40px; transition: 0.5s cubic-bezier(0.77, 0, 0.175, 1); z-index: 10000; }
+  .nav-links.active { right: 0; }
+  .nav-links a { font-size: 1.5rem; }
   
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://sudicorp.com/" />
+  /* Hero */
+  .hero h1 { font-size: 2.8rem; }
+  .hero-desc { font-size: 1rem; }
   
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://sudicorp.com/" />
-  <meta property="og:title" content="شركة سودي العالمية للاستثمار | SUDI Global" />
-  <meta property="og:description" content="خبراء في الطاقة الشمسية، استيراد وتصدير اللحوم والحبوب، تطوير الشركات والحلول الرقمية بالخرطوم منذ 2013" />
-  <meta property="og:image" content="https://sudicorp.com/assets/logo.png" />
-  <meta property="og:locale" content="ar_SD" />
-  <meta property="og:site_name" content="SUDI Global Investment Company" />
+  /* About */
+  .about { padding: 80px 5%; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .about-img-wrap { height: 350px; }
+  .experience-badge { width: 100px; height: 100px; padding: 15px; right: 10px; bottom: -10px; }
+  .experience-badge h3 { font-size: 1.8rem; }
+  .experience-badge p { font-size: 0.65rem; }
+  .about-content h2 { font-size: 2rem; }
+
+  /* Sectors - Vertical Cards for Mobile */
+  .sectors { padding: 80px 5%; }
+  .sectors-header h2 { font-size: 2rem; }
+  .accordion-wrapper { flex-direction: column; height: auto; gap: 20px; }
   
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://sudicorp.com/" />
-  <meta name="twitter:title" content="شركة سودي العالمية للاستثمار | SUDI Global" />
-  <meta name="twitter:description" content="خبراء في الطاقة الشمسية، استيراد وتصدير اللحوم والحبوب، تطوير الشركات والحلول الرقمية" />
-  <meta name="twitter:image" content="https://sudicorp.com/assets/logo.png" />
-
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="manifest" href="/manifest.json">
-  
-  <!-- Resource Hints for Performance -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
-  <link rel="dns-prefetch" href="https://sudi-backend.onrender.com" />
-
-  <!-- Google Material Icons (احترافي وخفيف) -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
-
-  <!-- Google Fonts - Cairo -->
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
-
-  <!-- Animate.css 4.1.1 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c9519mBJLv2UY/lg4jvyw3I5EvmE9/W8HVQvCeWvkHw0c5I6GSSMGlQ++3IIzpeuI308GLWG7mgtPayjwstPTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <!-- Main Stylesheet -->
- 
-<link rel="stylesheet" href="css/components.css">
-<link rel="stylesheet" href="css/vars.css">
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/layout.css">
-<link rel="stylesheet" href="css/animations.css">
-<link rel="stylesheet" href="css/styles.css"> <!-- مؤقت -->
-
-  <!-- Structured Data (Schema.org JSON-LD) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "SUDI Global Investment Company",
-    "alternateName": "شركة سودي العالمية للاستثمار",
-    "url": "https://sudicorp.com",
-    "logo": "https://sudicorp.com/assets/logo.png",
-    "description": "شركة سودي العالمية للاستثمار - خبراء في الطاقة الشمسية، استيراد وتصدير اللحوم والحبوب، تطوير الشركات والحلول الرقمية بالخرطوم منذ 2013",
-    "foundingDate": "2013",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "الخرطوم",
-      "addressCountry": "SD"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+249125769999",
-      "contactType": "Customer Service",
-      "availableLanguage": ["Arabic", "English"]
-    },
-    "sameAs": [
-      "https://wa.me/249125769999"
-    ],
-    "areaServed": {
-      "@type": "Country",
-      "name": "Sudan"
-    },
-    "knowsAbout": [
-      "Solar Energy",
-      "Renewable Energy",
-      "Import Export",
-      "Business Development",
-      "Digital Solutions",
-      "Accounting Services"
-    ]
+  .acc-panel { 
+    flex: none !important; height: 280px; border-radius: 16px; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
   }
-  </script>
+  .acc-panel::before { background: linear-gradient(to top, rgba(5,19,32,0.95) 0%, rgba(5,19,32,0.3) 100%); }
+  
+  /* في الموبايل، نجعل النصوص ظاهرة دائماً لسهولة القراءة */
+  .acc-content { padding: 25px; }
+  .acc-title { white-space: normal; font-size: 1.2rem; }
+  .acc-desc { opacity: 1; transform: translateY(0); font-size: 0.9rem; max-width: 100%; display: block; }
+  .acc-icon { width: 45px; height: 45px; font-size: 1.3rem; margin-bottom: 12px; background: var(--gold); color: var(--navy); }
 
+  /* Stats & Footer */
+  .stats { padding: 60px 5%; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 40px 20px; }
+  .stat-item h3 { font-size: 2.8rem; }
+  
+  .footer { padding: 60px 5% 30px; }
+  .footer-top { grid-template-columns: 1fr; text-align: center; gap: 30px; }
+  .footer-brand p { margin: 16px auto; }
+  .footer-links a { justify-content: center; }
+  .big-text { font-size: 18vw; }
+}
 
+@media (max-width: 480px) {
+  .hero h1 { font-size: 2.2rem; }
+  .stats-grid { grid-template-columns: 1fr; gap: 30px; }
+}
+</style>
 </head>
-
 <body>
-  <!-- Skip Link for Accessibility -->
-  <a class="skip" href="#main">تخطي إلى المحتوى</a>
 
-  <!-- Header/Navigation -->
-  <header class="header" id="top">
-    <div class="container header__wrap">
-      <a class="brand" href="#top" onclick="smoothScroll(event)">
-        <img class="brand__logo" src="assets/logo.png" alt="SUDI Global" loading="lazy" width="120" height="40" />
-        <span class="brand__text">
-          <span class="brand__name">سودي</span>
-          <span class="brand__tag">شركة سودي العالمية</span>
-        </span>
-      </a>
+<div class="cursor-dot"></div>
+<div class="cursor-outline"></div>
 
-      <nav class="nav">
-        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="navMenu" aria-label="تبديل القائمة">
-          <span class="nav__toggleLines"></span>
-        </button>
-        <div class="nav__menu" id="navMenu">
-          <a class="nav__link" href="#about" onclick="smoothScroll(event)">عن الشركة</a>
-          <a class="nav__link" href="#sectors" onclick="smoothScroll(event)">القطاعات</a>
-          <a class="nav__link" href="#projects" onclick="smoothScroll(event)">الأعمال</a>
-          <a class="nav__link" href="#faq" onclick="smoothScroll(event)">الأسئلة</a>
-          <a class="nav__link nav__link--cta" href="#contact" onclick="smoothScroll(event)">اطلب تواصل</a>
-        </div>
-      </nav>
-    </div>
-  </header>
-  <main id="main">
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="container hero__grid">
-        <div class="hero__content">
-          <div class="pill animate__animated animate__fadeInUp">
-            <span>🚀 نمو استراتيجي، قرارات قائمة على البيانات.</span>
-          </div>
-          <h1 class="h1 animate__animated animate__fadeInUp" style="--animate-delay: 0.1s;">
-            شركة <span class="grad">سودي العالمية</span> للاستثمار
-          </h1>
-          <p class="lead animate__animated animate__fadeInUp" style="--animate-delay: 0.2s;">
-            نقدم حلولاً متكاملة في التجارة الدولية، الطاقة المتجددة، والتحول الرقمي. نجمع بين الخبرة المحلية والمعايير العالمية لتحقيق نتائج ملموسة.
-          </p>
-     <div class="hero__actions animate__animated animate__fadeInUp" style="--animate-delay: 0.3s;">
-
-  <!-- زر الأنيميشن -->
-  <button class="button" onclick="smoothScrollToContact()" aria-label="ابدأ التواصل معنا">
-
-    <div class="bg"></div>
-
-    <svg class="splash" viewBox="0 0 342 208"></svg>
-
-    <div class="wrap">
-      <svg class="path" viewBox="0 0 221 42">
-        <path
-          stroke-linecap="round"
-          stroke-width="3"
-          d="M182.674 2H203C211.837 2 219 9.16344 219 18V24C219 32.8366 211.837 40 203 40H18C9.16345 40 2 32.8366 2 24V18C2 9.16344 9.16344 2 18 2H47.8855" />
-      </svg>
-
-      <div class="outline"></div>
-
-      <div class="content">
-        <span class="char state-1">
-          <span data-label="ا" style="--i:1">ا</span>
-          <span data-label="ب" style="--i:2">ب</span>
-          <span data-label="د" style="--i:3">د</span>
-          <span data-label="أ" style="--i:4">أ</span>
-        </span>
-
-        <div class="icon"><div></div></div>
-
-        <span class="char state-2">
-          <span data-label="ا" style="--i:1">ا</span>
-          <span data-label="ل" style="--i:2">ل</span>
-          <span data-label="آن" style="--i:3">آن</span>
-        </span>
-      </div>
-    </div>
-  </button>
-
-  <!-- الزر الثاني يبقى عادي -->
-  <a class="btn btn--ghost" href="#sectors" onclick="smoothScroll(event)">استعرض القطاعات</a>
-
+<div id="loader">
+  <img src="https://res.cloudinary.com/dwck4hd8b/image/upload/v1774519410/logo.png" alt="SUDI Logo" class="loader-logo-img">
+  <div class="loader-progress"></div>
 </div>
 
-        </div>
+<nav class="navbar" id="navbar">
+  <a href="#" class="nav-logo interactive">
+    <img src="https://res.cloudinary.com/dwck4hd8b/image/upload/v1774519410/logo.png" alt="SUDI Corp">
+  </a>
+  
+  <div class="menu-toggle" id="mobile-menu">
+    <span></span><span></span><span></span>
+  </div>
 
-        <div class="hero__card animate__animated animate__fadeInRight" style="--animate-delay: 0.2s;">
-          <div class="glassCard">
-            <h2 class="h2">الملف التعريفي</h2>
-            <ul class="list">
-              <li class="list__item">✓ تطوير وإدارة العمليات المؤسسية</li>
-              <li class="list__item">✓ استيراد وتصدير (لحوم، حبوب، إلكترونيات)</li>
-              <li class="list__item">✓ أنظمة الطاقة الشمسية والحلول التقنية</li>
-              <li class="list__item">✓ استشارات محاسبية وتخطيط مالي</li>
-              <li class="list__item">✓ حلول رقمية وتسويق إلكتروني</li>
-            </ul>
-            <div class="glassCard__actions">
-              <a class="btn btn--secondary" href="#projects" onclick="smoothScroll(event)">سابقة الأعمال</a>
-              <a class="btn btn--outline" href="assets/profile.pdf" download>تحميل البروفايل</a>
-            </div>
-          </div>
-        </div>
-      </div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#home" class="interactive nav-item">الرئيسية</a></li>
+    <li><a href="#about" class="interactive nav-item">من نحن</a></li>
+    <li><a href="#sectors" class="interactive nav-item">القطاعات</a></li>
+    <li><a href="#contact" class="nav-cta interactive nav-item">تواصل معنا</a></li>
+  </ul>
+</nav>
 
-      <div class="hero__stats">
-        <div class="stat stat-item" style="--item-index: 0;">
-          <span class="stat__num">13+</span>
-          <span class="stat__txt">سنة خبرة</span>
-        </div>
-        <div class="stat stat-item" style="--item-index: 1;">
-          <span class="stat__num">150+</span>
-          <span class="stat__txt">عميل راضي</span>
-        </div>
-        <div class="stat stat-item" style="--item-index: 2;">
-          <span class="stat__num">50+</span>
-          <span class="stat__txt">مشروع منجز</span>
-        </div>
-        <div class="stat stat-item" style="--item-index: 3;">
-          <span class="stat__num">5</span>
-          <span class="stat__txt">قطاعات استثمارية</span>
-        </div>
-      </div>
-    </section>
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-subtitle">شركة استثمار عالمية</span>
+    <h1>
+      <span class="line"><span style="animation-delay: 1.2s;">نقود الاستثمار نحو</span></span>
+      <span class="line"><span style="animation-delay: 1.4s; color: var(--gold);">مستقبل أكثر ذكاءً</span></span>
+    </h1>
+    <p class="hero-desc">
+      نربط الموارد المحلية بالابتكار العالمي عبر قطاعات استراتيجية تشمل التجارة، الطاقة المتجددة، والتحول الرقمي، بمعايير قياسية.
+    </p>
+  </div>
+  <a href="#about" class="scroll-down interactive">
+    <div class="mouse"><div class="wheel"></div></div>
+    <span>استكشف</span>
+  </a>
+</section>
 
-    <!-- About Section -->
-    <section class="section" id="about">
-      <div class="container">
-        <div class="sectionHead">
-          <h2 class="h2 section-title">عن شركة سودي العالمية</h2>
-        </div>
-        <div class="aboutGrid">
-          <div class="aboutCard reveal-on-scroll">
-            <div class="aboutCard__icon">
-              <i class="material-icons">handshake</i>
-            </div>
-            <h3>من نحن</h3>
-            <p>شركة سودية رسمية متخصصة في الاستثمارات متعددة القطاعات، تعمل منذ 2013 برؤية واضحة لدعم الاقتصاد السوداني من خلال حلول تجارية واستثمارية مبتكرة.</p>
-          </div>
-          <div class="aboutCard reveal-on-scroll">
-            <div class="aboutCard__icon">
-              <i class="material-icons">target</i>
-            </div>
-            <h3>رؤيتنا</h3>
-            <p>أن نكون الشركة الرائدة في المنطقة في مجالات الطاقة المتجددة والتجارة الدولية والتحول الرقمي، بمعايير عالمية وأداء محلي متميز.</p>
-          </div>
-          <div class="aboutCard reveal-on-scroll">
-            <div class="aboutCard__icon">
-              <i class="material-icons">lightbulb</i>
-            </div>
-            <h3>رسالتنا</h3>
-            <p>تقديم حلول متكاملة وموثوقة تساهم في نمو الشركات والمؤسسات، مع الالتزام بأعلى معايير الجودة والمسؤولية الاجتماعية.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="section" id="services">
-      <div class="container">
-        <div class="sectionHead">
-          <h2 class="h2 section-title">خدماتنا المتكاملة</h2>
-          <p class="section-subtitle">نوفر خدمات شاملة ومتخصصة لدعم نمو مشروعك</p>
-        </div>
-        <div class="servicesGrid">
-          <article class="serviceCard reveal-on-scroll">
-            <div class="serviceCard__icon">
-              <i class="material-icons">trending_up</i>
-            </div>
-            <h3 class="serviceCard__title">الإدارة المالية والاستشارات</h3>
-            <p class="serviceCard__text">استشارات محاسبية، تخطيط مالي، تدقيق حسابات، وإعداد التقارير المالية بمعايير دولية.</p>
-            <a href="#contact" class="serviceCard__link" onclick="smoothScroll(event)">اطلب الخدمة <i class="material-icons">arrow_back</i></a>
-          </article>
-
-          <article class="serviceCard reveal-on-scroll">
-            <div class="serviceCard__icon">
-              <i class="material-icons">wb_sunny</i>
-            </div>
-            <h3 class="serviceCard__title">الطاقة الشمسية والطاقة النظيفة</h3>
-            <p class="serviceCard__text">تصميم وتنفيذ أنظمة الطاقة الشمسية، الطاقة الريحية، والحلول الطاقية المستدامة.</p>
-            <a href="#contact" class="serviceCard__link" onclick="smoothScroll(event)">اطلب الخدمة <i class="material-icons">arrow_back</i></a>
-          </article>
-
-          <article class="serviceCard reveal-on-scroll">
-            <div class="serviceCard__icon">
-              <i class="material-icons">public</i>
-            </div>
-            <h3 class="serviceCard__title">التجارة الدولية والتصدير</h3>
-            <p class="serviceCard__text">تصدير المنتجات السودانية (لحوم، حبوب)، استيراد السلع، التخليص الجمركي، والشحنات الدولية.</p>
-            <a href="#contact" class="serviceCard__link" onclick="smoothScroll(event)">اطلب الخدمة <i class="material-icons">arrow_back</i></a>
-          </article>
-
-          <article class="serviceCard reveal-on-scroll">
-            <div class="serviceCard__icon">
-              <i class="material-icons">code</i>
-            </div>
-            <h3 class="serviceCard__title">الحلول الرقمية والتطوير</h3>
-            <p class="serviceCard__text">تطوير المواقع والتطبيقات، تصميم الجرافيكس، وحلول البرمجيات المخصصة.</p>
-            <a href="#contact" class="serviceCard__link" onclick="smoothScroll(event)">اطلب الخدمة <i class="material-icons">arrow_back</i></a>
-          </article>
-
-          <article class="serviceCard reveal-on-scroll">
-            <div class="serviceCard__icon">
-              <i class="material-icons">campaign</i>
-            </div>
-            <h3 class="serviceCard__title">التسويق الرقمي والعلاقات العامة</h3>
-            <p class="serviceCard__text">إدارة وسائل التواصل الاجتماعي، الحملات الإعلانية، وبناء الهوية البصرية للعلامات التجارية.</p>
-            <a href="#contact" class="serviceCard__link" onclick="smoothScroll(event)">اطلب الخدمة <i class="material-icons">arrow_back</i></a>
-          </article>
-
-          <article class="serviceCard reveal-on-scroll">
-            <div class="serviceCard__icon">
-              <i class="material-icons">build</i>
-            </div>
-            <h3 class="serviceCard__title">تطوير وهندسة الشركات</h3>
-            <p class="serviceCard__text">إعادة هيكلة الشركات، تحسين العمليات، تدريب الموارد البشرية، وتطوير الأداء التنظيمي.</p>
-            <a href="#contact" class="serviceCard__link" onclick="smoothScroll(event)">اطلب الخدمة <i class="material-icons">arrow_back</i>
-</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Sectors Section -->
-    <section class="section" id="sectors">
-      <div class="container">
-        <div class="sectionHead">
-          <h2 class="h2 section-title">قطاعات الاستثمار</h2>
-        </div>
-        <div class="sectorFilters">
-          <button class="seg is-active" data-filter="all">الكل</button>
-          <button class="seg" data-filter="trade">التجارة</button>
-          <button class="seg" data-filter="solar">الطاقة</button>
-          <button class="seg" data-filter="digital">رقمي</button>
-        </div>
-        <div class="cards" id="sectorCards">
-          <article class="uCard card-slide reveal-on-scroll" data-tags="trade">
-            <div class="uCard__head">🛒 الإدارة التجارية</div>
-            <p>هيكلة وتشغيل المنشآت لضمان الكفاءة المالية والتشغيلية العالية.</p>
-            <a href="#contact" class="cardLink" onclick="smoothScroll(event)">استفسر الآن →</a>
-          </article>
-
-          <article class="uCard card-slide reveal-on-scroll" data-tags="solar">
-            <div class="uCard__head">☀️ الطاقة الشمسية</div>
-            <p>أنظمة متكاملة بمواصفات عالمية للمزارع والمصانع والمنشآت السكنية.</p>
-            <a href="#contact" class="cardLink" onclick="smoothScroll(event)">استفسر الآن →</a>
-          </article>
-
-          <article class="uCard card-slide reveal-on-scroll" data-tags="digital">
-            <div class="uCard__head">💻 التحول الرقمي</div>
-            <p>برمجة، تصميم، وتسويق رقمي يعزز حضورك في السوق الإلكتروني.</p>
-            <a href="#contact" class="cardLink" onclick="smoothScroll(event)">استفسر الآن →</a>
-          </article>
-
-          <article class="uCard card-slide reveal-on-scroll" data-tags="trade">
-            <div class="uCard__head">🚢 التجارة الدولية</div>
-            <p>تصدير اللحوم والحبوب السودانية واستيراد الإلكترونيات والسلع الأساسية.</p>
-            <a href="#contact" class="cardLink" onclick="smoothScroll(event)">استفسر الآن →</a>
-          </article>
-
-          <article class="uCard card-slide reveal-on-scroll" data-tags="digital">
-            <div class="uCard__head">📱 التطبيقات الجوالة</div>
-            <p>تطوير تطبيقات iOS و Android مع ضمان الأداء العالي والأمان المحكم.</p>
-            <a href="#contact" class="cardLink" onclick="smoothScroll(event)">استفسر الآن →</a>
-          </article>
-
-          <article class="uCard card-slide reveal-on-scroll" data-tags="trade">
-            <div class="uCard__head">📊 الاستشارات والتطوير</div>
-            <p>دراسات جدوى، استشارات استراتيجية، وتطوير الموارد البشرية.</p>
-            <a href="#contact" class="cardLink" onclick="smoothScroll(event)">استفسر الآن →</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects/Portfolio Section -->
-    <section class="section" id="projects">
-      <div class="container">
-        <div class="sectionHead">
-          <h2 class="h2 section-title">أعمالنا وإنجازاتنا</h2>
-          <p class="section-subtitle">نماذج من المشاريع التي أنجزناها بنجاح</p>
-        </div>
-        <div class="portfolioGrid">
-          <div class="portfolioCard reveal-on-scroll">
-            <div class="portfolioCard__image">
-              <img src="assets/project1.jpg" alt="مشروع الطاقة الشمسية" loading="lazy" width="400" height="300" />
-              <div class="portfolioCard__overlay">
-                <h3>محطة الطاقة الشمسية - الخرطوم</h3>
-              </div>
-            </div>
-            <p class="portfolioCard__text">تنفيذ محطة طاقة شمسية بسعة 500 كيلوواط لمجمع صناعي كبير.</p>
-          </div>
-
-          <div class="portfolioCard reveal-on-scroll">
-            <div class="portfolioCard__image">
-              <img src="assets/project2.jpg" alt="مشروع التصدير" loading="lazy" width="400" height="300" />
-              <div class="portfolioCard__overlay">
-                <h3>تصدير اللحوم السودانية</h3>
-              </div>
-            </div>
-            <p class="portfolioCard__text">تنظيم صادرات لحوم سودانية إلى الأسواق الخليجية والعربية.</p>
-          </div>
-
-          <div class="portfolioCard reveal-on-scroll">
-            <div class="portfolioCard__image">
-              <img src="assets/project3.jpg" alt="حل رقمي" loading="lazy" width="400" height="300" />
-              <div class="portfolioCard__overlay">
-                <h3>منصة تجارة إلكترونية</h3>
-              </div>
-            </div>
-            <p class="portfolioCard__text">تطوير منصة متكاملة للتجارة الإلكترونية مع نظام دفع آمن.</p>
-          </div>
-
-          <div class="portfolioCard reveal-on-scroll">
-            <div class="portfolioCard__image">
-              <img src="assets/project4.jpg" alt="مشروع تطوير" loading="lazy" width="400" height="300" />
-              <div class="portfolioCard__overlay">
-                <h3>إعادة هيكلة شركة تجارية</h3>
-              </div>
-            </div>
-            <p class="portfolioCard__text">إعادة هيكلة إدارية كاملة لشركة قطاع خاص مع تحسين الأداء.</p>
-          </div>
-
-          <div class="portfolioCard reveal-on-scroll">
-            <div class="portfolioCard__image">
-              <img src="assets/project5.jpg" alt="حل رقمي" loading="lazy" width="400" height="300" />
-              <div class="portfolioCard__overlay">
-                <h3>تطبيق إدارة المبيعات</h3>
-              </div>
-            </div>
-            <p class="portfolioCard__text">تطبيق متخصص لإدارة المبيعات والعلاقات مع العملاء.</p>
-          </div>
-
-          <div class="portfolioCard reveal-on-scroll">
-            <div class="portfolioCard__image">
-              <img src="assets/project6.jpg" alt="مشروع استشارات" loading="lazy" width="400" height="300" />
-              <div class="portfolioCard__overlay">
-                <h3>استشارات مالية شاملة</h3>
-              </div>
-            </div>
-            <p class="portfolioCard__text">دراسة جدوى واستشارات مالية لمشروع استثماري كبير.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="section" id="faq">
-      <div class="container">
-        <div class="sectionHead">
-          <h2 class="h2 section-title">الأسئلة الشائعة</h2>
-        </div>
-        <div class="faqContainer">
-          <details class="faq__item reveal-on-scroll">
-            <summary>
-              <span>كم سنة خبرة لديكم في المجال؟</span>
-              <i class="material-icons">expand_more</i>
-            </summary>
-            <p>شركة سودي العالمية تعمل منذ 2013 (أكثر من 13 سنة) في مجالات الاستثمار والتجارة والطاقة والحلول الرقمية، مع تراكم خبرات كبيرة وعلاقات قوية في السوق المحلي والدولي.</p>
-          </details>
-
-          <details class="faq__item reveal-on-scroll">
-            <summary>
-              <span>هل تقدمون ضمانات على الخدمات؟</span>
-              <i class="material-icons">expand_more</i>
-            </summary>
-            <p>نعم، نوفر ضمانات شاملة على جميع خدماتنا وفقاً لعقود واضحة ومفصلة. نلتزم بجودة عالية وندعم عملاؤنا بعد التسليم.</p>
-          </details>
-
-          <details class="faq__item reveal-on-scroll">
-            <summary>
-              <span>كيف يمكن البدء مع الشركة؟</span>
-              <i class="material-icons">expand_more</i>
-            </summary>
-            <p>يمكنك التواصل معنا عبر نموذج الاتصال في الموقع أو الاتصال المباشر على رقم الجوال +249 12 576 9999. سيقوم فريقنا بدراسة احتياجاتك وتقديم عرض مخصص.</p>
-          </details>
-
-          <details class="faq__item reveal-on-scroll">
-            <summary>
-              <span>ما أسعار الخدمات؟</span>
-              <i class="material-icons">expand_more</i>
-            </summary>
-            <p>أسعارنا تنافسية وتختلف حسب طبيعة المشروع والخدمة المطلوبة. نقدم عروض مخصصة لكل عميل حسب احتياجاته والموازنة المتاحة.</p>
-          </details>
-
-          <details class="faq__item reveal-on-scroll">
-            <summary>
-              <span>هل تعملون في القطاع الحكومي؟</span>
-              <i class="material-icons">expand_more</i>
-            </summary>
-            <p>نعم، لدينا خبرة كبيرة في العمل مع الجهات الحكومية والمؤسسات الرسمية، وننجز مشاريعنا بموجب عقود رسمية وشفافة.</p>
-          </details>
-
-          <details class="faq__item reveal-on-scroll">
-            <summary>
-              <span>هل لديكم فريق عمل متخصص؟</span>
-              <i class="material-icons">expand_more</i>
-            </summary>
-            <p>بالتأكيد، لدينا فريق متخصص في كل مجال (مالية، هندسة، برمجة، تسويق) مع خبرات عالية وشهادات احترافية معترف بها دولياً.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="sectionHead">
-          <h2 class="h2 section-title">تواصل معنا</h2>
-          <p class="section-subtitle">دعنا نساعدك في تحقيق أهدافك</p>
-        </div>
-        
-        <div class="contact">
-          <div class="contact__left reveal-on-scroll">
-            <div class="contactInfo">
-              <h3>معلومات التواصل</h3>
-              <p class="muted">الخرطوم، الحي الدبلوماسي، مخطط العودة، فيلا 249</p>
-              
-              <div class="contactCards">
-                <a class="miniCard" href="tel:+249125769999">
-                  <span class="miniCard__icon"><i class="material-icons">phone</i></span>
-                  <span>+249 12 576 9999</span>
-                </a>
-                <a class="miniCard" href="mailto:sudi@sudicorp.com">
-                  <span class="miniCard__icon"><i class="material-icons">email</i></span>
-                  <span>sudi@sudicorp.com</span>
-                </a>
-                <a class="miniCard" href="https://wa.me/249125769999" target="_blank" rel="noopener">
-                  <span class="miniCard__icon"><i class="material-icons">message</i></span>
-                  <span>تواصل عبر الواتساب</span>
-                </a>
-              </div>
-
-              <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3844.7554!2d32.53!3d15.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sar!2ssd!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-              </div>
-
-              <div class="uiverse-wrapper">
-                <div class="social-container">
-                  <div class="social-overlay">
-                    <p>تابعنا</p>
-                    <p>على</p>
-                    <p>الشبكات</p>
-                  </div>
-                <a href="https://facebook.com/sudifoods" target="_blank" rel="noopener" class="social-card-item ic-fb" title="فيسبوك" aria-label="فيسبوك">
-                  <i class="material-icons">facebook</i>
-                </a>
-                <a href="https://instagram.com/sudifoods" target="_blank" rel="noopener" class="social-card-item ic-inst" title="انستقرام" aria-label="انستقرام">
-                  <i class="material-icons">image</i>
-                </a>
-                <a href="https://twitter.com/sudicorp" target="_blank" rel="noopener" class="social-card-item ic-tw" title="تويتر" aria-label="تويتر">
-                  <i class="material-icons">tag</i>
-                </a>
-                
-                <a href="https://t.me/sudicorp" target="_blank" rel="noopener" class="social-card-item ic-tg" title="تيليجرام" aria-label="تيليجرام">
-                  <i class="material-icons">message</i>
-                </a>
-                <a href="https://www.youtube.com/@sudicorp" target="_blank" rel="noopener" class="social-card-item ic-yt" title="يوتيوب" aria-label="يوتيوب">
-                  <i class="material-icons">play_circle</i>
-                </a>
-                <a href="https://www.linkedin.com/company/sudicorp" target="_blank" rel="noopener" class="social-card-item ic-li" title="لينكدإن" aria-label="لينكدإن">
-                  <i class="material-icons">business</i>
-                </a>
-                
-                <a href="https://tiktok.com/@sudifoods" target="_blank" rel="noopener" class="social-card-item ic-tk" title="تيك توك" aria-label="تيك توك">
-                  <i class="material-icons">music_note</i>
-                </a>
-                <a href="https://wa.me/249125769999" target="_blank" rel="noopener" class="social-card-item ic-wa" title="واتساب" aria-label="واتساب">
-                  <i class="material-icons">whatsapp</i>
-                </a>
-                <a href="https://github.com/sudicorp" target="_blank" rel="noopener" class="social-card-item ic-gh" title="جيتهاب" aria-label="جيتهاب">
-                  <i class="material-icons">code</i>
-                </a>
-                </div>
-                <div class="main_back"></div>
-              </div>
-            </div>
-          </div>
-
-          <form class="form reveal-on-scroll" id="contactForm" novalidate>
-            <h3>نموذج الاتصال السريع</h3>
-            
-            <label class="field">
-              <span class="field__label">الاسم الكامل *</span>
-              <input class="field__input" name="name" type="text" required placeholder="أدخل اسمك الكامل" />
-            </label>
-
-            <label class="field">
-              <span class="field__label">رقم الجوال *</span>
-              <input class="field__input" name="phone" type="tel" required placeholder="+249 12 345 6789" />
-            </label>
-
-            <label class="field">
-              <span class="field__label">نوع الخدمة *</span>
-              <select class="field__input" name="service" required>
-                <option value="">اختر القطاع</option>
-                <option>طاقة شمسية</option>
-                <option>استيراد وتصدير</option>
-                <option>استشارات محاسبية</option>
-                <option>حلول رقمية</option>
-                <option>تسويق رقمي</option>
-                <option>تطوير الشركات</option>
-              </select>
-            </label>
-
-            <label class="field">
-              <span class="field__label">الرسالة *</span>
-              <textarea class="field__input field__input--ta" name="message" required placeholder="أخبرنا عن احتياجاتك..."></textarea>
-            </label>
-
-            <button class="btn btn--primary" type="submit">إرسال الطلب عبر واتساب</button>
-            <div id="formNote" class="form-note"></div>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer__wrap">
-      <p class="muted">© 2026 شركة سودي العالمية للاستثمار. جميع الحقوق محفوظة.</p>
-      <div class="footer__right">
-        <a href="#top" onclick="smoothScroll(event)">للأعلى ↑</a>
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-img-wrap reveal">
+      <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?q=80&w=1000&auto=format&fit=crop" alt="Corporate" class="about-img parallax-img">
+      <div class="experience-badge">
+        <h3>10+</h3>
+        <p>سنوات خبرة</p>
       </div>
     </div>
-  </footer>
+    <div class="about-content reveal">
+      <span class="section-tag">من نحن</span>
+      <h2>نصنع الفارق من خلال<br>استثمارات استراتيجية</h2>
+      <p>تأسست شركة سودي العالمية للاستثمار ككيان طموح يهدف إلى إعادة تعريف معايير الاستثمار في المنطقة. نحن لا نكتفي بتمويل المشاريع، بل نبني شراكات استراتيجية طويلة الأمد.</p>
+      <p>بفضل فريقنا من الخبراء والاستشاريين، نقدم حلولاً مبتكرة تجمع بين القوة المالية، والوعي البيئي، والتقدم التكنولوجي، لنضمن تحقيق أقصى قيمة مضافة لعملائنا وشركائنا.</p>
+    </div>
+  </div>
+</section>
 
-  <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/249125769999" class="floatWA" target="_blank" rel="noopener" title="تواصل عبر الواتساب" aria-label="تواصل عبر الواتساب">
-    <i class="material-icons">whatsapp</i>
-  </a>
+<section class="sectors" id="sectors">
+  <div class="sectors-header reveal">
+    <span class="section-tag" style="justify-content: center;">قطاعاتنا</span>
+    <h2>خمسة قطاعات. رؤية واحدة.</h2>
+  </div>
+  <div class="accordion-wrapper reveal">
+    
+    <div class="acc-panel interactive" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8ed7c83a7f?q=80&w=1000&auto=format&fit=crop');">
+      <div class="acc-content">
+        <div class="acc-icon"><i class="ph ph-globe-hemisphere-east"></i></div>
+        <h3 class="acc-title">التجارة الدولية</h3>
+        <p class="acc-desc">تصدير اللحوم والمنتجات الزراعية، واستيراد السلع الأساسية مع توفير خدمات لوجستية متكاملة.</p>
+      </div>
+    </div>
 
-  <!-- Main JavaScript -->
-<script src="js/main.v2.js"></script>
+    <div class="acc-panel interactive" style="background-image: url('https://images.unsplash.com/photo-1509391366360-12095cb64b1c?q=80&w=1000&auto=format&fit=crop');">
+      <div class="acc-content">
+        <div class="acc-icon"><i class="ph ph-solar-panel"></i></div>
+        <h3 class="acc-title">الطاقة المتجددة</h3>
+        <p class="acc-desc">تصميم وتنفيذ أحدث أنظمة الطاقة الشمسية لتوفير حلول مستدامة ونظيفة للقطاعين العام والخاص.</p>
+      </div>
+    </div>
+
+    <div class="acc-panel interactive" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000&auto=format&fit=crop');">
+      <div class="acc-content">
+        <div class="acc-icon"><i class="ph ph-cpu"></i></div>
+        <h3 class="acc-title">التحول الرقمي</h3>
+        <p class="acc-desc">تطوير منصات رقمية ذكية وأنظمة دفع إلكترونية متطورة لدعم نمو الأعمال في العصر الرقمي.</p>
+      </div>
+    </div>
+
+    <div class="acc-panel interactive" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop');">
+      <div class="acc-content">
+        <div class="acc-icon"><i class="ph ph-chart-line-up"></i></div>
+        <h3 class="acc-title">الاستشارات المالية</h3>
+        <p class="acc-desc">دراسات جدوى دقيقة وتخطيط مالي متقدم يضمن توجيه الاستثمارات نحو أعلى العوائد الممكنة.</p>
+      </div>
+    </div>
+
+    <div class="acc-panel interactive" style="background-image: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1000&auto=format&fit=crop');">
+      <div class="acc-content">
+        <div class="acc-icon"><i class="ph ph-buildings"></i></div>
+        <h3 class="acc-title">هندسة الأعمال</h3>
+        <p class="acc-desc">إعادة هيكلة الشركات وتحسين العمليات التشغيلية لبناء كيانات مؤسسية قوية وقابلة للتوسع.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="stats">
+  <div class="stats-grid reveal">
+    <div class="stat-item">
+      <h3 class="counter" data-target="2013">0</h3>
+      <p>سنة التأسيس</p>
+    </div>
+    <div class="stat-item">
+      <h3 class="counter" data-target="50">0</h3>
+      <p>شريك استراتيجي</p>
+    </div>
+    <div class="stat-item">
+      <h3 class="counter" data-target="15">0</h3>
+      <p>مشروع قومي</p>
+    </div>
+    <div class="stat-item">
+      <h3 class="counter" data-target="5">0</h3>
+      <p>قطاعات رئيسية</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer" id="contact">
+  <div class="footer-top reveal">
+    <div class="footer-brand">
+      <img src="https://res.cloudinary.com/dwck4hd8b/image/upload/v1774519410/logo.png" alt="SUDI" style="height: 55px;">
+      <p>نقود الابتكار في الاستثمار، ونبني جسوراً من الثقة والتميز تمتد لسنوات قادمة. شريكك الأقوى نحو المستقبل.</p>
+    </div>
+    <div class="footer-links">
+      <h4>تواصل معنا</h4>
+      <ul>
+        <li><a href="tel:+249125769999" class="interactive">+249 12 576 9999 <i class="ph-fill ph-phone" style="color:var(--gold);"></i></a></li>
+        <li><a href="mailto:sudi@sudicorp.com" class="interactive">sudi@sudicorp.com <i class="ph-fill ph-envelope" style="color:var(--gold);"></i></a></li>
+        <li><span style="color:var(--gray-400); display: flex; align-items: center; justify-content: flex-end; gap: 10px;">الخرطوم، السودان <i class="ph-fill ph-map-pin" style="color:var(--gold);"></i></span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="big-text">SUDI CORP</div>
+  <div class="footer-bottom">
+    <p>© <script>document.write(new Date().getFullYear())</script> شركة سودي العالمية للاستثمار. جميع الحقوق محفوظة.</p>
+  </div>
+</footer>
+
+<script>
+// إخفاء شاشة التحميل
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('loader').classList.add('hidden');
+  }, 1200);
+});
+
+// قائمة الموبايل (Mobile Menu Toggle)
+const menuToggle = document.getElementById('mobile-menu');
+const navLinks = document.getElementById('nav-links');
+const navItems = document.querySelectorAll('.nav-item');
+
+menuToggle.addEventListener('click', () => {
+  menuToggle.classList.toggle('active');
+  navLinks.classList.toggle('active');
+});
+
+// إغلاق القائمة عند الضغط على أي رابط في الموبايل
+navItems.forEach(item => {
+  item.addEventListener('click', () => {
+    menuToggle.classList.remove('active');
+    navLinks.classList.remove('active');
+  });
+});
+
+// تغيير لون النافبار عند النزول
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) navbar.classList.add('scrolled');
+  else navbar.classList.remove('scrolled');
+});
+
+// الماوس المخصص (يعمل فقط على أجهزة الكمبيوتر)
+const cursorDot = document.querySelector('.cursor-dot');
+const cursorOutline = document.querySelector('.cursor-outline');
+const interactives = document.querySelectorAll('.interactive');
+
+if (window.matchMedia("(pointer: fine)").matches) {
+  window.addEventListener('mousemove', (e) => {
+    const posX = e.clientX;
+    const posY = e.clientY;
+    cursorDot.style.left = `${posX}px`;
+    cursorDot.style.top = `${posY}px`;
+    cursorOutline.animate({ left: `${posX}px`, top: `${posY}px` }, { duration: 500, fill: "forwards" });
+  });
+
+  interactives.forEach(el => {
+    el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+    el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+  });
+}
+
+// Scroll Reveal (ظهور العناصر عند التمرير)
+const revealElements = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+    }
+  });
+}, { threshold: 0.1 });
+revealElements.forEach(el => revealObserver.observe(el));
+
+// تأثير اختلاف المنظور (Parallax) للصور في الكمبيوتر فقط
+const parallaxImg = document.querySelector('.parallax-img');
+window.addEventListener('scroll', () => {
+  if (window.innerWidth > 992 && parallaxImg) {
+    let scrollPos = window.scrollY;
+    parallaxImg.style.transform = `translateY(${scrollPos * -0.05}px)`;
+  }
+});
+
+// عداد الأرقام
+const counters = document.querySelectorAll('.counter');
+let countersStarted = false;
+const counterObserver = new IntersectionObserver((entries) => {
+  if (entries[0].isIntersecting && !countersStarted) {
+    countersStarted = true;
+    counters.forEach(counter => {
+      const target = +counter.getAttribute('data-target');
+      const duration = 2000;
+      const step = target / (duration / 16); 
+      let current = 0;
+      const updateCounter = () => {
+        current += step;
+        if (current < target) {
+          counter.innerText = Math.ceil(current);
+          requestAnimationFrame(updateCounter);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      updateCounter();
+    });
+  }
+}, { threshold: 0.5 });
+const statsSection = document.querySelector('.stats');
+if(statsSection) counterObserver.observe(statsSection);
+</script>
 
 </body>
 </html>
