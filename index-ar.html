@@ -41,6 +41,7 @@
       "@type": "PostalAddress",
       "streetAddress": "المنطقة الدبلوماسية، فيلا 249",
       "addressLocality": "الخرطوم",
+      "addressRegion": "Khartoum",
       "addressCountry": "SD"
     },
     "contactPoint": {
@@ -1317,7 +1318,7 @@
           <div class="contact-item-icon"><i class="ph-bold ph-map-pin" aria-hidden="true"></i></div>
           <div class="contact-item-text">
             <span>العنوان</span>
-            <a href="#" style="cursor:default">المنطقة الدبلوماسية، فيلا 249<br>الخرطوم، السودان</a>
+            <span>المنطقة الدبلوماسية، فيلا 249<br>الخرطوم، السودان</span>
           </div>
         </div>
         <a href="https://wa.me/249125769999" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" aria-label="تواصل عبر واتساب">
@@ -1761,6 +1762,13 @@
 
       if (!name || !email || !message) {
         statusEl.textContent = 'يرجى ملء الحقول المطلوبة.';
+        statusEl.className = 'form-status-err';
+        return;
+      }
+
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        statusEl.textContent = 'يرجى إدخال بريد إلكتروني صحيح.';
         statusEl.className = 'form-status-err';
         return;
       }
