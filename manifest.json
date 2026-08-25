@@ -1,0 +1,21 @@
+{
+  "name": "SUDI Global",
+  "short_name": "SUDI",
+  "description": "SUDI Global — Investment, business, trade, agriculture, renewable energy and digital transformation.",
+  "lang": "en",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0F2D51",
+  "theme_color": "#0F2D51",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 24x24 32x32 48x48 64x64 128x128 256x256",
+      "type": "image/x-icon",
+      "purpose": "any"
+    }
+  ]
+}
