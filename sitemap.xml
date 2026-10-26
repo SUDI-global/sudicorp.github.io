@@ -1,17 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://sudicorp.com/</loc></url>
-  <url><loc>https://sudicorp.com/about.html</loc></url>
-  <url><loc>https://sudicorp.com/investment-model.html</loc></url>
-  <url><loc>https://sudicorp.com/sectors.html</loc></url>
-  <url><loc>https://sudicorp.com/trade.html</loc></url>
-  <url><loc>https://sudicorp.com/agriculture-energy.html</loc></url>
-  <url><loc>https://sudicorp.com/digital-transformation.html</loc></url>
-  <url><loc>https://sudicorp.com/advisory.html</loc></url>
-  <url><loc>https://sudicorp.com/real-estate-marketing.html</loc></url>
-  <url><loc>https://sudicorp.com/projects.html</loc></url>
-  <url><loc>https://sudicorp.com/project-earth-of-good.html</loc></url>
-  <url><loc>https://sudicorp.com/contact.html</loc></url>
-  <url><loc>https://sudicorp.com/privacy.html</loc></url>
-  <url><loc>https://sudicorp.com/terms.html</loc></url>
+<url><loc>https://sudicorp.com/</loc></url>
+<url><loc>https://sudicorp.com/about/</loc></url>
+<url><loc>https://sudicorp.com/about/leadership/</loc></url>
+<url><loc>https://sudicorp.com/about/governance/</loc></url>
+<url><loc>https://sudicorp.com/about/history/</loc></url>
+<url><loc>https://sudicorp.com/portfolio/</loc></url>
+<url><loc>https://sudicorp.com/portfolio/agriculture-energy/</loc></url>
+<url><loc>https://sudicorp.com/portfolio/trade-logistics/</loc></url>
+<url><loc>https://sudicorp.com/portfolio/digital-transformation/</loc></url>
+<url><loc>https://sudicorp.com/portfolio/advisory/</loc></url>
+<url><loc>https://sudicorp.com/projects/</loc></url>
+<url><loc>https://sudicorp.com/projects/solar-irrigation-dongola/</loc></url>
+<url><loc>https://sudicorp.com/projects/ard-al-khair/</loc></url>
+<url><loc>https://sudicorp.com/projects/livestock-water/</loc></url>
+<url><loc>https://sudicorp.com/strategy/</loc></url>
+<url><loc>https://sudicorp.com/strategy/thesis/</loc></url>
+<url><loc>https://sudicorp.com/strategy/approach/</loc></url>
+<url><loc>https://sudicorp.com/insights/</loc></url>
+<url><loc>https://sudicorp.com/insights/food-security-value-chains/</loc></url>
+<url><loc>https://sudicorp.com/insights/solar-agriculture/</loc></url>
+<url><loc>https://sudicorp.com/insights/gulf-africa-trade/</loc></url>
+<url><loc>https://sudicorp.com/investor-relations/</loc></url>
+<url><loc>https://sudicorp.com/investor-relations/reports/</loc></url>
+<url><loc>https://sudicorp.com/investor-relations/contact/</loc></url>
+<url><loc>https://sudicorp.com/careers/</loc></url>
+<url><loc>https://sudicorp.com/contact/</loc></url>
+<url><loc>https://sudicorp.com/style-guide/</loc></url>
+<url><loc>https://sudicorp.com/privacy.html</loc></url>
+<url><loc>https://sudicorp.com/terms.html</loc></url>
 </urlset>

@@ -1,34 +1,20 @@
-# SUDI Global Corporate Website
+# SUDI Global Investment — Corporate Portal
 
-A static, responsive, bilingual (Arabic/English) corporate website for SUDI Global Investment.
+Bilingual Arabic/English static website for SUDI Global Investment.
 
 ## Positioning
-**Arabic:** سودي، جسرٌ يربط الموارد بالفرص عبر الخليج.
-**English:** SUDI. A bridge connecting regional potential to Gulf opportunity.
+- Arabic: **سودي: جسر الخليج إلى أفريقيا. رأس المال، والأرض، والأثر.**
+- English: **SUDI: The Gulf’s Bridge to Africa. Capital, Land, Impact.**
 
-## Pages
-- Home / `index.html`
-- About SUDI / `about.html`
-- Investment model / `investment-model.html`
-- Sectors / `sectors.html`
-- International trade / `trade.html`
-- Agriculture & energy / `agriculture-energy.html`
-- Digital transformation / `digital-transformation.html`
-- Advisory & business engineering / `advisory.html`
-- Real estate & marketing / `real-estate-marketing.html`
-- Field project library / `projects.html`
-- Ardh Al-Khair project story / `project-earth-of-good.html`
-- Contact / `contact.html`
-- Privacy / `privacy.html`
-- Terms / `terms.html`
+## Routes
+- `/about/` — company, leadership, governance, history
+- `/portfolio/` — focus areas
+- `/projects/` — narrative project pages: Dongola solar irrigation, Ardh Al-Khair, livestock water
+- `/strategy/` — thesis and approach
+- `/insights/` — editorial content library
+- `/investor-relations/` — reports and corporate contact
+- `/careers/`, `/contact/`, `/style-guide/`
 
-## Publish to GitHub Pages
-Upload the contents of this folder to the root of the `sudicorp.github.io` repository. Keep `CNAME` set to `sudicorp.com` and ensure GitHub Pages is configured for the intended branch and folder.
+Company-supplied photos are used for project narratives. External contextual imagery is clearly labelled and linked to its source. Unsupported financial metrics, technical claims, partner names and project dates are not published. See `IMAGE_CREDITS.md` and `CONTENT_VERIFICATION.md`.
 
-## Evidence and claims
-Images and Facebook source links are based on materials supplied by SUDI. This site intentionally avoids publishing unverified customer counts, investment values, revenue, output, returns, or performance claims. The project gallery distinguishes company-supplied material from independently verified outcomes.
-
-## Notes
-- The contact form prepares a WhatsApp message; it does not transmit form data to this site or store it.
-- Google Fonts and external Facebook links require an internet connection. Local project imagery and the official logo are included in `assets/`.
-- Legal copy is a draft and should be reviewed by qualified counsel before formal adoption.
+The contact form prepares a WhatsApp message for review and sending; the site does not store or automatically transmit form data.

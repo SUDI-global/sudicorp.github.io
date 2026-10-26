@@ -3,13 +3,13 @@
   "short_name": "SUDI",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#0b2342",
+  "background_color": "#F7F4ED",
+  "theme_color": "#0C1A14",
   "icons": [
     {
-      "src": "assets/LOGO-SUDI.svg",
+      "src": "/assets/sudi-wordmark.png",
       "sizes": "any",
-      "type": "image/svg+xml"
+      "type": "image/png"
     }
   ]
 }
