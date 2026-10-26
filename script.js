@@ -54,14 +54,14 @@ overlay?.addEventListener("click",event=>{if(event.target===overlay)closeSearch(
 document.addEventListener("keydown",event=>{if(event.key==="Escape"){closeMenu();closeSearch()}});
 const form=document.querySelector("[data-contact-form]");
 form?.addEventListener("submit",event=>{event.preventDefault();const data=new FormData(form);const message=["SUDI Global — Corporate Enquiry","Name: "+data.get("name"),"Email: "+data.get("email"),"Organisation: "+(data.get("company")||""),"Interest: "+data.get("interest"),"Message: "+data.get("message")].join("\n");const status=form.querySelector(".form-status");if(status)status.textContent=body.dataset.language==="ar"?"تم تجهيز الرسالة. راجعها في واتساب قبل الإرسال.":"Message prepared. Review it in WhatsApp before sending.";window.open("https://wa.me/249125769999?text="+encodeURIComponent(message),"_blank","noopener,noreferrer")});
-const localInverseLogo="/assets/sudi-logo-inverse.svg";
-document.querySelectorAll("img.brand-logo").forEach(img=>{img.src=localInverseLogo;img.dataset.logoFallback="/assets/sudi-symbol-transparent.png";img.alt="SUDI Global Investment logo";});
+const vectorLogo="/assets/sudi-logo.svg";
+document.querySelectorAll("img.brand-logo").forEach(img=>{img.src=vectorLogo;img.removeAttribute("data-logo-fallback");img.alt="SUDI Global Investment logo";});
 const darkSample=document.querySelector(".logo-showcase > div:not(.logo-showcase-dark) img");
-if(darkSample){darkSample.src="/assets/sudi-icon-dark.png";darkSample.dataset.logoFallback="/assets/sudi-symbol-dark.png";}
+if(darkSample){darkSample.src="https://res.cloudinary.com/dsstn0i8a/image/upload/v1793010729/LOGOSUDI_rgdkkl.jpg";}
 const lightSample=document.querySelector(".logo-showcase-dark img");
-if(lightSample){lightSample.src=localInverseLogo;lightSample.dataset.logoFallback="/assets/sudi-symbol-transparent.png";}
+if(lightSample){lightSample.src=vectorLogo;lightSample.removeAttribute("data-logo-fallback");}
 const favicon=document.querySelector('link[rel="icon"]');
-if(favicon){favicon.href="/assets/sudi-symbol-dark.png";favicon.type="image/png";}
+if(favicon){favicon.href=vectorLogo;favicon.type="image/svg+xml";}
 document.querySelectorAll("[data-logo-fallback]").forEach(img=>img.addEventListener("error",()=>{if(img.dataset.fallbackUsed)return;img.dataset.fallbackUsed="1";img.src=img.dataset.logoFallback;img.classList.add("logo-fallback")},{once:true}));
 document.querySelectorAll("img").forEach(img=>{if(!img.hasAttribute("alt"))img.setAttribute("alt","")});
 })();
