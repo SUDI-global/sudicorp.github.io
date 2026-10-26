@@ -1,17 +1,34 @@
-# SUDI Global — V3
+# SUDI Global Corporate Website
 
-Corporate website revision focused on:
-- Clean transparent SUDI mark in header/hero/global outlook (no cropped white-background logo).
-- Expanded project visual system using the newly supplied SUDI field images.
-- Dedicated project image gallery for agriculture, solar, water, livestock, food and logistics.
-- Correct Arabic RTL behavior with Tajawal typography and HTML-preserving translations.
-- Responsive mobile layout with reduced gutters, readable type, stacked cards and touch-friendly controls.
-- Floating WhatsApp contact using +249 12 576 9999.
-- Improved corporate hierarchy, spacing, image treatment and mobile ergonomics.
+A static, responsive, bilingual (Arabic/English) corporate website for SUDI Global Investment.
 
-Run locally:
-1. Open this folder in VS Code.
-2. Use Live Server, or run `python3 -m http.server`.
-3. Open the local address.
+## Positioning
+**Arabic:** سودي، جسرٌ يربط الموارد بالفرص عبر الخليج.
+**English:** SUDI. A bridge connecting regional potential to Gulf opportunity.
 
-The site is static HTML/CSS/JS and can be deployed to Vercel, Netlify or standard hosting.
+## Pages
+- Home / `index.html`
+- About SUDI / `about.html`
+- Investment model / `investment-model.html`
+- Sectors / `sectors.html`
+- International trade / `trade.html`
+- Agriculture & energy / `agriculture-energy.html`
+- Digital transformation / `digital-transformation.html`
+- Advisory & business engineering / `advisory.html`
+- Real estate & marketing / `real-estate-marketing.html`
+- Field project library / `projects.html`
+- Ardh Al-Khair project story / `project-earth-of-good.html`
+- Contact / `contact.html`
+- Privacy / `privacy.html`
+- Terms / `terms.html`
+
+## Publish to GitHub Pages
+Upload the contents of this folder to the root of the `sudicorp.github.io` repository. Keep `CNAME` set to `sudicorp.com` and ensure GitHub Pages is configured for the intended branch and folder.
+
+## Evidence and claims
+Images and Facebook source links are based on materials supplied by SUDI. This site intentionally avoids publishing unverified customer counts, investment values, revenue, output, returns, or performance claims. The project gallery distinguishes company-supplied material from independently verified outcomes.
+
+## Notes
+- The contact form prepares a WhatsApp message; it does not transmit form data to this site or store it.
+- Google Fonts and external Facebook links require an internet connection. Local project imagery and the official logo are included in `assets/`.
+- Legal copy is a draft and should be reviewed by qualified counsel before formal adoption.
