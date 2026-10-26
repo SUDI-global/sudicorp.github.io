@@ -13,7 +13,7 @@ function updateHeader(){if(!header)return;if(window.scrollY>10||header.dataset.s
 window.addEventListener("scroll",updateHeader,{passive:true});updateHeader();
 const menu=document.querySelector("[data-mobile-menu]"),menuOpen=document.querySelector("[data-menu-open]"),menuClose=document.querySelector("[data-menu-close]");
 function closeMenu(){if(!menu)return;menu.classList.remove("open");menu.setAttribute("aria-hidden","true");menuOpen?.setAttribute("aria-expanded","false");body.classList.remove("menu-open")}
-function openMenu(){if(!menu)return;closeSearch();menu.classList.add("open");menu.setAttribute("aria-hidden","false");menuOpen?.setAttribute("aria-expanded","true");menu.querySelector("nav a")?.focus()}
+function openMenu(){if(!menu)return;closeSearch();menu.classList.add("open");menu.setAttribute("aria-hidden","false");body.classList.add("menu-open");menuOpen?.setAttribute("aria-expanded","true");menu.querySelector("nav a")?.focus()}
 menuOpen?.addEventListener("click",()=>menu?.classList.contains("open")?closeMenu():openMenu());
 menuClose?.addEventListener("click",closeMenu);menu?.querySelectorAll("nav a").forEach(link=>link.addEventListener("click",closeMenu));
 const overlay=document.querySelector("[data-search-overlay]"),searchOpeners=document.querySelectorAll("[data-search-open]"),searchClosers=document.querySelectorAll("[data-search-close]"),searchInput=document.querySelector("[data-search-input]"),searchResults=document.querySelector("[data-search-results]");
