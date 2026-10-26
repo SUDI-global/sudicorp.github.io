@@ -54,6 +54,15 @@ overlay?.addEventListener("click",event=>{if(event.target===overlay)closeSearch(
 document.addEventListener("keydown",event=>{if(event.key==="Escape"){closeMenu();closeSearch()}});
 const form=document.querySelector("[data-contact-form]");
 form?.addEventListener("submit",event=>{event.preventDefault();const data=new FormData(form);const message=["SUDI Global — Corporate Enquiry","Name: "+data.get("name"),"Email: "+data.get("email"),"Organisation: "+(data.get("company")||""),"Interest: "+data.get("interest"),"Message: "+data.get("message")].join("\n");const status=form.querySelector(".form-status");if(status)status.textContent=body.dataset.language==="ar"?"تم تجهيز الرسالة. راجعها في واتساب قبل الإرسال.":"Message prepared. Review it in WhatsApp before sending.";window.open("https://wa.me/249125769999?text="+encodeURIComponent(message),"_blank","noopener,noreferrer")});
+const transparentDarkLogo="https://res.cloudinary.com/dsstn0i8a/image/upload/e_make_transparent:20,f_png/v1793010729/LOGOSUDI_rgdkkl.jpg";
+const transparentLightLogo="https://res.cloudinary.com/dsstn0i8a/image/upload/e_make_transparent:20,f_png/v1793010730/LOGOSUDIwhit_wb921o.jpg";
+document.querySelectorAll("img.brand-logo").forEach(img=>{img.src=transparentLightLogo;img.dataset.logoFallback="/assets/sudi-icon-transparent.png";img.alt="SUDI Global Investment logo";});
+const darkSample=document.querySelector(".logo-showcase > div:not(.logo-showcase-dark) img");
+if(darkSample){darkSample.src=transparentDarkLogo;darkSample.dataset.logoFallback="/assets/sudi-icon-transparent.png";}
+const lightSample=document.querySelector(".logo-showcase-dark img");
+if(lightSample){lightSample.src=transparentLightLogo;lightSample.dataset.logoFallback="/assets/sudi-icon-transparent.png";}
+const favicon=document.querySelector('link[rel="icon"]');
+if(favicon){favicon.href=transparentDarkLogo;favicon.type="image/png";}
 document.querySelectorAll("[data-logo-fallback]").forEach(img=>img.addEventListener("error",()=>{if(img.dataset.fallbackUsed)return;img.dataset.fallbackUsed="1";img.src=img.dataset.logoFallback;img.classList.add("logo-fallback")},{once:true}));
 document.querySelectorAll("img").forEach(img=>{if(!img.hasAttribute("alt"))img.setAttribute("alt","")});
 })();
